@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@/Components/Layout/Layout';
 import styles from '@/styles/NotFounnd.module.scss';
 import { useRouter } from 'next/router';
+import { routes } from '@/services/routes';
 
 const NotFound: React.FC = () => {
   const router = useRouter();
@@ -15,7 +16,7 @@ const NotFound: React.FC = () => {
           </h2>
           <button
             className={`${styles.notFound__button}`}
-            onClick={() => router.push('/')}
+            onClick={() => router.push(routes.MAIN)}
           >
             Back to home
           </button>
