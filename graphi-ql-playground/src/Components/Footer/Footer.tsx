@@ -32,21 +32,37 @@ function Footer(): ReactElement {
         </div>
 
         <div className={styles.course}>
-          <ul className={styles.course__items}>
-            <li className={styles.course__item}>
-              <a href={LINK_SCHOOL} className={styles.course__item_link}>
-                RS School
-              </a>
-            </li>
-            <li className={styles.course__item}>
-              <a href={LINK_COURSE} className={styles.course__item_link}>
-                React Course
-              </a>
-              <span>(2023)</span>
-            </li>
-          </ul>
+          <div className={styles.course__column}>
+            <ul className={styles.course__list}>
+              <li className={styles.course__item}>
+                <a href={LINK_SCHOOL} className={styles.course__item_link}>
+                  RS School
+                </a>
+              </li>
+              <li className={styles.course__item}>
+                <a href={LINK_COURSE} className={styles.course__item_link}>
+                  React Course
+                </a>
+                <span>(2023)</span>
+              </li>
+            </ul>
 
-          <span>(c) All rights are very much reserved.</span>
+            <div className={styles.course__copy}>
+              <span>(c) All rights are very much reserved.</span>
+            </div>
+          </div>
+
+          <div className={styles.course__column}>
+            <a href={LINK_SCHOOL} className={styles.course__logo_link}>
+              <Image
+                src="rs-logo-white.svg"
+                alt="RS School logo"
+                width={185}
+                height={20}
+                className={styles.course__logo_image}
+              />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
