@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '@/Components/Layout/Layout';
-import styles from '@/styles/NotFounnd.module.css';
+import styles from '@/styles/NotFounnd.module.scss';
 import { useRouter } from 'next/router';
 
 const NotFound: React.FC = () => {
