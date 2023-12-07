@@ -105,3 +105,14 @@ a {
     color-scheme: dark;
   }
 }
+
+.layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #edf2ff;
+}
+button:hover {
+  cursor: pointer;
+}
