@@ -1,0 +1,174 @@
+@import '../../styles/variables.scss';
+
+.header {
+  position: relative;
+  padding: 0 $padding-body;
+  width: 100%;
+  height: $header-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $blue;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  transition: all 0.1s ease-in;
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+  }
+
+  .link {
+    display: flex;
+    color: $white;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+
+    &::after {
+      background-color: $white;
+    }
+  }
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+
+  &__logo {
+    color: $white;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-right: auto;
+    margin-bottom: 2px;
+    position: relative;
+    z-index: 1000;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &_icon {
+      display: block;
+      width: 3.5rem;
+      height: 1.5rem;
+      background-image: url("/icons/ic_logo.svg");
+      background-size: contain;
+      background-position: 0 center;
+      background-repeat: repeat-x;
+      margin-top: 2px;
+
+      transition: all 0.2s linear;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .button__menu {
+    position: relative;
+    height: 3rem;
+    background-color: $white;
+    color: $blue;
+    z-index: 1000;
+    display: none;
+
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+
+    @media (max-width: 480px) {
+      display: block;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      background-color: $white;
+      color: $blue;
+      opacity: 0.5;
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 480px) {
+    position: absolute;
+    width: 22rem;
+    height: 24rem;
+    right: 0;
+    top: 0;
+    background-color: $blue;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 1rem 1rem;
+    display: none;
+  }
+
+  &__links {
+    display: flex;
+    gap: 2rem;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__lang {
+    position: relative;
+    margin-left: 2rem;
+
+    .select {
+      position: relative;
+      appearance: none;
+      width: 5.8rem;
+      height: 3rem;
+      padding-left: 1rem;
+      padding-bottom: 0.2rem;
+      font-size: 1.6rem;
+      color: $blue;
+      background-color: $white;
+      border: none;
+      border-radius: 0;
+      outline: none;
+
+      transition: all 0.1s ease-in;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 1.1rem;
+      right: 1rem;
+      width: 1rem;
+      height: 0.8rem;
+      background-color: $blue;
+      clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+      pointer-events: none;
+      transition: all 0.2s ease-in;
+    }
+  }
+}
+
+.scroll .nav__logo_icon {
+  width: 9.4rem;
+  transition: all 0.2s linear;
+}
+
+.menu__open .menu {
+  display: flex;
+}
