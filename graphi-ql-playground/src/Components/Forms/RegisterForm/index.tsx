@@ -2,8 +2,11 @@ import { FC, useEffect, useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import PasswordStrengthBar from 'react-password-strength-bar';
+import { useRouter } from 'next/router';
 
 import { RegisterFormType, registerSchema } from '@/utils/registerValidate';
+
+import { routes } from '../../../services/routes';
 
 import StyledInput from '@/Components/StyledInput';
 
@@ -20,6 +23,7 @@ const RegisterForm: FC = () => {
     mode: 'all',
   });
   const [password, setPassword] = useState<string>();
+  const router = useRouter();
 
   useEffect(() => {
     const subscription = watch((value) => {
@@ -28,8 +32,8 @@ const RegisterForm: FC = () => {
     return () => subscription.unsubscribe();
   }, [watch]);
 
-  const onSubmit: SubmitHandler<RegisterFormType> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<RegisterFormType> = () => {
+    router.push(routes.PRODUCT);
   };
   return (
     <form

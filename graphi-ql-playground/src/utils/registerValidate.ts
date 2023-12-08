@@ -13,7 +13,7 @@ const registerSchema = yup.object().shape({
   name: yup
     .string()
     .required(ERROR_MESSAGES.REQUIRED_NAME)
-    .min(2, ERROR_MESSAGES.SHORT_NAME),
+    .matches(/[A-Za-z]{2}(.*)/, ERROR_MESSAGES.SHORT_NAME),
   password: yup
     .string()
     .required(ERROR_MESSAGES.REQUIRED_PASSWORD)
