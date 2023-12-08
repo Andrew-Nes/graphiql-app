@@ -1,0 +1,22 @@
+.notFound__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.notFound__button {
+  font-family: roboto mono;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: white;
+  background-color: #0047ff;
+  width: 520px;
+  height: 60px;
+  line-height: 26.38px;
+}
+
+.notFound__text {
+  font-family: inter;
+  font-weight: 700;
+}
