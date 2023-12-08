@@ -2,7 +2,7 @@ import { ReactElement, useEffect, useState, ChangeEvent } from 'react';
 import Link from 'next/link';
 import { Button } from '../Button';
 import { routes } from '@/services/routes';
-import { LANGS } from '@/services/constants';
+import { LANGS } from '@/constants';
 
 import classnames from 'classnames';
 import styles from './header.module.scss';
