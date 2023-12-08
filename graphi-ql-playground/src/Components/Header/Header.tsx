@@ -14,7 +14,7 @@ function Header(): ReactElement {
   const [isScroll, setIsScroll] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  function closeMenuOnResize(): void {
+  function handleResize(): void {
     if (window.innerWidth > 480) {
       setMenuOpen(false);
     }
@@ -30,7 +30,7 @@ function Header(): ReactElement {
     }
   }
 
-  function animateHeader(): void {
+  function handleScroll(): void {
     if (window.scrollY > 0) {
       setIsScroll(true);
     } else {
@@ -44,14 +44,14 @@ function Header(): ReactElement {
   }, []);
 
   useEffect(() => {
-    animateHeader();
+    handleScroll();
 
-    window.addEventListener('scroll', animateHeader);
-    window.addEventListener('resize', closeMenuOnResize);
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('scroll', animateHeader);
-      window.removeEventListener('resize', closeMenuOnResize);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
