@@ -1,0 +1,28 @@
+.labelOfInput {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.input::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #969696;
+}
+
+.input:focus {
+  border-color: #0047ff;
+  outline: #0047ff;
+}
+
+.errorText {
+  position: absolute;
+  color: #f41414;
+  font-size: 16px;
+  font-weight: 400;
+}
