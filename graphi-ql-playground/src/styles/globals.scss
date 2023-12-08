@@ -14,6 +14,7 @@ html {
 
 body {
   font-size: $text-size;
+  background-color: $page-back;
 }
 
 html,
@@ -23,8 +24,6 @@ body {
 }
 
 main {
-  padding: $padding-body;
-  min-height: calc(100vh - $header-height);
   margin-top: $header-height;
 }
 
@@ -55,14 +54,6 @@ a {
       opacity: 0;
     }
   }
-}
-
-.layout {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #edf2ff;
 }
 
 button:hover {

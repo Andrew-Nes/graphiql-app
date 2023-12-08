@@ -1,10 +1,8 @@
 import Head from 'next/head';
-import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.scss';
+import { ReactElement } from 'react';
+import { CourseSection } from '@/Components/CourseSection';
 
-const inter = Inter({ subsets: ['latin', 'cyrillic'] });
-
-export default function Home() {
+function Home(): ReactElement {
   return (
     <>
       <Head>
@@ -14,12 +12,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <>
-        <div>
-          <div className={`${styles.description} ${inter.className}`}>
-            Home Page
-          </div>
-        </div>
+        <CourseSection />
       </>
     </>
   );
 }
+
+export default Home;
