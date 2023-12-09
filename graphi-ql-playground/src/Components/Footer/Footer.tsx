@@ -1,10 +1,10 @@
-import { ReactElement } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { TEAM, LINK_SCHOOL, LINK_COURSE } from '../../constants';
 
 import styles from './footer.module.scss';
 
-function Footer(): ReactElement {
+const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__container}>
@@ -67,6 +67,6 @@ function Footer(): ReactElement {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;
