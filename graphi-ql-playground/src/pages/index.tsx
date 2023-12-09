@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { ReactElement } from 'react';
+import { HeroSection } from '@/Components/HeroSection';
 import { CourseSection } from '@/Components/CourseSection';
 import { TeamSection } from '@/Components/TeamSection';
 
@@ -13,6 +14,7 @@ function Home(): ReactElement {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <>
+        <HeroSection />
         <CourseSection />
         <TeamSection />
       </>
