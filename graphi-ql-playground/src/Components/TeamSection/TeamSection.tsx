@@ -1,9 +1,9 @@
-import { ReactElement } from 'react';
+import React from 'react';
 import { TEAM } from '@/constants';
 
 import styles from './teamSection.module.scss';
 
-function TeamSection(): ReactElement {
+const TeamSection: React.FC = () => {
   return (
     <>
       <section className={styles.team}>
@@ -32,6 +32,6 @@ function TeamSection(): ReactElement {
       </section>
     </>
   );
-}
+};
 
 export default TeamSection;

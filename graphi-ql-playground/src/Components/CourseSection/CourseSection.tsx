@@ -1,10 +1,10 @@
+import React from 'react';
 import Image from 'next/image';
-import { ReactElement } from 'react';
 import { LINK_COURSE, COURSE_DATA } from '../../constants';
 
 import styles from './courseSection.module.scss';
 
-function CourseSection(): ReactElement {
+const CourseSection: React.FC = () => {
   return (
     <>
       <section className={styles.course}>
@@ -51,6 +51,6 @@ function CourseSection(): ReactElement {
       </section>
     </>
   );
-}
+};
 
 export default CourseSection;
