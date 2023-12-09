@@ -1,0 +1,43 @@
+.formContainer {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background-color: white;
+  max-width: 600px;
+  padding: 30px 40px 40px;
+  @media (max-width: 570px) {
+    padding: 50px 10px 10px;
+    width: 100%;
+  }
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.formTitle {
+  font-size: 30px;
+  font-weight: 700;
+  color: #151515;
+  font-family: inter;
+}
+
+.formInfo {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: inter;
+  color: #151515;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 17px;
+  background-color: #0047ff;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: roboto mono;
+  color: white;
+  border: none;
+}
