@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState, ChangeEvent } from 'react';
+import React, { useEffect, useState, ChangeEvent } from 'react';
 import Link from 'next/link';
 import { Button } from '../Button';
 import { routes } from '@/services/routes';
@@ -9,7 +9,7 @@ import styles from './header.module.scss';
 
 const IS_AUTH = false;
 
-function Header(): ReactElement {
+const Header: React.FC = () => {
   const [lang, setLang] = useState('');
   const [isScroll, setIsScroll] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -146,6 +146,6 @@ function Header(): ReactElement {
       </nav>
     </header>
   );
-}
+};
 
 export default Header;

@@ -1,4 +1,4 @@
-import { ReactElement, MouseEvent } from 'react';
+import React, { MouseEvent } from 'react';
 
 import classnames from 'classnames';
 import styles from './button.module.scss';
@@ -11,13 +11,13 @@ interface ButtonProps {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-function Button({
+const Button: React.FC<ButtonProps> = ({
   name,
   type = 'button',
   className,
   disabled,
   onClick = (): void => {},
-}: ButtonProps): ReactElement {
+}) => {
   return (
     <button
       type={type}
@@ -28,6 +28,6 @@ function Button({
       {name}
     </button>
   );
-}
+};
 
 export default Button;
