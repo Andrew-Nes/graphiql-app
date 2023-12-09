@@ -1,10 +1,11 @@
 import Head from 'next/head';
-import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.scss';
+import { ReactElement } from 'react';
+import { HeroSection } from '@/Components/HeroSection';
+import { ImageSection } from '@/Components/ImageSection';
+import { CourseSection } from '@/Components/CourseSection';
+import { TeamSection } from '@/Components/TeamSection';
 
-const inter = Inter({ subsets: ['latin', 'cyrillic'] });
-
-export default function Home() {
+function Home(): ReactElement {
   return (
     <>
       <Head>
@@ -14,12 +15,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <>
-        <div>
-          <div className={`${styles.description} ${inter.className}`}>
-            Home Page
-          </div>
-        </div>
+        <HeroSection />
+        <ImageSection />
+        <CourseSection />
+        <TeamSection />
       </>
     </>
   );
 }
+
+export default Home;
