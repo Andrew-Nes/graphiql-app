@@ -23,8 +23,6 @@ body {
 }
 
 main {
-  padding: $padding-body;
-  min-height: calc(100vh - $header-height);
   margin-top: $header-height;
 }
 
