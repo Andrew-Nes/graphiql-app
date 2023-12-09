@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { ReactElement } from 'react';
 import { CourseSection } from '@/Components/CourseSection';
+import { TeamSection } from '@/Components/TeamSection';
 
 function Home(): ReactElement {
   return (
@@ -13,6 +14,7 @@ function Home(): ReactElement {
       </Head>
       <>
         <CourseSection />
+        <TeamSection />
       </>
     </>
   );
