@@ -55,7 +55,7 @@
       display: block;
       width: 3.5rem;
       height: 1.5rem;
-      background-image: url("/icons/ic_logo.svg");
+      background-image: url('/icons/ic_logo.svg');
       background-size: contain;
       background-position: 0 center;
       background-repeat: repeat-x;
@@ -150,7 +150,7 @@
     }
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 1.1rem;
       right: 1rem;
