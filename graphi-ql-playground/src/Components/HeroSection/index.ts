@@ -1,2 +1,2 @@
-import HeroSection from "./HeroSection";
+import HeroSection from './HeroSection';
 export { HeroSection };
