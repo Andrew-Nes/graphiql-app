@@ -9,3 +9,15 @@ export enum ERROR_MESSAGES {
   PASSWORD_SPECIAL_CH_CONTAIN = 'Password must contain at least 1 special charter!',
   SHORT_PASSWORD = 'Password must contain minimum 8 symbols!',
 }
+
+export enum ERROR_MESSAGES_RU {
+  REQUIRED_EMAIL = 'Эл.Почта - обязательное поле!',
+  REQUIRED_PASSWORD = 'Пароль - обязательное поле!',
+  REQUIRED_NAME = 'Имя - обязательное поле!',
+  INVALID_EMAIL = 'Неверный Email!',
+  SHORT_NAME = 'Имя должно состоять минимум из двух букв!',
+  PASSWORD_DIGIT_CONTAIN = 'Пароль должен содержать минимум одну цифру!',
+  PASSWORD_LETTER_CONTAIN = 'Пароль должен содержать минимум одну латинскую букву!',
+  PASSWORD_SPECIAL_CH_CONTAIN = 'Пароль должен содержать минимум один спец-символ!',
+  SHORT_PASSWORD = 'Пароль должен быть не короче восьми знаков!',
+}

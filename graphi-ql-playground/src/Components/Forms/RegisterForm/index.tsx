@@ -4,22 +4,30 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { useRouter } from 'next/router';
 
-import { RegisterFormType, registerSchema } from '@/utils/registerValidate';
+import {
+  RegisterFormType,
+  registerSchema,
+  registerSchemaRu,
+} from '@/utils/registerValidate';
 
 import { routes } from '../../../services/routes';
 
 import StyledInput from '@/Components/StyledInput';
 
 import styles from './RegisterForm.module.scss';
+import useTranslations from '@/utils/translation';
+import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
 
 const RegisterForm: FC = () => {
+  const { language } = useLanguage();
+  const schema = language === 'en' ? registerSchema : registerSchemaRu;
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors, isValid, isSubmitted },
   } = useForm<RegisterFormType>({
-    resolver: yupResolver(registerSchema),
+    resolver: yupResolver(schema),
     mode: 'all',
   });
   const [password, setPassword] = useState<string>();
@@ -35,6 +43,7 @@ const RegisterForm: FC = () => {
   const onSubmit: SubmitHandler<RegisterFormType> = () => {
     router.push(routes.PRODUCT);
   };
+  const dictionary = useTranslations();
   return (
     <form
       className={styles.formContainer}
@@ -42,18 +51,18 @@ const RegisterForm: FC = () => {
       noValidate
     >
       <div className={styles.titleGroup}>
-        <h1 className={styles.formTitle}>Register 🤓</h1>
+        <h1 className={styles.formTitle}>
+          {dictionary.forms.headings.register} 🤓
+        </h1>
 
-        <p className={styles.formInfo}>
-          Please, create account to use GraphiQL Playground.
-        </p>
+        <p className={styles.formInfo}>{dictionary.forms.intro.register}</p>
       </div>
 
       <StyledInput
         inputError={errors.name}
         inputName="name"
         type="text"
-        placeholder="Name"
+        placeholder={dictionary.forms.fields.name}
         {...register('name')}
       />
 
@@ -61,7 +70,7 @@ const RegisterForm: FC = () => {
         inputError={errors.email}
         inputName="email"
         type="email"
-        placeholder="Email"
+        placeholder={dictionary.forms.fields.email}
         {...register('email')}
       />
 
@@ -69,7 +78,7 @@ const RegisterForm: FC = () => {
         inputError={errors.password}
         inputName="password"
         type="password"
-        placeholder="Password"
+        placeholder={dictionary.forms.fields.pass}
         {...register('password')}
       />
 
@@ -83,7 +92,7 @@ const RegisterForm: FC = () => {
         type="submit"
         disabled={!isValid || isSubmitted}
       >
-        CREATE ACCOUNT
+        {dictionary.forms.buttons.register}
       </button>
     </form>
   );

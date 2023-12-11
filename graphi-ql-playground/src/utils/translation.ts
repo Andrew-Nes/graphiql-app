@@ -3,16 +3,26 @@ import dictionary from '../services/dictionary.json';
 
 interface ITranslations {
   forms: {
-    errors: {
-      requiredEmail: string;
-      requiredPassword: string;
-      requiredName: string;
-      invalidEmail: string;
-      shortName: string;
-      passwordDigitContain: string;
-      passwordLetterContain: string;
-      passwordSpecialChContain: string;
-      shortPassword: string;
+    headings: {
+      login: string;
+      register: string;
+    };
+    intro: {
+      login: string;
+      register: string;
+    };
+    fields: {
+      name: string;
+      email: string;
+      pass: string;
+    };
+    buttons: {
+      login: string;
+      register: string;
+    };
+    options: {
+      login: string;
+      register: string;
     };
   };
   header: {

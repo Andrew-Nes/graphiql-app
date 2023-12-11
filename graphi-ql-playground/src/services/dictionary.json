@@ -1,16 +1,26 @@
 {
   "en": {
     "forms": {
-      "errors": {
-        "requiredEmail": "Email is a required field!",
-        "requiredPassword": "Password is a required field!",
-        "requiredName": "Name is a required field!",
-        "invalidEmail": "Not valid Email!",
-        "shortName": "Name must contain at least 2 letters",
-        "passwordDigitContain": "Password must contain at least 1 digit!",
-        "passwordLetterContain": "Password must contain at least 1 letter!",
-        "passwordSpecialChContain": "Password must contain at least 1 special charter!",
-        "shortPassword": "Password must contain minimum 8 symbols!"
+      "headings": {
+        "login": "Log In",
+        "register": "Registration"
+      },
+      "intro": {
+        "login": "Please, log in to use GraphiQL Playground.",
+        "register": "Please, create account to use GraphiQL Playground."
+      },
+      "fields": {
+        "name": "Name",
+        "email": "E-Mail",
+        "pass": "Password"
+      },
+      "buttons": {
+        "login": "Log In",
+        "register": "Create Account"
+      },
+      "options": {
+        "login": "Already have an account?",
+        "register": "Don’t have an account?"
       }
     },
     "header": {
@@ -32,27 +42,37 @@
         "more": "Learn More",
         "week": "week"
       },
-      "team":  "Team"
+      "team": "Team"
     },
     "footer": {
       "greeting": "HI!",
       "intro": "Welcome the team:",
       "course": "React Course",
       "copyright": "All rights are very much reserved"
-    } 
+    }
   },
   "ru": {
     "forms": {
-      "errors": {
-        "requiredEmail": "Email - обязательное поле!",
-        "requiredPassword": "Пароль - обязательное поле!",
-        "requiredName": "Имя - обязательное поле!",
-        "invalidEmail": "Неверный Email!",
-        "shortName": "Имя должно состоять минимум из двух букв!",
-        "passwordDigitContain": "Пароль должен содержать минимум одну цифру!",
-        "passwordLetterContain": "Пароль должен содержать минимум одну латинскую букву!",
-        "passwordSpecialChContain": "Пароль должен содержать минимум один спец-символ!",
-        "shortPassword": "Пароль должен быть не короче восьми знаков!"
+      "headings": {
+        "login": "Вход",
+        "register": "Регистрация"
+      },
+      "intro": {
+        "login": "Пожалуйста выполните вход, чтобы воспользоваться песочницей.",
+        "register": "Пожалуйста зарегистрируйтесь, чтобы воспользоваться песочницей."
+      },
+      "fields": {
+        "name": "Имя",
+        "email": "Эл.Почта",
+        "pass": "Пароль"
+      },
+      "buttons": {
+        "login": "Войти",
+        "register": "Создать аккаунт"
+      },
+      "options": {
+        "login": "Уже зарегистрированы?",
+        "register": "Еще не зарегистрировались?"
       }
     },
     "header": {
@@ -74,13 +94,13 @@
         "more": "Узнать больше",
         "week": "Неделя"
       },
-      "team":  "Наша команда"
+      "team": "Наша команда"
     },
     "footer": {
       "greeting": "Привет!",
       "intro": "Это все мы",
       "course": "Курс по React",
       "copyright": "Все права под надежной защитой"
-    } 
+    }
   }
 }
