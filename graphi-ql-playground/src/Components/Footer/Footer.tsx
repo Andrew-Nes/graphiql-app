@@ -3,18 +3,23 @@ import Image from 'next/image';
 import { TEAM, LINK_SCHOOL, LINK_COURSE } from '../../constants';
 
 import styles from './footer.module.scss';
+import { useLanguage } from '../LanguageContext/LanguageContext';
+import useTranslations from '@/utils/translation';
 
 const Footer: React.FC = () => {
+  const { language } = useLanguage();
+  const team = TEAM[language as keyof typeof TEAM];
+  const dictionary = useTranslations();
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__container}>
         <div className={styles.team}>
           <div className={styles.team__title}>
-            <span>Hi👋👋👋</span>
-            <span>Welcome the team:</span>
+            <span>{dictionary.footer.greeting}👋👋👋</span>
+            <span>{dictionary.footer.intro}</span>
           </div>
           <ul className={styles.team__items}>
-            {TEAM.map((member) => (
+            {team.map((member) => (
               <li className={styles.team__item} key={member.name}>
                 <Image
                   src={member.image}
@@ -41,14 +46,14 @@ const Footer: React.FC = () => {
               </li>
               <li className={styles.course__item}>
                 <a href={LINK_COURSE} className={styles.course__item_link}>
-                  React Course
+                  {dictionary.footer.course}
                 </a>
                 <span>(2023)</span>
               </li>
             </ul>
 
             <div className={styles.course__copy}>
-              <span>(c) All rights are very much reserved.</span>
+              <span>&#169; {dictionary.footer.copyright}</span>
             </div>
           </div>
 

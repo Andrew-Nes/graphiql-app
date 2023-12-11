@@ -3,18 +3,19 @@ import Link from 'next/link';
 import { routes } from '@/services/routes';
 
 import styles from './heroSection.module.scss';
+import useTranslations from '@/utils/translation';
 
 const IS_AUTH = false;
 
 const HeroSection: React.FC = () => {
+  const dictionary = useTranslations();
   return (
     <>
       <section className={styles.hero}>
         <div className={styles.hero__container}>
           <div className={styles.hero__title}>
             <h2 className={styles.hero__title_text}>
-              Hey there, welcome to the GraphiQL Playground! This is the go-to
-              IDE for making GraphQL requests to{' '}
+              {dictionary.landing.heading}{' '}
               <a href="" className={styles.hero__title_link}>
                 The Rick and Morty API
               </a>
@@ -22,21 +23,17 @@ const HeroSection: React.FC = () => {
           </div>
           <div className={styles.hero__info}>
             <div className={styles.hero__info_text}>
-              <p>
-                Check out an extensive collection of characters, images,
-                locations, and episodes - you will have access to all the good
-                stuff from The Rick and Morty TV show!
-              </p>
+              <p>{dictionary.landing.intro}</p>
               {IS_AUTH ? (
                 <Link
                   href={routes.PRODUCT}
                   className={styles.hero__info_button}
                 >
-                  Try Playground
+                  {dictionary.landing.playground}
                 </Link>
               ) : (
                 <Link href={routes.LOGIN} className={styles.hero__info_button}>
-                  Please, Log in
+                  {dictionary.landing.login}
                 </Link>
               )}
             </div>

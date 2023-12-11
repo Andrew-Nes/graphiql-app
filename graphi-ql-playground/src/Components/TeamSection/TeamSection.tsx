@@ -2,15 +2,20 @@ import React from 'react';
 import { TEAM } from '@/constants';
 
 import styles from './teamSection.module.scss';
+import { useLanguage } from '../LanguageContext/LanguageContext';
+import useTranslations from '@/utils/translation';
 
 const TeamSection: React.FC = () => {
+  const { language } = useLanguage();
+  const team = TEAM[language as keyof typeof TEAM];
+  const dictionary = useTranslations();
   return (
     <>
       <section className={styles.team}>
         <div className={styles.team__container}>
-          <span className={styles.team__title}>Team</span>
+          <span className={styles.team__title}>{dictionary.landing.team}</span>
           <ul className={styles.team__items}>
-            {TEAM.map((person) => (
+            {team.map((person) => (
               <li className={styles.team__item} key={person.github}>
                 <p className={styles.team__description}>{person.description}</p>
                 <div className={styles.team__item_footer}>

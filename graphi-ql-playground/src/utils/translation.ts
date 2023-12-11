@@ -22,6 +22,26 @@ interface ITranslations {
     logout: string;
     playground: string;
   };
+  landing: {
+    heading: string;
+    intro: string;
+    login: string;
+    playground: string;
+    course: {
+      name: string;
+      description_1: string;
+      description_2: string;
+      more: string;
+      week: string;
+    };
+    team: string;
+  };
+  footer: {
+    greeting: string;
+    intro: string;
+    course: string;
+    copyright: string;
+  };
 }
 
 interface IDictionary {
