@@ -6,13 +6,18 @@ import { LANGS } from '@/constants';
 
 import classnames from 'classnames';
 import styles from './header.module.scss';
+import { useLanguage } from '../LanguageContext/LanguageContext';
+import useTranslations from '@/utils/translation';
 
 const IS_AUTH = false;
 
 const Header: React.FC = () => {
-  const [lang, setLang] = useState('');
   const [isScroll, setIsScroll] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const { changeLanguage, language } = useLanguage();
+
+  const dictionary = useTranslations();
 
   function handleResize(): void {
     if (window.innerWidth > 480) {
@@ -39,9 +44,9 @@ const Header: React.FC = () => {
   }
 
   useEffect(() => {
-    const savedLang = localStorage.getItem('lang') || '';
-    setLang(savedLang);
-  }, []);
+    const savedLang = localStorage.getItem('lang') || 'en';
+    changeLanguage(savedLang);
+  }, [changeLanguage]);
 
   useEffect(() => {
     handleScroll();
@@ -57,9 +62,8 @@ const Header: React.FC = () => {
 
   function handleSelectLang(e: ChangeEvent<HTMLSelectElement>): void {
     const selectedLang = e.target.value;
-
-    setLang(selectedLang);
     localStorage.setItem('lang', selectedLang);
+    changeLanguage(selectedLang);
   }
 
   return (
@@ -81,7 +85,7 @@ const Header: React.FC = () => {
         </Link>
 
         <Button
-          name="Menu"
+          name={dictionary.header.menu}
           className={styles.button__menu}
           onClick={toggleMenu}
         />
@@ -95,12 +99,12 @@ const Header: React.FC = () => {
                   className={styles.link}
                   onClick={closeMenu}
                 >
-                  Playground
+                  {dictionary.header.playground}
                 </Link>
               </li>
               <li>
                 <Link href="" className={styles.link} onClick={closeMenu}>
-                  Sign Out
+                  {dictionary.header.logout}
                 </Link>
               </li>
             </ul>
@@ -114,7 +118,7 @@ const Header: React.FC = () => {
                   className={styles.link}
                   onClick={closeMenu}
                 >
-                  Login
+                  {dictionary.header.login}
                 </Link>
               </li>
               <li>
@@ -123,7 +127,7 @@ const Header: React.FC = () => {
                   className={styles.link}
                   onClick={closeMenu}
                 >
-                  Register
+                  {dictionary.header.register}
                 </Link>
               </li>
             </ul>
@@ -132,7 +136,7 @@ const Header: React.FC = () => {
           <div className={styles.menu__lang}>
             <select
               className={styles.select}
-              value={lang}
+              value={language}
               onChange={handleSelectLang}
             >
               {LANGS.map((option) => (

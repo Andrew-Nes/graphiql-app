@@ -1,0 +1,46 @@
+{
+  "en": {
+    "forms": {
+     "errors": {
+        "requiredEmail":"Email is a required field!",
+        "requiredPassword": "Password is a required field!",
+        "requiredName": "Name is a required field!",
+        "invalidEmail": "Not valid Email!",
+        "shortName": "Name must contain at least 2 letters",
+        "passwordDigitContain": "Password must contain at least 1 digit!",
+        "passwordLetterContain": "Password must contain at least 1 letter!",
+        "passwordSpecialChContain" : "Password must contain at least 1 special charter!",
+        "shortPassword": "Password must contain minimum 8 symbols!"
+      }
+    },
+    "header": {
+      "menu": "menu",
+      "login": "Log In",
+      "register": "Register",
+      "logout": "Logout",
+      "playground": "Playground"
+    }
+  },
+  "ru": {
+    "forms": {
+      "errors": {
+         "requiredEmail":"Email - обязательное поле!",
+         "requiredPassword": "Пароль - обязательное поле!",
+         "requiredName": "Имя - обязательное поле!",
+         "invalidEmail": "Неверный Email!",
+         "shortName": "Имя должно состоять минимум из двух букв!",
+         "passwordDigitContain": "Пароль должен содержать минимум одну цифру!",
+         "passwordLetterContain": "Пароль должен содержать минимум одну латинскую букву!",
+         "passwordSpecialChContain" : "Пароль должен содержать минимум один спец-символ!",
+         "shortPassword": "Пароль должен быть не короче восьми знаков!"
+       }
+     },
+     "header": {
+      "menu": "Меню",
+      "login": "Войти",
+      "register": "Зарегестрироваться",
+      "logout": "Выйти",
+      "playground": "Песочница"
+    }
+  }
+}
