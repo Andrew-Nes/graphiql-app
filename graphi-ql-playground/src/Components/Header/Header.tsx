@@ -46,11 +46,6 @@ const Header: FC = () => {
   }
 
   useEffect(() => {
-    const savedLang = localStorage.getItem('lang') || 'en';
-    changeLanguage(savedLang);
-  }, [changeLanguage]);
-
-  useEffect(() => {
     handleScroll();
 
     window.addEventListener('scroll', handleScroll);

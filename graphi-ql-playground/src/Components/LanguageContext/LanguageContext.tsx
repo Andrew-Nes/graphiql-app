@@ -1,4 +1,11 @@
-import { createContext, useContext, useState, ReactNode, FC } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  FC,
+  useEffect,
+} from 'react';
 
 interface LanguageContextProps {
   language: string;
@@ -19,6 +26,11 @@ export const LanguageProvider: FC<LanguageProviderProps> = ({ children }) => {
   const changeLanguage = (newLanguage: string) => {
     setLanguage(newLanguage);
   };
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem('lang') || 'en';
+    changeLanguage(savedLang);
+  }, []);
 
   return (
     <LanguageContext.Provider value={{ language, changeLanguage }}>
