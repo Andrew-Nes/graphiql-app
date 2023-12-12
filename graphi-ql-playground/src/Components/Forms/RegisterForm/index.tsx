@@ -4,14 +4,11 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { useRouter } from 'next/router';
 
-import {
-  RegisterFormType,
-  registerSchema,
-  registerSchemaRu,
-} from '@/utils/registerValidate';
+import { RegisterFormType, registerSchema } from '@/utils/registerValidate';
 import useTranslations from '@/utils/translation';
 import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
 import { routes } from '@/services/routes';
+import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
 
 import StyledInput from '@/Components/StyledInput';
 
@@ -24,7 +21,10 @@ const RegisterForm: FC = () => {
   const router = useRouter();
   const dictionary = useTranslations();
 
-  const schema = language === 'en' ? registerSchema : registerSchemaRu;
+  const schema =
+    language === 'en'
+      ? registerSchema(ERROR_MESSAGES)
+      : registerSchema(ERROR_MESSAGES_RU);
 
   const {
     register,

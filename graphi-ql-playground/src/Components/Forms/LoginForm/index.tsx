@@ -3,14 +3,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 
-import {
-  LoginFormType,
-  loginSchema,
-  loginSchemaRu,
-} from '@/utils/loginValidate';
+import { LoginFormType, loginSchema } from '@/utils/loginValidate';
 import { routes } from '@/services/routes';
 import useTranslations from '@/utils/translation';
 import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
+import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
 
 import StyledInput from '@/Components/StyledInput';
 
@@ -21,7 +18,10 @@ const LoginForm: FC = () => {
   const router = useRouter();
   const dictionary = useTranslations();
 
-  const schema = language === 'en' ? loginSchema : loginSchemaRu;
+  const schema =
+    language === 'en'
+      ? loginSchema(ERROR_MESSAGES)
+      : loginSchema(ERROR_MESSAGES_RU);
 
   const {
     register,
