@@ -1,7 +1,7 @@
-import React, { Component, ErrorInfo } from 'react';
+import { Component, ErrorInfo, ReactNode } from 'react';
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 interface State {
@@ -17,9 +17,11 @@ export default class ErrorBoundary extends Component<Props, State> {
   static getDerivedStateFromError() {
     return { hasError: true };
   }
+
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.log({ error, errorInfo });
   }
+
   render() {
     if (this.state.hasError) {
       return (

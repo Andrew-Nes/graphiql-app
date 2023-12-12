@@ -1,12 +1,14 @@
-import React from 'react';
+import { FC } from 'react';
 import Image from 'next/image';
-import { LINK_COURSE, COURSE_DATA } from '../../constants';
 
-import styles from './courseSection.module.scss';
+import { LINK_COURSE, COURSE_DATA } from '@/constants';
 import useTranslations from '@/utils/translation';
 
-const CourseSection: React.FC = () => {
+import styles from './courseSection.module.scss';
+
+const CourseSection: FC = () => {
   const dictionary = useTranslations();
+
   return (
     <>
       <section className={styles.course}>

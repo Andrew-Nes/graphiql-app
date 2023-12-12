@@ -9,18 +9,23 @@ import {
   registerSchema,
   registerSchemaRu,
 } from '@/utils/registerValidate';
-
-import { routes } from '../../../services/routes';
+import useTranslations from '@/utils/translation';
+import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
+import { routes } from '@/services/routes';
 
 import StyledInput from '@/Components/StyledInput';
 
 import styles from './RegisterForm.module.scss';
-import useTranslations from '@/utils/translation';
-import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
 
 const RegisterForm: FC = () => {
+  const [password, setPassword] = useState<string>();
+
   const { language } = useLanguage();
+  const router = useRouter();
+  const dictionary = useTranslations();
+
   const schema = language === 'en' ? registerSchema : registerSchemaRu;
+
   const {
     register,
     handleSubmit,
@@ -30,8 +35,6 @@ const RegisterForm: FC = () => {
     resolver: yupResolver(schema),
     mode: 'all',
   });
-  const [password, setPassword] = useState<string>();
-  const router = useRouter();
 
   useEffect(() => {
     const subscription = watch((value) => {
@@ -43,7 +46,7 @@ const RegisterForm: FC = () => {
   const onSubmit: SubmitHandler<RegisterFormType> = () => {
     router.push(routes.PRODUCT);
   };
-  const dictionary = useTranslations();
+
   return (
     <form
       className={styles.formContainer}

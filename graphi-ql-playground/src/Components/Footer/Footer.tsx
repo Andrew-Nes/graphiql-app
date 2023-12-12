@@ -1,15 +1,19 @@
-import React from 'react';
+import { FC } from 'react';
 import Image from 'next/image';
-import { TEAM, LINK_SCHOOL, LINK_COURSE } from '../../constants';
 
-import styles from './footer.module.scss';
-import { useLanguage } from '../LanguageContext/LanguageContext';
+import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
+
+import { TEAM, LINK_SCHOOL, LINK_COURSE } from '@/constants';
 import useTranslations from '@/utils/translation';
 
-const Footer: React.FC = () => {
+import styles from './footer.module.scss';
+
+const Footer: FC = () => {
   const { language } = useLanguage();
-  const team = TEAM[language as keyof typeof TEAM];
   const dictionary = useTranslations();
+
+  const team = TEAM[language as keyof typeof TEAM];
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__container}>

@@ -1,17 +1,19 @@
-import React, { useEffect, useState, ChangeEvent } from 'react';
+import { useEffect, useState, ChangeEvent, FC } from 'react';
 import Link from 'next/link';
-import { Button } from '../Button';
+
 import { routes } from '@/services/routes';
 import { LANGS } from '@/constants';
+import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
+import useTranslations from '@/utils/translation';
+
+import { Button } from '../Button';
 
 import classnames from 'classnames';
 import styles from './header.module.scss';
-import { useLanguage } from '../LanguageContext/LanguageContext';
-import useTranslations from '@/utils/translation';
 
 const IS_AUTH = false;
 
-const Header: React.FC = () => {
+const Header: FC = () => {
   const [isScroll, setIsScroll] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 

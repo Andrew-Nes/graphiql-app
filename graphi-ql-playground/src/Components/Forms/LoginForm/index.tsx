@@ -9,26 +9,30 @@ import {
   loginSchemaRu,
 } from '@/utils/loginValidate';
 import { routes } from '@/services/routes';
+import useTranslations from '@/utils/translation';
+import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
 
 import StyledInput from '@/Components/StyledInput';
 
 import styles from './LoginForm.module.scss';
-import useTranslations from '@/utils/translation';
-import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
 
 const LoginForm: FC = () => {
   const { language } = useLanguage();
+  const router = useRouter();
+  const dictionary = useTranslations();
+
   const schema = language === 'en' ? loginSchema : loginSchemaRu;
+
   const {
     register,
     handleSubmit,
     formState: { errors, isValid, isSubmitted },
   } = useForm({ mode: 'all', resolver: yupResolver(schema) });
-  const router = useRouter();
+
   const onSubmit: SubmitHandler<LoginFormType> = () => {
     router.push(routes.PRODUCT);
   };
-  const dictionary = useTranslations();
+
   return (
     <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.titleGroup}>

@@ -1,14 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
+
 import { routes } from '@/services/routes';
+import useTranslations from '@/utils/translation';
 
 import styles from './heroSection.module.scss';
-import useTranslations from '@/utils/translation';
 
 const IS_AUTH = false;
 
 const HeroSection: React.FC = () => {
   const dictionary = useTranslations();
+
   return (
     <>
       <section className={styles.hero}>

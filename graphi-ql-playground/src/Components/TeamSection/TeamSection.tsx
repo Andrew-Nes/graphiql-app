@@ -1,14 +1,17 @@
 import React from 'react';
+
 import { TEAM } from '@/constants';
+import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
+import useTranslations from '@/utils/translation';
 
 import styles from './teamSection.module.scss';
-import { useLanguage } from '../LanguageContext/LanguageContext';
-import useTranslations from '@/utils/translation';
 
 const TeamSection: React.FC = () => {
   const { language } = useLanguage();
-  const team = TEAM[language as keyof typeof TEAM];
   const dictionary = useTranslations();
+
+  const team = TEAM[language as keyof typeof TEAM];
+
   return (
     <>
       <section className={styles.team}>

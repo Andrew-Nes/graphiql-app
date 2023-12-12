@@ -4,12 +4,13 @@ import React from 'react';
 import { routes } from '../services/routes';
 
 import RegisterForm from '@/Components/Forms/RegisterForm';
+import useTranslations from '@/utils/translation';
 
 import styles from '../styles/RegisterPage.module.scss';
-import useTranslations from '@/utils/translation';
 
 const RegisterPage: React.FC = () => {
   const dictionary = useTranslations();
+
   return (
     <>
       <RegisterForm />
