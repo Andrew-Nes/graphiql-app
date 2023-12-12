@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { TEAM } from '@/constants';
 import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
@@ -6,7 +6,7 @@ import useTranslations from '@/utils/translation';
 
 import styles from './teamSection.module.scss';
 
-const TeamSection: React.FC = () => {
+const TeamSection: FC = () => {
   const { language } = useLanguage();
   const dictionary = useTranslations();
 
