@@ -113,7 +113,7 @@ const Header: FC = () => {
             </ul>
           )}
 
-          {user && (
+          {!user && (
             <ul className={styles.menu__links}>
               <li>
                 <Link
