@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import { FC } from 'react';
 
 import { routes } from '../services/routes';
 
@@ -8,7 +8,7 @@ import useTranslations from '@/utils/translation';
 
 import styles from '../styles/RegisterPage.module.scss';
 
-const RegisterPage: React.FC = () => {
+const RegisterPage: FC = () => {
   const dictionary = useTranslations();
 
   return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
 
 import { routes } from '@/services/routes';
@@ -8,7 +8,7 @@ import LoginForm from '@/Components/Forms/LoginForm';
 
 import styles from '../styles/LoginPage.module.scss';
 
-const LoginPage: React.FC = () => {
+const LoginPage: FC = () => {
   const dictionary = useTranslations();
 
   return (
