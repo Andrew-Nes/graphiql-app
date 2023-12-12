@@ -1,10 +1,13 @@
-import React from 'react';
-import styles from '@/styles/NotFounnd.module.scss';
+import { FC } from 'react';
 import { useRouter } from 'next/router';
+
 import { routes } from '@/services/routes';
 
-const NotFound: React.FC = () => {
+import styles from '@/styles/NotFounnd.module.scss';
+
+const NotFound: FC = () => {
   const router = useRouter();
+
   return (
     <>
       <section className={`${styles.notFound__content}`}>

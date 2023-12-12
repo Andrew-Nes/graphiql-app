@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { ReactElement } from 'react';
+
 import { HeroSection } from '@/Components/HeroSection';
 import { ImageSection } from '@/Components/ImageSection';
 import { CourseSection } from '@/Components/CourseSection';

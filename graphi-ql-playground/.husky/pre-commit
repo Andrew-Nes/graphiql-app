@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-cd ./graphi-ql-playground && npm run format:fix
+cd ./graphi-ql-playground && npm run prettier-fix
 
 

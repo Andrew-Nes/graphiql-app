@@ -1,7 +1,8 @@
-import React from 'react';
+import { FC } from 'react';
+
 import Layout from '@/Components/Layout/Layout';
 
-const PlaygroundPage: React.FC = () => {
+const PlaygroundPage: FC = () => {
   return (
     <Layout>
       <main>

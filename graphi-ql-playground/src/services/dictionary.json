@@ -1,0 +1,106 @@
+{
+  "en": {
+    "forms": {
+      "headings": {
+        "login": "Log In",
+        "register": "Registration"
+      },
+      "intro": {
+        "login": "Please, log in to use GraphiQL Playground.",
+        "register": "Please, create account to use GraphiQL Playground."
+      },
+      "fields": {
+        "name": "Name",
+        "email": "E-Mail",
+        "pass": "Password"
+      },
+      "buttons": {
+        "login": "Log In",
+        "register": "Create Account"
+      },
+      "options": {
+        "login": "Already have an account?",
+        "register": "Don’t have an account?"
+      }
+    },
+    "header": {
+      "menu": "menu",
+      "login": "Log In",
+      "register": "Register",
+      "logout": "Logout",
+      "playground": "Playground"
+    },
+    "landing": {
+      "heading": "Hey there, welcome to the GraphiQL Playground! This is the go-to IDE for making GraphQL requests to",
+      "intro": "Check out an extensive collection of characters, images, locations, and episodes - you will have access to all the good stuff from The Rick and Morty TV show!",
+      "login": "Please, Log In",
+      "playground": "Опробуйте песочницу",
+      "course": {
+        "name": "React Course",
+        "description_1": "This course is perfect for students with experience in JavaScript, TypeScript, Git, GitHub, NPM, Webpack, CSS3, HTML5 and an understanding of interacting with APIs.",
+        "description_2": "The course runs for a total of 10 weeks, with 6 weeks dedicated to studying React and an additional 4 weeks for the final task implementation.",
+        "more": "Learn More",
+        "week": "week"
+      },
+      "team": "Team"
+    },
+    "footer": {
+      "greeting": "HI!",
+      "intro": "Welcome the team:",
+      "course": "React Course",
+      "copyright": "All rights are very much reserved"
+    }
+  },
+  "ru": {
+    "forms": {
+      "headings": {
+        "login": "Вход",
+        "register": "Регистрация"
+      },
+      "intro": {
+        "login": "Пожалуйста выполните вход, чтобы воспользоваться песочницей.",
+        "register": "Пожалуйста зарегистрируйтесь, чтобы воспользоваться песочницей."
+      },
+      "fields": {
+        "name": "Имя",
+        "email": "Эл.Почта",
+        "pass": "Пароль"
+      },
+      "buttons": {
+        "login": "Войти",
+        "register": "Создать аккаунт"
+      },
+      "options": {
+        "login": "Уже зарегистрированы?",
+        "register": "Еще не зарегистрировались?"
+      }
+    },
+    "header": {
+      "menu": "Меню",
+      "login": "Войти",
+      "register": "Зарегестрироваться",
+      "logout": "Выйти",
+      "playground": "Песочница"
+    },
+    "landing": {
+      "heading": "Привет! Добро пожаловать в песочницу GraphiQL! С помощью нее вы сможете создавать запросы для",
+      "intro": "Познакомьтесь с обширной коллекцией персонажей, изображений, локаций и эпизодов — вы получите доступ ко всему самому интересному из сериала «Рик и Морти»!",
+      "login": "Выполните вход",
+      "playground": "Опробуйте песочницу",
+      "course": {
+        "name": "Курс React",
+        "description_1": "Этот курс идеально подходит для студентов, имеющих опыт работы с JavaScript, TypeScript, Git, GitHub, NPM, Webpack, CSS3, HTML5 и пониманием взаимодействия с API.",
+        "description_2": "Курс рассчитан в общей сложности на 10 недель, из которых 6 недель посвящено изучению React и еще 4 недели — выполнению финального задания.",
+        "more": "Узнать больше",
+        "week": "Неделя"
+      },
+      "team": "Наша команда"
+    },
+    "footer": {
+      "greeting": "Привет!",
+      "intro": "Это все мы",
+      "course": "Курс по React",
+      "copyright": "Все права под надежной защитой"
+    }
+  }
+}

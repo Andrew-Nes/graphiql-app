@@ -1,20 +1,23 @@
 import Link from 'next/link';
-import React from 'react';
+import { FC } from 'react';
 
-import { routes } from '../services/routes';
+import { routes } from '@/services/routes';
+import useTranslations from '@/utils/translation';
 
 import RegisterForm from '@/Components/Forms/RegisterForm';
 
 import styles from '../styles/RegisterPage.module.scss';
 
-const RegisterPage: React.FC = () => {
+const RegisterPage: FC = () => {
+  const dictionary = useTranslations();
+
   return (
     <>
       <RegisterForm />
       <p className={styles.registerInfo}>
-        Already have an account?{' '}
+        {dictionary.forms.options.login}{' '}
         <Link href={routes.LOGIN} className={styles.loginLink}>
-          Log in.
+          {dictionary.forms.buttons.login}
         </Link>
       </p>
     </>

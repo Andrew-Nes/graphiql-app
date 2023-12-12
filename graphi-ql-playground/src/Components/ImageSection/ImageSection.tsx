@@ -1,9 +1,9 @@
-import React from 'react';
+import { FC } from 'react';
 import Image from 'next/image';
 
 import styles from './imageSection.module.scss';
 
-const ImageSection: React.FC = () => {
+const ImageSection: FC = () => {
   return (
     <>
       <section className={styles.image}>
