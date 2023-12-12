@@ -41,3 +41,12 @@
   color: white;
   border: none;
 }
+
+.authError {
+  color: #f41414;
+  font-size: 16px;
+  font-weight: 400;
+  @media (max-width: 440px) {
+    font-size: 12px;
+  }
+}
