@@ -40,6 +40,9 @@
   font-family: roboto mono;
   color: white;
   border: none;
+  &:disabled {
+    background-color: gray;
+  }
 }
 
 .authError {

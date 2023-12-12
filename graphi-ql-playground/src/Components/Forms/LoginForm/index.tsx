@@ -33,10 +33,14 @@ const LoginForm: FC = () => {
     password,
   }) => {
     try {
+      setAuthError('');
       await logInWithEmailAndPassword(email, password);
     } catch (err) {
       const errorResponse = JSON.parse(JSON.stringify(err)) as FirebaseError;
-      setAuthError(errorResponse.code);
+
+      if (errorResponse.code === 'auth/invalid-credential') {
+        setAuthError(dictionary.forms.errors.login);
+      }
     }
   };
 

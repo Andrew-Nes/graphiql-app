@@ -21,6 +21,10 @@
       "options": {
         "login": "Already have an account?",
         "register": "Don’t have an account?"
+      },
+      "errors": {
+        "login": "This account doesn’t exist. Please, try another email or password.",
+        "register": "A user with this email is already registered!"
       }
     },
     "header": {
@@ -73,6 +77,10 @@
       "options": {
         "login": "Уже зарегистрированы?",
         "register": "Еще не зарегистрировались?"
+      },
+      "errors": {
+        "login": "Такого аккаунта не существует. Пожалуйста, попробуйте другую почту или пароль! ",
+        "register": "Пользователь с такой почтой уже зарегестрирован!"
       }
     },
     "header": {

@@ -24,6 +24,10 @@ interface ITranslations {
       login: string;
       register: string;
     };
+    errors: {
+      login: string;
+      register: string;
+    };
   };
   header: {
     menu: string;

@@ -1,6 +1,8 @@
 import { useEffect, useState, ChangeEvent, FC } from 'react';
 import Link from 'next/link';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
+import { auth, logout } from '@/services/auth/firebase';
 import { routes } from '@/services/routes';
 import { LANGS } from '@/constants';
 import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
@@ -11,15 +13,19 @@ import { Button } from '../Button';
 import classnames from 'classnames';
 import styles from './header.module.scss';
 
-const IS_AUTH = false;
-
 const Header: FC = () => {
   const [isScroll, setIsScroll] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [user] = useAuthState(auth);
 
   const { changeLanguage, language } = useLanguage();
 
   const dictionary = useTranslations();
+
+  const logoutHandle = () => {
+    logout();
+    closeMenu();
+  };
 
   function handleResize(): void {
     if (window.innerWidth > 480) {
@@ -88,7 +94,7 @@ const Header: FC = () => {
         />
 
         <div className={styles.menu}>
-          {IS_AUTH && (
+          {user && (
             <ul className={styles.menu__links}>
               <li>
                 <Link
@@ -100,14 +106,14 @@ const Header: FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="" className={styles.link} onClick={closeMenu}>
+                <Link href="" className={styles.link} onClick={logoutHandle}>
                   {dictionary.header.logout}
                 </Link>
               </li>
             </ul>
           )}
 
-          {!IS_AUTH && (
+          {user && (
             <ul className={styles.menu__links}>
               <li>
                 <Link
