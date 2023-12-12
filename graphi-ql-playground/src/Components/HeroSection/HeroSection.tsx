@@ -1,12 +1,10 @@
 import { FC } from 'react';
-import Link from 'next/link';
 
-import { routes } from '@/services/routes';
 import useTranslations from '@/utils/translation';
 
-import styles from './heroSection.module.scss';
+import HeroSectionLink from '@/Components/HeroSection/HeroSectionLink';
 
-const IS_AUTH = false;
+import styles from './heroSection.module.scss';
 
 const HeroSection: FC = () => {
   const dictionary = useTranslations();
@@ -26,18 +24,7 @@ const HeroSection: FC = () => {
           <div className={styles.hero__info}>
             <div className={styles.hero__info_text}>
               <p>{dictionary.landing.intro}</p>
-              {IS_AUTH ? (
-                <Link
-                  href={routes.PRODUCT}
-                  className={styles.hero__info_button}
-                >
-                  {dictionary.landing.playground}
-                </Link>
-              ) : (
-                <Link href={routes.LOGIN} className={styles.hero__info_button}>
-                  {dictionary.landing.login}
-                </Link>
-              )}
+              <HeroSectionLink />
             </div>
             <div className={styles.hero__info_image}></div>
           </div>
