@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
 
 import { routes } from '@/services/routes';
@@ -8,7 +8,7 @@ import styles from './heroSection.module.scss';
 
 const IS_AUTH = false;
 
-const HeroSection: React.FC = () => {
+const HeroSection: FC = () => {
   const dictionary = useTranslations();
 
   return (

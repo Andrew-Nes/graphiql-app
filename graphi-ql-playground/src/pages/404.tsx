@@ -1,11 +1,11 @@
-import React from 'react';
+import { FC } from 'react';
 import { useRouter } from 'next/router';
 
 import { routes } from '@/services/routes';
 
 import styles from '@/styles/NotFounnd.module.scss';
 
-const NotFound: React.FC = () => {
+const NotFound: FC = () => {
   const router = useRouter();
 
   return (
