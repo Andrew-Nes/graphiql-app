@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import { FC } from 'react';
 
-import { routes } from '../services/routes';
-
+import { routes } from '@/services/routes';
 import RegisterForm from '@/Components/Forms/RegisterForm';
 import useTranslations from '@/utils/translation';
 
