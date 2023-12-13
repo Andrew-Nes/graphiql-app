@@ -1,9 +1,9 @@
 export const firebaseConfig = {
-  apiKey: 'AIzaSyCx23ux3AtX7zfe4VeLz8Ngek6nL1XKbX4',
-  authDomain: 'test-auth-edad6.firebaseapp.com',
-  projectId: 'test-auth-edad6',
-  storageBucket: 'test-auth-edad6.appspot.com',
-  messagingSenderId: '298464655836',
-  appId: '1:298464655836:web:4a5f7f66b4f54a77b2f719',
-  measurementId: 'G-SD22445TWL',
+  apiKey: process.env.NEXT_PUBLIC_AUTH_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_AUTH_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_AUTH_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_AUTH_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_AUTH_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 };
