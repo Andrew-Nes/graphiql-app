@@ -1,10 +1,10 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useRouter } from 'next/router';
+import { FirebaseError } from 'firebase/app';
 
+import { logInWithEmailAndPassword } from '@/services/auth/firebase';
 import { LoginFormType, loginSchema } from '@/utils/loginValidate';
-import { routes } from '@/services/routes';
 import useTranslations from '@/utils/translation';
 import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
 import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
@@ -15,9 +15,8 @@ import styles from './LoginForm.module.scss';
 
 const LoginForm: FC = () => {
   const { language } = useLanguage();
-  const router = useRouter();
   const dictionary = useTranslations();
-
+  const [authError, setAuthError] = useState<string>('');
   const schema =
     language === 'en'
       ? loginSchema(ERROR_MESSAGES)
@@ -26,11 +25,25 @@ const LoginForm: FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid, isSubmitted },
+    formState: { errors, isValid },
   } = useForm({ mode: 'all', resolver: yupResolver(schema) });
 
-  const onSubmit: SubmitHandler<LoginFormType> = () => {
-    router.push(routes.PRODUCT);
+  const onSubmit: SubmitHandler<LoginFormType> = async ({
+    email,
+    password,
+  }) => {
+    try {
+      setAuthError('');
+      await logInWithEmailAndPassword(email, password);
+    } catch (err) {
+      const errorResponse = JSON.parse(JSON.stringify(err)) as FirebaseError;
+
+      if (errorResponse.code === 'auth/invalid-credential') {
+        setAuthError(dictionary.forms.errors.login);
+      } else {
+        setAuthError(dictionary.forms.errors.auth);
+      }
+    }
   };
 
   return (
@@ -57,13 +70,11 @@ const LoginForm: FC = () => {
         {...register('password')}
       />
 
-      <button
-        className={styles.submitButton}
-        type="submit"
-        disabled={!isValid || isSubmitted}
-      >
+      <button className={styles.submitButton} type="submit" disabled={!isValid}>
         {dictionary.forms.buttons.login}
       </button>
+
+      {authError && <p className={styles.authError}>{authError}</p>}
     </form>
   );
 };

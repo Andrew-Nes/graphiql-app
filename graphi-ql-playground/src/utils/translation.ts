@@ -15,6 +15,7 @@ interface ITranslations {
       name: string;
       email: string;
       pass: string;
+      confirmPassword: string;
     };
     buttons: {
       login: string;
@@ -23,6 +24,11 @@ interface ITranslations {
     options: {
       login: string;
       register: string;
+    };
+    errors: {
+      login: string;
+      register: string;
+      auth: string;
     };
   };
   header: {

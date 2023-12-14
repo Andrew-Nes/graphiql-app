@@ -1,15 +1,18 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import router from 'next/router';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
-import Layout from '@/Components/Layout/Layout';
+import { auth } from '@/services/auth/firebase';
+import { routes } from '@/services/routes';
 
 const PlaygroundPage: FC = () => {
-  return (
-    <Layout>
-      <main>
-        <h1>Playground Page</h1>
-      </main>
-    </Layout>
-  );
+  const [user] = useAuthState(auth);
+
+  useEffect(() => {
+    if (!user) router.push(routes.MAIN);
+  }, [user]);
+
+  return <h1>Playground Page</h1>;
 };
 
 export default PlaygroundPage;

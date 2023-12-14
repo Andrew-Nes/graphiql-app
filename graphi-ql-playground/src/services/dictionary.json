@@ -12,7 +12,8 @@
       "fields": {
         "name": "Name",
         "email": "E-Mail",
-        "pass": "Password"
+        "pass": "Password",
+        "confirmPassword": "Confirm password"
       },
       "buttons": {
         "login": "Log In",
@@ -21,6 +22,11 @@
       "options": {
         "login": "Already have an account?",
         "register": "Don’t have an account?"
+      },
+      "errors": {
+        "login": "This account doesn’t exist. Please, try another email or password.",
+        "register": "A user with this email is already registered!",
+        "auth": "Something went wrong. Please, try again."
       }
     },
     "header": {
@@ -64,7 +70,8 @@
       "fields": {
         "name": "Имя",
         "email": "Эл.Почта",
-        "pass": "Пароль"
+        "pass": "Пароль",
+        "confirmPassword": "Подтверждение пароля"
       },
       "buttons": {
         "login": "Войти",
@@ -73,6 +80,11 @@
       "options": {
         "login": "Уже зарегистрированы?",
         "register": "Еще не зарегистрировались?"
+      },
+      "errors": {
+        "login": "Такого аккаунта не существует. Пожалуйста, попробуйте другую почту или пароль! ",
+        "register": "Пользователь с такой почтой уже зарегестрирован!",
+        "auth": "Что-то пошло не так. Пожалуйста, повторите попытку позже."
       }
     },
     "header": {

@@ -40,4 +40,16 @@
   font-family: roboto mono;
   color: white;
   border: none;
+  &:disabled {
+    background-color: gray;
+  }
+}
+
+.authError {
+  color: #f41414;
+  font-size: 16px;
+  font-weight: 400;
+  @media (max-width: 440px) {
+    font-size: 12px;
+  }
 }

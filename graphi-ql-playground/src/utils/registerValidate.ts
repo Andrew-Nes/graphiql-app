@@ -26,6 +26,14 @@ const registerSchema = (errorMessages: ErrorMessages) => {
         errorMessages.PASSWORD_SPECIAL_CH_CONTAIN
       )
       .min(8, errorMessages.SHORT_PASSWORD),
+    confirmPassword: yup
+      .string()
+      .required(errorMessages.REQUIRED_CONFIRM_PASS)
+      .test(
+        'is confirm password match',
+        errorMessages.MATCH_CONFIRM_PASS,
+        (value, context) => context.parent.password === value
+      ),
   });
   return schema;
 };
