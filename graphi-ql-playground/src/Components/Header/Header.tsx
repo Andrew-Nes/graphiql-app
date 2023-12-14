@@ -22,7 +22,7 @@ const Header: FC = () => {
 
   const dictionary = useTranslations();
 
-  const logoutHandle = () => {
+  const handleLogout = () => {
     logout();
     closeMenu();
   };
@@ -106,7 +106,7 @@ const Header: FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="" className={styles.link} onClick={logoutHandle}>
+                <Link href="" className={styles.link} onClick={handleLogout}>
                   {dictionary.header.logout}
                 </Link>
               </li>
