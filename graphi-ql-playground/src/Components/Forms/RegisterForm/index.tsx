@@ -53,8 +53,11 @@ const RegisterForm: FC = () => {
       await registerWithEmailAndPassword(name, email, password);
     } catch (err) {
       const errorResponse = JSON.parse(JSON.stringify(err)) as FirebaseError;
-      if (errorResponse.code === 'auth/email-already-in-use')
+      if (errorResponse.code === 'auth/email-already-in-use') {
         setAuthError(dictionary.forms.errors.register);
+      } else {
+        setAuthError(dictionary.forms.errors.auth);
+      }
     }
   };
 

@@ -40,6 +40,8 @@ const LoginForm: FC = () => {
 
       if (errorResponse.code === 'auth/invalid-credential') {
         setAuthError(dictionary.forms.errors.login);
+      } else {
+        setAuthError(dictionary.forms.errors.auth);
       }
     }
   };

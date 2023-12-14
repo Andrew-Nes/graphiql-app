@@ -28,6 +28,7 @@ interface ITranslations {
     errors: {
       login: string;
       register: string;
+      auth: string;
     };
   };
   header: {

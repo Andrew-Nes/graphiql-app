@@ -25,7 +25,8 @@
       },
       "errors": {
         "login": "This account doesn’t exist. Please, try another email or password.",
-        "register": "A user with this email is already registered!"
+        "register": "A user with this email is already registered!",
+        "auth": "Something went wrong. Please, try again."
       }
     },
     "header": {
@@ -82,7 +83,8 @@
       },
       "errors": {
         "login": "Такого аккаунта не существует. Пожалуйста, попробуйте другую почту или пароль! ",
-        "register": "Пользователь с такой почтой уже зарегестрирован!"
+        "register": "Пользователь с такой почтой уже зарегестрирован!",
+        "auth": "Что-то пошло не так. Пожалуйста, повторите попытку позже."
       }
     },
     "header": {
