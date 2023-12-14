@@ -9,6 +9,8 @@ export const ERROR_MESSAGES = {
   PASSWORD_SPECIAL_CH_CONTAIN:
     'Password must contain at least 1 special charter!',
   SHORT_PASSWORD: 'Password must contain minimum 8 symbols!',
+  MATCH_CONFIRM_PASS: 'Confirm password should match with password!',
+  REQUIRED_CONFIRM_PASS: 'Confirm password is a required field!',
 };
 
 export const ERROR_MESSAGES_RU = {
@@ -23,6 +25,8 @@ export const ERROR_MESSAGES_RU = {
   PASSWORD_SPECIAL_CH_CONTAIN:
     'Пароль должен содержать минимум один спец-символ!',
   SHORT_PASSWORD: 'Пароль должен быть не короче восьми знаков!',
+  MATCH_CONFIRM_PASS: 'Подтверждение пароля должно совпадать с паролем!',
+  REQUIRED_CONFIRM_PASS: 'Подтверждение пароля - обязательное поле!',
 };
 
 export type ErrorMessages = typeof ERROR_MESSAGES;

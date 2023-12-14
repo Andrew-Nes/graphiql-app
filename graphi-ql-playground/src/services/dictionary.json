@@ -12,7 +12,8 @@
       "fields": {
         "name": "Name",
         "email": "E-Mail",
-        "pass": "Password"
+        "pass": "Password",
+        "confirmPassword": "Confirm password"
       },
       "buttons": {
         "login": "Log In",
@@ -68,7 +69,8 @@
       "fields": {
         "name": "Имя",
         "email": "Эл.Почта",
-        "pass": "Пароль"
+        "pass": "Пароль",
+        "confirmPassword": "Подтверждение пароля"
       },
       "buttons": {
         "login": "Войти",

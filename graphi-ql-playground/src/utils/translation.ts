@@ -15,6 +15,7 @@ interface ITranslations {
       name: string;
       email: string;
       pass: string;
+      confirmPassword: string;
     };
     buttons: {
       login: string;

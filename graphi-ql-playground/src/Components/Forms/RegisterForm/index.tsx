@@ -101,6 +101,14 @@ const RegisterForm: FC = () => {
         scoreWords={[]}
         shortScoreWord={''}
       />
+
+      <StyledInput
+        inputError={errors.confirmPassword}
+        inputName="confirmPassword"
+        type="password"
+        placeholder={dictionary.forms.fields.confirmPassword}
+        {...register('confirmPassword')}
+      />
       <button className={styles.submitButton} type="submit" disabled={!isValid}>
         {dictionary.forms.buttons.register}
       </button>
