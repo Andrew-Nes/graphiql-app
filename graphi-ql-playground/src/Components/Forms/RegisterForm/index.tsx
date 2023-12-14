@@ -15,8 +15,8 @@ import StyledInput from '@/Components/StyledInput';
 import styles from './RegisterForm.module.scss';
 
 const RegisterForm: FC = () => {
-  const [password, setPassword] = useState<string>();
-  const [authError, setAuthError] = useState<string>();
+  const [password, setPassword] = useState<string>('');
+  const [authError, setAuthError] = useState<string>('');
 
   const { language } = useLanguage();
   const dictionary = useTranslations();
@@ -38,7 +38,7 @@ const RegisterForm: FC = () => {
 
   useEffect(() => {
     const subscription = watch((value) => {
-      setPassword(value.password);
+      setPassword(value.password || '');
     });
     return () => subscription.unsubscribe();
   }, [watch]);

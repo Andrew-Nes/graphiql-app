@@ -16,7 +16,7 @@ import styles from './LoginForm.module.scss';
 const LoginForm: FC = () => {
   const { language } = useLanguage();
   const dictionary = useTranslations();
-  const [authError, setAuthError] = useState<string>();
+  const [authError, setAuthError] = useState<string>('');
   const schema =
     language === 'en'
       ? loginSchema(ERROR_MESSAGES)
