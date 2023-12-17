@@ -4,7 +4,9 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 
 import { LanguageProvider } from '@/Components/LanguageContext/LanguageContext';
-import RegisterForm from '@/Components/Forms/RegisterForm';
+import RegisterPage from '@/pages/register';
+
+const mock_authState = [null, false, null];
 
 const invalidValue = {
   NAME: '1t',
@@ -25,11 +27,15 @@ jest.mock('@/services/auth/firebase', () => ({
   },
 }));
 
-describe('Register Form tests', () => {
-  it('Render form', () => {
+jest.mock('react-firebase-hooks/auth', () => ({
+  useAuthState: jest.fn(() => mock_authState),
+}));
+
+describe('Register page tests', () => {
+  it('Render page', () => {
     render(
       <LanguageProvider>
-        <RegisterForm />
+        <RegisterPage />
       </LanguageProvider>
     );
 
@@ -46,12 +52,14 @@ describe('Register Form tests', () => {
     expect(
       screen.getByRole('button', { name: /Create Account/i })
     ).toBeInTheDocument();
+
+    expect(screen.getByRole('link', { name: 'Log In' })).toBeInTheDocument();
   });
 
   it('Validation fields', async () => {
     render(
       <LanguageProvider>
-        <RegisterForm />
+        <RegisterPage />
       </LanguageProvider>
     );
     const nameInput = screen.getByPlaceholderText('Name');
@@ -79,7 +87,7 @@ describe('Register Form tests', () => {
   it('Enable submit button', async () => {
     render(
       <LanguageProvider>
-        <RegisterForm />
+        <RegisterPage />
       </LanguageProvider>
     );
     const nameInput = screen.getByPlaceholderText('Name');

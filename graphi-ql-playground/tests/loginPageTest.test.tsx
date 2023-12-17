@@ -4,7 +4,9 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 
 import { LanguageProvider } from '@/Components/LanguageContext/LanguageContext';
-import LoginForm from '@/Components/Forms/LoginForm';
+import LoginPage from '@/pages/login';
+
+const mock_authState = [null, false, null];
 
 const invalidValue = {
   EMAIL: 'bad..email@',
@@ -21,11 +23,15 @@ jest.mock('@/services/auth/firebase', () => ({
   },
 }));
 
-describe('Login Form tests', () => {
-  it('Render form', () => {
+jest.mock('react-firebase-hooks/auth', () => ({
+  useAuthState: jest.fn(() => mock_authState),
+}));
+
+describe('Login page tests', () => {
+  it('Render page', () => {
     render(
       <LanguageProvider>
-        <LoginForm />
+        <LoginPage />
       </LanguageProvider>
     );
     expect(screen.getByText(/Log In 👋/i)).toBeInTheDocument();
@@ -35,11 +41,14 @@ describe('Login Form tests', () => {
     expect(screen.getByPlaceholderText(/E-Mail/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/Password/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Log In/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'Create Account' })
+    ).toBeInTheDocument();
   });
   it('Validation fields', async () => {
     render(
       <LanguageProvider>
-        <LoginForm />
+        <LoginPage />
       </LanguageProvider>
     );
     const emailInput = screen.getByPlaceholderText('E-Mail');
@@ -55,7 +64,7 @@ describe('Login Form tests', () => {
   it('Enable submit button', async () => {
     render(
       <LanguageProvider>
-        <LoginForm />
+        <LoginPage />
       </LanguageProvider>
     );
     const emailInput = screen.getByPlaceholderText('E-Mail');
