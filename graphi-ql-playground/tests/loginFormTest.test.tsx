@@ -8,7 +8,7 @@ import LoginForm from '@/Components/Forms/LoginForm';
 
 const invalidValue = {
   EMAIL: 'bad..email@',
-  PASSWORD: 'pass1@',
+  PASSWORD: 'pass',
 };
 const validValue = {
   EMAIL: 'test@email.com',
@@ -46,10 +46,10 @@ describe('Login Form tests', () => {
     const passInput = screen.getByPlaceholderText('Password');
     await userEvent.type(emailInput, invalidValue.EMAIL);
     await userEvent.type(passInput, invalidValue.PASSWORD);
-    screen.debug();
+
     expect(screen.getByText(/Not valid Email!/i)).toBeInTheDocument();
     expect(
-      screen.getByText(/Password must contain minimum 8 symbols!/i)
+      screen.getByText(/Password must contain at least 1 digit!/i)
     ).toBeInTheDocument();
   });
   it('Enable submit button', async () => {

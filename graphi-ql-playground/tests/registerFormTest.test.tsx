@@ -32,7 +32,7 @@ describe('Register Form tests', () => {
         <RegisterForm />
       </LanguageProvider>
     );
-    screen.debug();
+
     expect(screen.getByText(/Registration 🤓/i)).toBeInTheDocument();
 
     expect(
@@ -90,7 +90,7 @@ describe('Register Form tests', () => {
     await userEvent.type(emailInput, validValue.EMAIL);
     await userEvent.type(passInput, validValue.PASSWORD);
     await userEvent.type(confirmPassInput, validValue.CONFIRM_PASS);
-    screen.debug();
+
     expect(
       screen.getByRole('button', { name: /Create Account/i })
     ).not.toBeDisabled();
