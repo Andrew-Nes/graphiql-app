@@ -3,23 +3,19 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 
+import {
+  fieldsPlaceholder,
+  buttonsName,
+  invalidValue,
+  validValue,
+  textsValues,
+} from '@/constants/testConstants';
+import { ERROR_MESSAGES } from '@/constants/errorMessages';
+
 import { LanguageProvider } from '@/Components/LanguageContext/LanguageContext';
 import RegisterPage from '@/pages/register';
 
 const mock_authState = [null, false, null];
-
-const invalidValue = {
-  NAME: '1t',
-  EMAIL: 'bad..email@',
-  PASSWORD: 'pass1@',
-  CONFIRM_PASS: 'not',
-};
-const validValue = {
-  NAME: 'Test',
-  EMAIL: 'test@email.com',
-  PASSWORD: '12345qQ!',
-  CONFIRM_PASS: '12345qQ!',
-};
 
 jest.mock('@/services/auth/firebase', () => ({
   auth: {
@@ -39,21 +35,32 @@ describe('Register page tests', () => {
       </LanguageProvider>
     );
 
-    expect(screen.getByText(/Registration 🤓/i)).toBeInTheDocument();
+    expect(screen.getByText(textsValues.REGISTER_HEADING)).toBeInTheDocument();
+    expect(screen.getByText(textsValues.REGISTER_INTRO)).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText(fieldsPlaceholder.NAME)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText(fieldsPlaceholder.EMAIL)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText(fieldsPlaceholder.PASSWORD)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText(fieldsPlaceholder.CONFIRM_PASS)
+    ).toBeInTheDocument();
 
     expect(
-      screen.getByText(/Please, create account to use GraphiQL Playground./i)
+      screen.getByRole('button', {
+        name: buttonsName.REGISTER,
+      })
     ).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/Name/i)).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/E-Mail/i)).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Password')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Confirm password')).toBeInTheDocument();
 
     expect(
-      screen.getByRole('button', { name: /Create Account/i })
+      screen.getByRole('link', {
+        name: buttonsName.LOGIN,
+      })
     ).toBeInTheDocument();
-
-    expect(screen.getByRole('link', { name: 'Log In' })).toBeInTheDocument();
   });
 
   it('Validation fields', async () => {
@@ -62,25 +69,30 @@ describe('Register page tests', () => {
         <RegisterPage />
       </LanguageProvider>
     );
-    const nameInput = screen.getByPlaceholderText('Name');
-    const emailInput = screen.getByPlaceholderText('E-Mail');
-    const passInput = screen.getByPlaceholderText('Password');
-    const confirmPassInput = screen.getByPlaceholderText('Confirm password');
+
+    const nameInput = screen.getByPlaceholderText(fieldsPlaceholder.NAME);
+    const emailInput = screen.getByPlaceholderText(fieldsPlaceholder.EMAIL);
+    const passInput = screen.getByPlaceholderText(fieldsPlaceholder.PASSWORD);
+    const confirmPassInput = screen.getByPlaceholderText(
+      fieldsPlaceholder.CONFIRM_PASS
+    );
+
     await userEvent.type(nameInput, invalidValue.NAME);
     await userEvent.type(emailInput, invalidValue.EMAIL);
     await userEvent.type(passInput, invalidValue.PASSWORD);
     await userEvent.type(confirmPassInput, invalidValue.CONFIRM_PASS);
 
     expect(
-      screen.getByText(/Name must contain at least 2 letters/i)
-    ).toBeInTheDocument();
-
-    expect(screen.getByText(/Not valid Email!/i)).toBeInTheDocument();
-    expect(
-      screen.getByText(/Password must contain minimum 8 symbols!/i)
+      screen.getByText(new RegExp(ERROR_MESSAGES.SHORT_NAME, 'i'))
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/Confirm password should match with password!/i)
+      screen.getByText(new RegExp(ERROR_MESSAGES.INVALID_EMAIL, 'i'))
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(new RegExp(ERROR_MESSAGES.SHORT_PASSWORD, 'i'))
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(new RegExp(ERROR_MESSAGES.MATCH_CONFIRM_PASS, 'i'))
     ).toBeInTheDocument();
   });
 
@@ -90,17 +102,21 @@ describe('Register page tests', () => {
         <RegisterPage />
       </LanguageProvider>
     );
-    const nameInput = screen.getByPlaceholderText('Name');
-    const emailInput = screen.getByPlaceholderText('E-Mail');
-    const passInput = screen.getByPlaceholderText('Password');
-    const confirmPassInput = screen.getByPlaceholderText('Confirm password');
+
+    const nameInput = screen.getByPlaceholderText(fieldsPlaceholder.NAME);
+    const emailInput = screen.getByPlaceholderText(fieldsPlaceholder.EMAIL);
+    const passInput = screen.getByPlaceholderText(fieldsPlaceholder.PASSWORD);
+    const confirmPassInput = screen.getByPlaceholderText(
+      fieldsPlaceholder.CONFIRM_PASS
+    );
+
     await userEvent.type(nameInput, validValue.NAME);
     await userEvent.type(emailInput, validValue.EMAIL);
     await userEvent.type(passInput, validValue.PASSWORD);
     await userEvent.type(confirmPassInput, validValue.CONFIRM_PASS);
 
     expect(
-      screen.getByRole('button', { name: /Create Account/i })
+      screen.getByRole('button', { name: buttonsName.REGISTER })
     ).not.toBeDisabled();
   });
 });

@@ -3,19 +3,19 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 
+import { ERROR_MESSAGES } from '@/constants/errorMessages';
+import {
+  buttonsName,
+  fieldsPlaceholder,
+  invalidValue,
+  textsValues,
+  validValue,
+} from '@/constants/testConstants';
+
 import { LanguageProvider } from '@/Components/LanguageContext/LanguageContext';
 import LoginPage from '@/pages/login';
 
 const mock_authState = [null, false, null];
-
-const invalidValue = {
-  EMAIL: 'bad..email@',
-  PASSWORD: 'pass',
-};
-const validValue = {
-  EMAIL: 'test@email.com',
-  PASSWORD: '12345qQ!',
-};
 
 jest.mock('@/services/auth/firebase', () => ({
   auth: {
@@ -34,43 +34,60 @@ describe('Login page tests', () => {
         <LoginPage />
       </LanguageProvider>
     );
-    expect(screen.getByText(/Log In 👋/i)).toBeInTheDocument();
+
     expect(
-      screen.getByText(/Please, log in to use GraphiQL Playground./i)
+      screen.getAllByText(textsValues.LOGIN_HEADING)[0]
     ).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/E-Mail/i)).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/Password/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Log In/i })).toBeInTheDocument();
+    expect(screen.getByText(textsValues.LOGIN_INTRO)).toBeInTheDocument();
     expect(
-      screen.getByRole('link', { name: 'Create Account' })
+      screen.getByPlaceholderText(fieldsPlaceholder.EMAIL)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText(fieldsPlaceholder.PASSWORD)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: buttonsName.LOGIN })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: buttonsName.REGISTER })
     ).toBeInTheDocument();
   });
+
   it('Validation fields', async () => {
     render(
       <LanguageProvider>
         <LoginPage />
       </LanguageProvider>
     );
-    const emailInput = screen.getByPlaceholderText('E-Mail');
-    const passInput = screen.getByPlaceholderText('Password');
+    const emailInput = screen.getByPlaceholderText(fieldsPlaceholder.EMAIL);
+    const passInput = screen.getByPlaceholderText(fieldsPlaceholder.PASSWORD);
+
     await userEvent.type(emailInput, invalidValue.EMAIL);
     await userEvent.type(passInput, invalidValue.PASSWORD);
 
-    expect(screen.getByText(/Not valid Email!/i)).toBeInTheDocument();
     expect(
-      screen.getByText(/Password must contain at least 1 digit!/i)
+      screen.getByText(new RegExp(ERROR_MESSAGES.INVALID_EMAIL, 'i'))
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(new RegExp(ERROR_MESSAGES.SHORT_PASSWORD, 'i'))
     ).toBeInTheDocument();
   });
+
   it('Enable submit button', async () => {
     render(
       <LanguageProvider>
         <LoginPage />
       </LanguageProvider>
     );
-    const emailInput = screen.getByPlaceholderText('E-Mail');
-    const passInput = screen.getByPlaceholderText('Password');
+
+    const emailInput = screen.getByPlaceholderText(fieldsPlaceholder.EMAIL);
+    const passInput = screen.getByPlaceholderText(fieldsPlaceholder.PASSWORD);
+
     await userEvent.type(emailInput, validValue.EMAIL);
     await userEvent.type(passInput, validValue.PASSWORD);
-    expect(screen.getByRole('button', { name: /Log In/i })).not.toBeDisabled();
+
+    expect(
+      screen.getByRole('button', { name: buttonsName.LOGIN })
+    ).not.toBeDisabled();
   });
 });
