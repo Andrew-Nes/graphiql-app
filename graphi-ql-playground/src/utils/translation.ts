@@ -58,6 +58,10 @@ interface ITranslations {
     course: string;
     copyright: string;
   };
+  notFound: {
+    text: string;
+    button: string;
+  };
 }
 
 interface IDictionary {
