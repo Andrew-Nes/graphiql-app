@@ -10,7 +10,7 @@ import useTranslations from '@/utils/translation';
 
 import Button from '../Button';
 
-import classnames from 'classnames';
+import clsx from 'clsx';
 import styles from './Header.module.scss';
 
 const Header: FC = () => {
@@ -71,7 +71,7 @@ const Header: FC = () => {
 
   return (
     <header
-      className={classnames(
+      className={clsx(
         styles.header,
         isScroll && styles.scroll,
         menuOpen && styles.menu__open

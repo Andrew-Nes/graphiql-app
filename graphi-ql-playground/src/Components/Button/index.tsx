@@ -1,6 +1,6 @@
 import { FC, MouseEvent } from 'react';
 
-import classnames from 'classnames';
+import clsx from 'clsx';
 import styles from './button.module.scss';
 
 interface ButtonProps {
@@ -21,7 +21,7 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       type={type}
-      className={classnames(styles.button, className || '')}
+      className={clsx(styles.button, className || '')}
       onClick={(event): void => onClick(event)}
       disabled={disabled}
     >
