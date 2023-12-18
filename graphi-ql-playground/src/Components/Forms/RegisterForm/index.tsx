@@ -5,9 +5,9 @@ import { FirebaseError } from 'firebase/app';
 import PasswordStrengthBar from 'react-password-strength-bar';
 
 import { registerWithEmailAndPassword } from '@/services/auth/firebase';
-import { RegisterFormType, registerSchema } from '@/utils/registerValidate';
-import { useTranslations } from '@/utils/translation';
-import { useLanguage } from '@/Components/LanguageContext';
+import { RegisterFormType, registerSchema } from '@/utils/registerSchema';
+import { useTranslations } from '@/utils/useTranslations';
+import { useLanguage } from '@/context/languageContext';
 import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
 
 import { Button } from '@/Components/Button';

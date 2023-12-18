@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useRouter } from 'next/router';
 
-import { routes } from '@/services/routes';
-import { useTranslations } from '@/utils/translation';
+import { routes } from '@/types';
+import { useTranslations } from '@/utils/useTranslations';
 
 import { Button } from '@/Components/Button';
 

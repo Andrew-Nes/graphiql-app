@@ -1,10 +1,10 @@
 import dictionary from '@/services/dictionary.json';
 
 export const textsValues = {
-  REGISTER_HEADING: new RegExp(dictionary.en.forms.headings.register, 'i'),
-  REGISTER_INTRO: new RegExp(dictionary.en.forms.intro.register, 'i'),
-  LOGIN_HEADING: new RegExp(dictionary.en.forms.headings.login, 'i'),
-  LOGIN_INTRO: new RegExp(dictionary.en.forms.intro.login, 'i'),
+  REGISTER_HEADING: new RegExp(dictionary.en.forms.title.register, 'i'),
+  REGISTER_INTRO: new RegExp(dictionary.en.forms.subtitle.register, 'i'),
+  LOGIN_HEADING: new RegExp(dictionary.en.forms.title.login, 'i'),
+  LOGIN_INTRO: new RegExp(dictionary.en.forms.subtitle.login, 'i'),
 };
 
 export const fieldsPlaceholder = {

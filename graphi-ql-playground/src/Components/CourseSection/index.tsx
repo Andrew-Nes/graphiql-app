@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import Image from 'next/image';
 
+import { useTranslations } from '@/utils/useTranslations';
 import { LINK_COURSE } from '@/constants';
-import { useTranslations } from '@/utils/translation';
 
 import styles from './CourseSection.module.scss';
 

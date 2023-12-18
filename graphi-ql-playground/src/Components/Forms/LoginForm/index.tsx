@@ -4,9 +4,9 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { FirebaseError } from 'firebase/app';
 
 import { logInWithEmailAndPassword } from '@/services/auth/firebase';
-import { LoginFormType, loginSchema } from '@/utils/loginValidate';
-import { useTranslations } from '@/utils/translation';
-import { useLanguage } from '@/Components/LanguageContext';
+import { LoginFormType, loginSchema } from '@/utils/loginSchema';
+import { useTranslations } from '@/utils/useTranslations';
+import { useLanguage } from '@/context/languageContext';
 import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
 
 import { Button } from '@/Components/Button';

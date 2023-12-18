@@ -3,7 +3,7 @@ import router from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { auth } from '@/services/auth/firebase';
-import { routes } from '@/services/routes';
+import { routes } from '@/types';
 
 const PlaygroundPage: FC = () => {
   const [user] = useAuthState(auth);

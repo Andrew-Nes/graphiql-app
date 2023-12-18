@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import Image from 'next/image';
 
-import { useLanguage } from '@/Components/LanguageContext';
-import { useTranslations } from '@/utils/translation';
+import { useLanguage } from '@/context/languageContext';
+import { useTranslations } from '@/utils/useTranslations';
 import { TEAM, LINK_SCHOOL, LINK_COURSE } from '@/constants';
 
 import styles from './Footer.module.scss';

@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 
 import { ErrorBoundary } from '@/Components/ErrorBoundary';
-import { LanguageProvider } from '@/Components/LanguageContext';
+import { LanguageProvider } from '@/context/languageContext';
 import { Layout } from '@/Components/Layout';
 
 import '@/styles/globals.scss';

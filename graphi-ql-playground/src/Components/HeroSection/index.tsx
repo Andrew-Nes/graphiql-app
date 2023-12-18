@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { auth } from '@/services/auth/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-import { routes } from '@/services/routes';
-import { useTranslations } from '@/utils/translation';
+import { routes } from '@/types';
+import { useTranslations } from '@/utils/useTranslations';
 
 import styles from './HeroSection.module.scss';
 

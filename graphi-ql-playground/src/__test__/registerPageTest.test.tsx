@@ -3,17 +3,18 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 
-import { ERROR_MESSAGES } from '@/constants/errorMessages';
 import {
-  buttonsName,
   fieldsPlaceholder,
+  buttonsName,
   invalidValue,
-  textsValues,
   validValue,
-} from '@/constants/testConstants';
+  textsValues,
+} from '@/__mocks__/constants';
 
-import { LanguageProvider } from '@/Components/LanguageContext';
-import LoginPage from '@/pages/login';
+import { ERROR_MESSAGES } from '@/constants/errorMessages';
+import { LanguageProvider } from '@/context/languageContext';
+
+import RegisterPage from '@/pages/register';
 
 const mock_authState = [null, false, null];
 
@@ -27,18 +28,19 @@ jest.mock('react-firebase-hooks/auth', () => ({
   useAuthState: jest.fn(() => mock_authState),
 }));
 
-describe('Login page tests', () => {
+describe('Register page tests', () => {
   it('Render page', () => {
     render(
       <LanguageProvider>
-        <LoginPage />
+        <RegisterPage />
       </LanguageProvider>
     );
 
+    expect(screen.getByText(textsValues.REGISTER_HEADING)).toBeInTheDocument();
+    expect(screen.getByText(textsValues.REGISTER_INTRO)).toBeInTheDocument();
     expect(
-      screen.getAllByText(textsValues.LOGIN_HEADING)[0]
+      screen.getByPlaceholderText(fieldsPlaceholder.NAME)
     ).toBeInTheDocument();
-    expect(screen.getByText(textsValues.LOGIN_INTRO)).toBeInTheDocument();
     expect(
       screen.getByPlaceholderText(fieldsPlaceholder.EMAIL)
     ).toBeInTheDocument();
@@ -46,48 +48,76 @@ describe('Login page tests', () => {
       screen.getByPlaceholderText(fieldsPlaceholder.PASSWORD)
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: buttonsName.LOGIN })
+      screen.getByPlaceholderText(fieldsPlaceholder.CONFIRM_PASS)
     ).toBeInTheDocument();
+
     expect(
-      screen.getByRole('link', { name: buttonsName.REGISTER })
+      screen.getByRole('button', {
+        name: buttonsName.REGISTER,
+      })
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByRole('link', {
+        name: buttonsName.LOGIN,
+      })
     ).toBeInTheDocument();
   });
 
   it('Validation fields', async () => {
     render(
       <LanguageProvider>
-        <LoginPage />
+        <RegisterPage />
       </LanguageProvider>
     );
+
+    const nameInput = screen.getByPlaceholderText(fieldsPlaceholder.NAME);
     const emailInput = screen.getByPlaceholderText(fieldsPlaceholder.EMAIL);
     const passInput = screen.getByPlaceholderText(fieldsPlaceholder.PASSWORD);
+    const confirmPassInput = screen.getByPlaceholderText(
+      fieldsPlaceholder.CONFIRM_PASS
+    );
 
+    await userEvent.type(nameInput, invalidValue.NAME);
     await userEvent.type(emailInput, invalidValue.EMAIL);
     await userEvent.type(passInput, invalidValue.PASSWORD);
+    await userEvent.type(confirmPassInput, invalidValue.CONFIRM_PASS);
 
+    expect(
+      screen.getByText(new RegExp(ERROR_MESSAGES.SHORT_NAME, 'i'))
+    ).toBeInTheDocument();
     expect(
       screen.getByText(new RegExp(ERROR_MESSAGES.INVALID_EMAIL, 'i'))
     ).toBeInTheDocument();
     expect(
       screen.getByText(new RegExp(ERROR_MESSAGES.SHORT_PASSWORD, 'i'))
     ).toBeInTheDocument();
+    expect(
+      screen.getByText(new RegExp(ERROR_MESSAGES.MATCH_CONFIRM_PASS, 'i'))
+    ).toBeInTheDocument();
   });
 
   it('Enable submit button', async () => {
     render(
       <LanguageProvider>
-        <LoginPage />
+        <RegisterPage />
       </LanguageProvider>
     );
 
+    const nameInput = screen.getByPlaceholderText(fieldsPlaceholder.NAME);
     const emailInput = screen.getByPlaceholderText(fieldsPlaceholder.EMAIL);
     const passInput = screen.getByPlaceholderText(fieldsPlaceholder.PASSWORD);
+    const confirmPassInput = screen.getByPlaceholderText(
+      fieldsPlaceholder.CONFIRM_PASS
+    );
 
+    await userEvent.type(nameInput, validValue.NAME);
     await userEvent.type(emailInput, validValue.EMAIL);
     await userEvent.type(passInput, validValue.PASSWORD);
+    await userEvent.type(confirmPassInput, validValue.CONFIRM_PASS);
 
     expect(
-      screen.getByRole('button', { name: buttonsName.LOGIN })
+      screen.getByRole('button', { name: buttonsName.REGISTER })
     ).not.toBeDisabled();
   });
 });

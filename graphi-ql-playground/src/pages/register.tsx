@@ -4,8 +4,8 @@ import router from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { auth } from '@/services/auth/firebase';
-import { routes } from '@/services/routes';
-import { useTranslations } from '@/utils/translation';
+import { routes } from '@/types';
+import { useTranslations } from '@/utils/useTranslations';
 
 import { RegisterForm } from '@/Components/Forms/RegisterForm';
 

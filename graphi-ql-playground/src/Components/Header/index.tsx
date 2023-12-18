@@ -1,16 +1,16 @@
 import { useEffect, useState, ChangeEvent, FC } from 'react';
 import Link from 'next/link';
+import clsx from 'clsx';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { auth, logout } from '@/services/auth/firebase';
-import { routes } from '@/services/routes';
-import { useLanguage } from '@/Components/LanguageContext';
-import { useTranslations } from '@/utils/translation';
+import { routes } from '@/types';
+import { useLanguage } from '@/context/languageContext';
+import { useTranslations } from '@/utils/useTranslations';
 import { LANGS } from '@/constants';
 
 import { Button } from '../Button';
 
-import clsx from 'clsx';
 import styles from './Header.module.scss';
 
 export const Header: FC = () => {

@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import router from 'next/router';
 
-import { routes } from '@/services/routes';
+import { routes } from '@/types';
 import { auth } from '@/services/auth/firebase';
-import { useTranslations } from '@/utils/translation';
+import { useTranslations } from '@/utils/useTranslations';
 
 import { LoginForm } from '@/Components/Forms/LoginForm';
 

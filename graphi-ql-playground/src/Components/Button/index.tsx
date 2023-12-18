@@ -1,6 +1,6 @@
 import { FC, MouseEvent } from 'react';
-
 import clsx from 'clsx';
+
 import styles from './Button.module.scss';
 
 interface ButtonProps {
