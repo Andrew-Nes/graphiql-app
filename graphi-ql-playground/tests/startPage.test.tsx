@@ -2,6 +2,9 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
+import * as dictionary from '../src/services/dictionary.json';
+import { TEAM } from '@/constants';
+
 import HeroSectionLink from '@/Components/HeroSection/HeroSection';
 import { LanguageProvider } from '@/Components/LanguageContext/LanguageContext';
 import HeroSection from '@/Components/HeroSection/HeroSection';
@@ -69,10 +72,8 @@ describe('Course section test', () => {
   });
 
   it('displays course information correctly', () => {
-    const description_1 =
-      'This course is perfect for students with experience in JavaScript, TypeScript, Git, GitHub, NPM, Webpack, CSS3, HTML5 and an understanding of interacting with APIs.';
-    const description_2 =
-      'The course runs for a total of 10 weeks, with 6 weeks dedicated to studying React and an additional 4 weeks for the final task implementation.';
+    const description_1 = dictionary.en.landing.course.description_1;
+    const description_2 = dictionary.en.landing.course.description_2;
     const { getByText } = render(
       <LanguageProvider>
         <CourseSection />
@@ -96,8 +97,7 @@ describe('Course section test', () => {
 
 describe('Team section test', () => {
   it('displays team information correctly', () => {
-    const description =
-      'The course runs for a total of 10 weeks, with 6 weeks dedicated to studying React and an additional 4 weeks for the final task implementation.';
+    const description = TEAM.en[0].description;
     const { getByText, getAllByText } = render(
       <LanguageProvider>
         <TeamSection />
@@ -107,7 +107,7 @@ describe('Team section test', () => {
     expect(getByText('Andrei Niasmachny')).toBeInTheDocument();
     expect(getByText('Mikita Razumau')).toBeInTheDocument();
     expect(getByText('Nastia Piven')).toBeInTheDocument();
-    expect(getAllByText(description).length).toEqual(3);
+    expect(getAllByText(description)[0]).toBeInTheDocument();
     expect(getAllByText('FRONTEND DEVELOPER').length).toEqual(3);
   });
 });

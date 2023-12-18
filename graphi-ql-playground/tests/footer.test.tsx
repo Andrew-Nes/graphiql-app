@@ -2,6 +2,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
+import * as dictionary from '../src/services/dictionary.json';
+
 import { LanguageProvider } from '@/Components/LanguageContext/LanguageContext';
 import { Footer } from '@/Components/Footer';
 
@@ -12,8 +14,10 @@ describe('Footer test', () => {
         <Footer />
       </LanguageProvider>
     );
-    expect(getByText('HI!👋👋👋')).toBeInTheDocument();
-    expect(getByText('Welcome the team:')).toBeInTheDocument();
+    expect(
+      getByText(`${dictionary.en.footer.greeting}👋👋👋`)
+    ).toBeInTheDocument();
+    expect(getByText(dictionary.en.footer.intro)).toBeInTheDocument();
   });
 
   it('renders team images', () => {
@@ -54,9 +58,9 @@ describe('Footer test', () => {
       </LanguageProvider>
     );
     expect(getByText('RS School')).toBeInTheDocument();
-    expect(getByText('React Course')).toBeInTheDocument();
+    expect(getByText(dictionary.en.footer.course)).toBeInTheDocument();
     expect(
-      getByText('© All rights are very much reserved')
+      getByText(`© ${dictionary.en.footer.copyright}`)
     ).toBeInTheDocument();
   });
 });
