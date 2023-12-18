@@ -1,12 +1,14 @@
+@import './variables.scss';
+
 .registerInfo {
   text-align: center;
   margin-top: 20px;
-  font-size: 16px;
+  font-size: $text-size;
   font-weight: 400;
-  color: #151515;
+  color: $black;
   margin-bottom: 85px;
 }
 
 .loginLink {
-  color: #0047ff;
+  color: $blue;
 }

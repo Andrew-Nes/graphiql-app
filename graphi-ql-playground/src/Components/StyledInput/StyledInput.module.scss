@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .labelOfInput {
   position: relative;
 }
@@ -5,29 +7,25 @@
 .input {
   width: 100%;
   padding: 20px;
-  font-size: 16px;
+  font-size: $text-size;
   font-weight: 400;
   margin: 12px auto;
 }
 
 .input::placeholder {
-  font-size: 16px;
+  font-size: $text-size;
   font-weight: 400;
-  color: #969696;
+  color: $placeholder-color;
 }
 
 .input:focus {
-  border-color: #0047ff;
-  outline: #0047ff;
+  border-color: $blue;
+  outline: $blue;
 }
 
 .errorText {
   position: absolute;
-
-  color: #f41414;
-  font-size: 16px;
+  font-size: $text-size;
   font-weight: 400;
-  @media (max-width: 440px) {
-    font-size: 12px;
-  }
+  color: $error-color;
 }
