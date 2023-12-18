@@ -9,6 +9,7 @@ import useTranslations from '@/utils/translation';
 import { useLanguage } from '@/Components/LanguageContext';
 import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
 
+import Button from '@/Components/Button';
 import StyledInput from '@/Components/StyledInput';
 
 import styles from './LoginForm.module.scss';
@@ -70,9 +71,12 @@ const LoginForm: FC = () => {
         {...register('password')}
       />
 
-      <button className={styles.submitButton} type="submit" disabled={!isValid}>
-        {dictionary.forms.buttons.login}
-      </button>
+      <Button
+        name={dictionary.forms.buttons.login}
+        type="submit"
+        className={styles.submitButton}
+        disabled={!isValid}
+      />
 
       {authError && <p className={styles.authError}>{authError}</p>}
     </form>

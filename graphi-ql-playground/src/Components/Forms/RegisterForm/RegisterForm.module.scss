@@ -37,17 +37,8 @@
 
 .submitButton {
   width: 100%;
-  padding: 17px;
-  background-color: $blue;
+  height: 6rem;
   font-size: $text-size-button;
-  font-weight: 500;
-  font-family: roboto mono;
-  color: $white;
-  border: none;
-
-  &:disabled {
-    opacity: 0.5;
-  }
 }
 
 .authError {

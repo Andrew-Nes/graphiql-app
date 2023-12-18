@@ -10,6 +10,7 @@ import useTranslations from '@/utils/translation';
 import { useLanguage } from '@/Components/LanguageContext';
 import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
 
+import Button from '@/Components/Button';
 import StyledInput from '@/Components/StyledInput';
 
 import styles from './RegisterForm.module.scss';
@@ -112,9 +113,13 @@ const RegisterForm: FC = () => {
         placeholder={dictionary.forms.fields.confirmPassword}
         {...register('confirmPassword')}
       />
-      <button className={styles.submitButton} type="submit" disabled={!isValid}>
-        {dictionary.forms.buttons.register}
-      </button>
+
+      <Button
+        name={dictionary.forms.buttons.register}
+        type="submit"
+        className={styles.submitButton}
+        disabled={!isValid}
+      />
 
       {authError && <p className={styles.authError}>{authError}</p>}
     </form>
