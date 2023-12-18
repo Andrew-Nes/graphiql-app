@@ -5,7 +5,7 @@ import { FirebaseError } from 'firebase/app';
 
 import { logInWithEmailAndPassword } from '@/services/auth/firebase';
 import { LoginFormType, loginSchema } from '@/utils/loginValidate';
-import useTranslations from '@/utils/translation';
+import { useTranslations } from '@/utils/translation';
 import { useLanguage } from '@/Components/LanguageContext';
 import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
 
@@ -48,37 +48,40 @@ export const LoginForm: FC = () => {
   };
 
   return (
-    <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)}>
-      <div className={styles.titleGroup}>
-        <h1 className={styles.formTitle}>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <div className={styles.form__header}>
+        <h1 className={styles.form__title}>
           {dictionary.forms.headings.login} 👋
         </h1>
-        <p className={styles.formInfo}>{dictionary.forms.intro.login}</p>
+        <p className={styles.form__subtitle}>{dictionary.forms.intro.login}</p>
       </div>
 
-      <StyledInput
-        inputError={errors.email}
-        type="email"
-        inputName="email"
-        placeholder={dictionary.forms.fields.email}
-        {...register('email')}
-      />
-      <StyledInput
-        inputError={errors.password}
-        type="password"
-        inputName="password"
-        placeholder={dictionary.forms.fields.pass}
-        {...register('password')}
-      />
+      <div className={styles.form__inputs}>
+        <StyledInput
+          inputError={errors.email}
+          type="email"
+          inputName="email"
+          placeholder={dictionary.forms.fields.email}
+          {...register('email')}
+        />
+
+        <StyledInput
+          inputError={errors.password}
+          type="password"
+          inputName="password"
+          placeholder={dictionary.forms.fields.pass}
+          {...register('password')}
+        />
+      </div>
 
       <Button
         name={dictionary.forms.buttons.login}
         type="submit"
-        className={styles.submitButton}
+        className={styles.form__button}
         disabled={!isValid}
       />
 
-      {authError && <p className={styles.authError}>{authError}</p>}
+      {authError && <span className={styles.form__error}>{authError}</span>}
     </form>
   );
 };

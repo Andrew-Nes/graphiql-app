@@ -27,7 +27,9 @@ export const StyledInput = forwardRef<HTMLInputElement, StyledInputProps>(
           {...inputProps}
         />
 
-        <span className={styles.field__error}>{inputError?.message}</span>
+        {inputError?.message && (
+          <span className={styles.field__error}>{inputError?.message}</span>
+        )}
       </label>
     );
   }

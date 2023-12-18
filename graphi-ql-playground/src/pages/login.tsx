@@ -5,7 +5,7 @@ import router from 'next/router';
 
 import { routes } from '@/services/routes';
 import { auth } from '@/services/auth/firebase';
-import useTranslations from '@/utils/translation';
+import { useTranslations } from '@/utils/translation';
 
 import { LoginForm } from '@/Components/Forms/LoginForm';
 
@@ -20,15 +20,16 @@ const LoginPage: FC = () => {
   }, [user]);
 
   return (
-    <>
+    <div className={styles.login}>
       <LoginForm />
-      <p className={styles.registerInfo}>
+
+      <p className={styles.login__footer}>
         {dictionary.forms.options.register}{' '}
-        <Link href={routes.REGISTER} className={styles.loginLink}>
+        <Link href={routes.REGISTER} className={styles.login__link}>
           {dictionary.forms.buttons.register}
         </Link>
       </p>
-    </>
+    </div>
   );
 };
 
