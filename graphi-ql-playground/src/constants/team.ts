@@ -35,7 +35,7 @@ export const TEAM = {
       position: 'Фронтэнд разработчик',
     },
     {
-      name: 'Разумов Никита',
+      name: 'Никита Разумов',
       image: '/images/Nikita.jpg',
       github: 'https://github.com/razumaumikita',
       description:

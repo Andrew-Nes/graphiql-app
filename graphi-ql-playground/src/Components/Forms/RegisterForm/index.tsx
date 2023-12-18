@@ -66,11 +66,11 @@ export const RegisterForm: FC = () => {
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className={styles.form__header}>
         <h1 className={styles.form__title}>
-          {dictionary.forms.headings.register} 🤓
+          {dictionary.forms.title.register} 🤓
         </h1>
 
         <p className={styles.form__subtitle}>
-          {dictionary.forms.intro.register}
+          {dictionary.forms.subtitle.register}
         </p>
       </div>
 

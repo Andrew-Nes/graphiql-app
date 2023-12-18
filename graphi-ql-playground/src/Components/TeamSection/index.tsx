@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { TEAM } from '@/constants';
 import { useLanguage } from '@/Components/LanguageContext';
-import useTranslations from '@/utils/translation';
+import { useTranslations } from '@/utils/translation';
 
 import styles from './TeamSection.module.scss';
 

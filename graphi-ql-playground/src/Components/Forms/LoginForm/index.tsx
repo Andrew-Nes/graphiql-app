@@ -51,9 +51,11 @@ export const LoginForm: FC = () => {
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.form__header}>
         <h1 className={styles.form__title}>
-          {dictionary.forms.headings.login} 👋
+          {dictionary.forms.title.login} 👋
         </h1>
-        <p className={styles.form__subtitle}>{dictionary.forms.intro.login}</p>
+        <p className={styles.form__subtitle}>
+          {dictionary.forms.subtitle.login}
+        </p>
       </div>
 
       <div className={styles.form__inputs}>

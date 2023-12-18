@@ -1,13 +1,15 @@
 import { FC } from 'react';
 import Image from 'next/image';
 
-import { LINK_COURSE, COURSE_DATA } from '@/constants';
-import useTranslations from '@/utils/translation';
+import { LINK_COURSE } from '@/constants';
+import { useTranslations } from '@/utils/translation';
 
 import styles from './CourseSection.module.scss';
 
 export const CourseSection: FC = () => {
   const dictionary = useTranslations();
+
+  console.log(dictionary.courseData);
 
   return (
     <section className={styles.course}>
@@ -40,13 +42,16 @@ export const CourseSection: FC = () => {
           </div>
         </div>
         <div className={styles.course__table}>
-          {COURSE_DATA.map((course, index) => (
-            <div className={styles.course__table_item} key={course.title}>
+          {dictionary.courseData.map((title, index) => (
+            <div className={styles.course__table_item} key={title}>
               <span>
                 {dictionary.landing.course.week} #{' '}
-                {index === COURSE_DATA.length - 1 ? '7—10' : index + 1}:
+                {index === dictionary.courseData.length - 1
+                  ? '7—10'
+                  : index + 1}
+                :
               </span>
-              <span>{course.title}</span>
+              <span>{title}</span>
             </div>
           ))}
         </div>
