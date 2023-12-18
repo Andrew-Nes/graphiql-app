@@ -17,16 +17,17 @@ export const StyledInput = forwardRef<HTMLInputElement, StyledInputProps>(
     ref
   ): ReactElement => {
     return (
-      <label className={styles.labelOfInput} htmlFor={inputName}>
+      <label className={styles.field} htmlFor={inputName}>
         <input
-          className={styles.input}
+          className={styles.field__input}
           ref={ref}
           type={type}
           id={inputName}
           placeholder={placeholder}
           {...inputProps}
         />
-        <p className={styles.errorText}>{inputError?.message}</p>
+
+        <span className={styles.field__error}>{inputError?.message}</span>
       </label>
     );
   }
