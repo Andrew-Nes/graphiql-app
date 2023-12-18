@@ -1,7 +1,7 @@
 import { FC, MouseEvent } from 'react';
 
 import clsx from 'clsx';
-import styles from './button.module.scss';
+import styles from './Button.module.scss';
 
 interface ButtonProps {
   type?: 'submit' | 'reset' | 'button';

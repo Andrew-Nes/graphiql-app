@@ -15,12 +15,11 @@ function Home(): ReactElement {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <>
-        <HeroSection />
-        <ImageSection />
-        <CourseSection />
-        <TeamSection />
-      </>
+
+      <HeroSection />
+      <ImageSection />
+      <CourseSection />
+      <TeamSection />
     </>
   );
 }

@@ -13,6 +13,7 @@ export const fieldsPlaceholder = {
   PASSWORD: new RegExp(dictionary.en.forms.fields.pass),
   CONFIRM_PASS: new RegExp(dictionary.en.forms.fields.confirmPassword),
 };
+
 export const buttonsName = {
   REGISTER: new RegExp(dictionary.en.forms.buttons.register, 'i'),
   LOGIN: new RegExp(dictionary.en.forms.buttons.login, 'i'),
@@ -24,6 +25,7 @@ export const invalidValue = {
   PASSWORD: 'pass1@',
   CONFIRM_PASS: 'not',
 };
+
 export const validValue = {
   NAME: 'Test',
   EMAIL: 'test@email.com',

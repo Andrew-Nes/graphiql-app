@@ -6,7 +6,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { routes } from '@/services/routes';
 import useTranslations from '@/utils/translation';
 
-import styles from './heroSection.module.scss';
+import styles from './HeroSection.module.scss';
 
 export const HeroSection: FC = () => {
   const dictionary = useTranslations();
