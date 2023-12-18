@@ -1,8 +1,9 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
+
 import Header from '@/Components/Header/Header';
 import { LanguageProvider } from '@/Components/LanguageContext/LanguageContext';
-import '@testing-library/jest-dom';
 
 let mock_authState = [{ id: 'test-id', displayName: 'Test Name' }, false, null];
 
@@ -26,6 +27,7 @@ describe('Header Tests', () => {
         <Header />
       </LanguageProvider>
     );
+
     expect(getByText('GraphiQL')).toBeInTheDocument();
   });
 
@@ -35,6 +37,7 @@ describe('Header Tests', () => {
         <Header />
       </LanguageProvider>
     );
+
     const menuButton = getByText('menu');
     fireEvent.click(menuButton);
     const header = document.getElementsByTagName('header')[0];
@@ -48,6 +51,7 @@ describe('Header Tests', () => {
         <Header />
       </LanguageProvider>
     );
+
     const langSelect = document.getElementsByClassName('select')[0];
     fireEvent.change(langSelect, { target: { value: 'ru' } });
 
@@ -60,6 +64,7 @@ describe('Header Tests', () => {
         <Header />
       </LanguageProvider>
     );
+
     const langSelect = document.getElementsByClassName('select')[0];
     fireEvent.change(langSelect, { target: { value: 'en' } });
 

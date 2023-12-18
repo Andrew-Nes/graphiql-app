@@ -26,6 +26,7 @@ describe('Footer test', () => {
         <Footer />
       </LanguageProvider>
     );
+
     const andrei = getByAltText('Photo of Andrei');
     const mikita = getByAltText('Photo of Mikita');
     const nastia = getByAltText('Photo of Nastia');
@@ -46,6 +47,7 @@ describe('Footer test', () => {
         <Footer />
       </LanguageProvider>
     );
+
     expect(getByText('Andrei Niasmachny')).toBeInTheDocument();
     expect(getByText('Mikita Razumau')).toBeInTheDocument();
     expect(getByText('Nastia Piven')).toBeInTheDocument();
@@ -57,6 +59,7 @@ describe('Footer test', () => {
         <Footer />
       </LanguageProvider>
     );
+
     expect(getByText('RS School')).toBeInTheDocument();
     expect(getByText(dictionary.en.footer.course)).toBeInTheDocument();
     expect(

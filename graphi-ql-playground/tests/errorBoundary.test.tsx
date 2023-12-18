@@ -79,6 +79,7 @@ describe('ErrorBoundary', () => {
     );
 
     expect(spy).toHaveBeenCalled();
+
     jest.spyOn(console, 'error').mockRestore();
   });
 });

@@ -32,8 +32,10 @@ describe('Hero section tests', () => {
         <HeroSectionLink />
       </LanguageProvider>
     );
+
     expect(getByText('Please, Log In')).toBeInTheDocument();
   });
+
   it('Hero section link renders correctly', () => {
     mock_authState = [{ id: 'test-id', displayName: 'Test Name' }, false, null];
     const { getByText } = render(
@@ -41,15 +43,19 @@ describe('Hero section tests', () => {
         <HeroSectionLink />
       </LanguageProvider>
     );
+
     expect(getByText('Try Playground')).toBeInTheDocument();
   });
+
   it('Hero section renders correctly', () => {
     mock_authState = [{ id: 'test-id', displayName: 'Test Name' }, false, null];
+
     const { getByText } = render(
       <LanguageProvider>
         <HeroSection />
       </LanguageProvider>
     );
+
     expect(getByText('The Rick and Morty API')).toBeInTheDocument();
   });
 });
@@ -57,6 +63,7 @@ describe('Hero section tests', () => {
 describe('Image section test', () => {
   it('Image section renders', () => {
     const { getAllByAltText } = render(<ImageSection />);
+
     expect(getAllByAltText('Image of the Playground')[0]).toBeInTheDocument();
   });
 });
@@ -68,17 +75,20 @@ describe('Course section test', () => {
         <CourseSection />
       </LanguageProvider>
     );
+
     expect(getByAltText('Image for Course section')).toBeInTheDocument();
   });
 
   it('displays course information correctly', () => {
     const description_1 = dictionary.en.landing.course.description_1;
     const description_2 = dictionary.en.landing.course.description_2;
+
     const { getByText } = render(
       <LanguageProvider>
         <CourseSection />
       </LanguageProvider>
     );
+
     expect(getByText('RS SCHOOL')).toBeInTheDocument();
     expect(getByText('React Course')).toBeInTheDocument();
     expect(getByText(description_1)).toBeInTheDocument();
@@ -98,11 +108,13 @@ describe('Course section test', () => {
 describe('Team section test', () => {
   it('displays team information correctly', () => {
     const description = TEAM.en[0].description;
+
     const { getByText, getAllByText } = render(
       <LanguageProvider>
         <TeamSection />
       </LanguageProvider>
     );
+
     expect(getByText('Team')).toBeInTheDocument();
     expect(getByText('Andrei Niasmachny')).toBeInTheDocument();
     expect(getByText('Mikita Razumau')).toBeInTheDocument();
