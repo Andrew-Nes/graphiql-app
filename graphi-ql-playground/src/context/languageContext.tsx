@@ -1,24 +1,17 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  FC,
-  useEffect,
-} from 'react';
+import { createContext, useState, ReactNode, FC, useEffect } from 'react';
 
 interface LanguageContextProps {
   language: string;
   changeLanguage: (newLanguage: string) => void;
 }
 
-const LanguageContext = createContext<LanguageContextProps | undefined>(
-  undefined
-);
-
 interface LanguageProviderProps {
   children: ReactNode;
 }
+
+export const LanguageContext = createContext<LanguageContextProps | undefined>(
+  undefined
+);
 
 export const LanguageProvider: FC<LanguageProviderProps> = ({ children }) => {
   const [language, setLanguage] = useState('en');
@@ -37,12 +30,4 @@ export const LanguageProvider: FC<LanguageProviderProps> = ({ children }) => {
       {children}
     </LanguageContext.Provider>
   );
-};
-
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
 };

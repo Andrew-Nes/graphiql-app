@@ -5,8 +5,7 @@ import { FirebaseError } from 'firebase/app';
 
 import { logInWithEmailAndPassword } from '@/services/auth/firebase';
 import { LoginFormType, loginSchema } from '@/utils/loginSchema';
-import { useTranslations } from '@/utils/useTranslations';
-import { useLanguage } from '@/context/languageContext';
+import { useTranslations, useLanguage } from '@/hooks';
 import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
 
 import { Button } from '@/Components/Button';

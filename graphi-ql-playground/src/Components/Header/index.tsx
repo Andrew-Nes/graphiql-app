@@ -5,8 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { auth, logout } from '@/services/auth/firebase';
 import { routes } from '@/types';
-import { useLanguage } from '@/context/languageContext';
-import { useTranslations } from '@/utils/useTranslations';
+import { useLanguage, useTranslations } from '@/hooks';
 import { LANGS } from '@/constants';
 
 import { Button } from '../Button';

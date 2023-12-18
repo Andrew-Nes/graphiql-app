@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
-import { useLanguage } from '@/context/languageContext';
-import { useTranslations } from '@/utils/useTranslations';
+import { useLanguage, useTranslations } from '@/hooks';
 import { TEAM } from '@/constants';
 
 import styles from './TeamSection.module.scss';

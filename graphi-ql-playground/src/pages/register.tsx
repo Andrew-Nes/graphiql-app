@@ -5,7 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { auth } from '@/services/auth/firebase';
 import { routes } from '@/types';
-import { useTranslations } from '@/utils/useTranslations';
+import { useTranslations } from '@/hooks';
 
 import { RegisterForm } from '@/Components/Forms/RegisterForm';
 

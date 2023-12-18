@@ -5,7 +5,7 @@ import router from 'next/router';
 
 import { routes } from '@/types';
 import { auth } from '@/services/auth/firebase';
-import { useTranslations } from '@/utils/useTranslations';
+import { useTranslations } from '@/hooks';
 
 import { LoginForm } from '@/Components/Forms/LoginForm';
 

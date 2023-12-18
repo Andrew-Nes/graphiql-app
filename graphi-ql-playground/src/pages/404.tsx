@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useRouter } from 'next/router';
 
 import { routes } from '@/types';
-import { useTranslations } from '@/utils/useTranslations';
+import { useTranslations } from '@/hooks';
 
 import { Button } from '@/Components/Button';
 

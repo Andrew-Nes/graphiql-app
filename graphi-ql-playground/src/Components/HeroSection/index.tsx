@@ -4,7 +4,7 @@ import { auth } from '@/services/auth/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { routes } from '@/types';
-import { useTranslations } from '@/utils/useTranslations';
+import { useTranslations } from '@/hooks/useTranslations';
 
 import styles from './HeroSection.module.scss';
 
