@@ -10,12 +10,12 @@ import useTranslations from '@/utils/translation';
 import { useLanguage } from '@/Components/LanguageContext';
 import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
 
-import Button from '@/Components/Button';
-import StyledInput from '@/Components/StyledInput';
+import { Button } from '@/Components/Button';
+import { StyledInput } from '@/Components/StyledInput';
 
 import styles from './RegisterForm.module.scss';
 
-const RegisterForm: FC = () => {
+export const RegisterForm: FC = () => {
   const [password, setPassword] = useState<string>('');
   const [authError, setAuthError] = useState<string>('');
 
@@ -125,5 +125,3 @@ const RegisterForm: FC = () => {
     </form>
   );
 };
-
-export default RegisterForm;

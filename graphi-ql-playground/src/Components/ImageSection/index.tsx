@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import styles from './ImageSection.module.scss';
 
-const ImageSection: FC = () => {
+export const ImageSection: FC = () => {
   return (
     <section className={styles.image}>
       <div className={styles.image__container}>
@@ -25,5 +25,3 @@ const ImageSection: FC = () => {
     </section>
   );
 };
-
-export default ImageSection;

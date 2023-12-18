@@ -4,7 +4,7 @@ import { StyledInputProps } from './StyledInput.type';
 
 import styles from './StyledInput.module.scss';
 
-const StyledInput = forwardRef<HTMLInputElement, StyledInputProps>(
+export const StyledInput = forwardRef<HTMLInputElement, StyledInputProps>(
   (
     { inputName, placeholder, inputError, type, ...inputProps },
     ref
@@ -24,4 +24,3 @@ const StyledInput = forwardRef<HTMLInputElement, StyledInputProps>(
     );
   }
 );
-export default StyledInput;

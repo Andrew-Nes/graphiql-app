@@ -8,7 +8,7 @@ import useTranslations from '@/utils/translation';
 
 import styles from './Footer.module.scss';
 
-const Footer: FC = () => {
+export const Footer: FC = () => {
   const { language } = useLanguage();
   const dictionary = useTranslations();
 
@@ -97,5 +97,3 @@ const Footer: FC = () => {
     </footer>
   );
 };
-
-export default Footer;

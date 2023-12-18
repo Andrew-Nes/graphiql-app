@@ -7,7 +7,7 @@ import { auth } from '@/services/auth/firebase';
 import { routes } from '@/services/routes';
 import useTranslations from '@/utils/translation';
 
-import RegisterForm from '@/Components/Forms/RegisterForm';
+import { RegisterForm } from '@/Components/Forms/RegisterForm';
 
 import styles from '../styles/RegisterPage.module.scss';
 

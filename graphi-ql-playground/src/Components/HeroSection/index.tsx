@@ -8,7 +8,7 @@ import useTranslations from '@/utils/translation';
 
 import styles from './heroSection.module.scss';
 
-const HeroSection: FC = () => {
+export const HeroSection: FC = () => {
   const dictionary = useTranslations();
   const [user] = useAuthState(auth);
 
@@ -46,5 +46,3 @@ const HeroSection: FC = () => {
     </section>
   );
 };
-
-export default HeroSection;

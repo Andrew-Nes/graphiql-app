@@ -8,12 +8,12 @@ import { LANGS } from '@/constants';
 import { useLanguage } from '@/Components/LanguageContext';
 import useTranslations from '@/utils/translation';
 
-import Button from '../Button';
+import { Button } from '../Button';
 
 import clsx from 'clsx';
 import styles from './Header.module.scss';
 
-const Header: FC = () => {
+export const Header: FC = () => {
   const [isScroll, setIsScroll] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [user] = useAuthState(auth);
@@ -154,5 +154,3 @@ const Header: FC = () => {
     </header>
   );
 };
-
-export default Header;

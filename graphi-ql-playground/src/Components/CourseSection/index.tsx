@@ -6,7 +6,7 @@ import useTranslations from '@/utils/translation';
 
 import styles from './CourseSection.module.scss';
 
-const CourseSection: FC = () => {
+export const CourseSection: FC = () => {
   const dictionary = useTranslations();
 
   return (
@@ -54,5 +54,3 @@ const CourseSection: FC = () => {
     </section>
   );
 };
-
-export default CourseSection;

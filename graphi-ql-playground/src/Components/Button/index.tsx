@@ -11,7 +11,7 @@ interface ButtonProps {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button: FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   name,
   type = 'button',
   className,
@@ -29,5 +29,3 @@ const Button: FC<ButtonProps> = ({
     </button>
   );
 };
-
-export default Button;

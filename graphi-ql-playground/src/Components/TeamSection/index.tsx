@@ -6,7 +6,7 @@ import useTranslations from '@/utils/translation';
 
 import styles from './TeamSection.module.scss';
 
-const TeamSection: FC = () => {
+export const TeamSection: FC = () => {
   const { language } = useLanguage();
   const dictionary = useTranslations();
 
@@ -41,5 +41,3 @@ const TeamSection: FC = () => {
     </section>
   );
 };
-
-export default TeamSection;
