@@ -27,29 +27,29 @@ const Header: FC = () => {
     closeMenu();
   };
 
-  function handleResize(): void {
+  const handleResize = () => {
     if (window.innerWidth > 480) {
       setMenuOpen(false);
     }
-  }
+  };
 
-  function toggleMenu(): void {
+  const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-  }
+  };
 
-  function closeMenu(): void {
+  const closeMenu = () => {
     if (menuOpen) {
       setMenuOpen(false);
     }
-  }
+  };
 
-  function handleScroll(): void {
+  const handleScroll = () => {
     if (window.scrollY > 0) {
       setIsScroll(true);
     } else {
       setIsScroll(false);
     }
-  }
+  };
 
   useEffect(() => {
     handleScroll();
