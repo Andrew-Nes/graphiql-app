@@ -29,7 +29,12 @@ const CourseSection: FC = () => {
               <div className={styles.course__body}>
                 <p>{dictionary.landing.course.description_1}</p>
                 <p>{dictionary.landing.course.description_2}</p>
-                <a href={LINK_COURSE} className={styles.course__link}>
+                <a
+                  href={LINK_COURSE}
+                  className={styles.course__link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {dictionary.landing.course.more}
                 </a>
               </div>

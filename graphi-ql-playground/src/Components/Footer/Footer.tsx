@@ -32,7 +32,12 @@ const Footer: FC = () => {
                   alt={`Photo of ${member.name.split(' ')[0]}`}
                   className={styles.team__item_image}
                 />
-                <a href={member.github} className={styles.team__item_link}>
+                <a
+                  href={member.github}
+                  className={styles.team__item_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {member.name}
                 </a>
               </li>
@@ -44,12 +49,22 @@ const Footer: FC = () => {
           <div className={styles.course__column}>
             <ul className={styles.course__list}>
               <li className={styles.course__item}>
-                <a href={LINK_SCHOOL} className={styles.course__item_link}>
+                <a
+                  href={LINK_SCHOOL}
+                  className={styles.course__item_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   RS School
                 </a>
               </li>
               <li className={styles.course__item}>
-                <a href={LINK_COURSE} className={styles.course__item_link}>
+                <a
+                  href={LINK_COURSE}
+                  className={styles.course__item_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {dictionary.footer.course}
                 </a>
                 <span>(2023)</span>
@@ -62,7 +77,12 @@ const Footer: FC = () => {
           </div>
 
           <div className={styles.course__column}>
-            <a href={LINK_SCHOOL} className={styles.course__logo_link}>
+            <a
+              href={LINK_SCHOOL}
+              className={styles.course__logo_link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
                 src="/images/rs-logo-white.svg"
                 alt="RS School logo"

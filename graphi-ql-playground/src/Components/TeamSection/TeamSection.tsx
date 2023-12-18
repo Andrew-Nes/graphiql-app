@@ -26,6 +26,8 @@ const TeamSection: FC = () => {
                     href={person.github}
                     className={styles.team__name}
                     title="GitHub"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {person.name}
                   </a>
