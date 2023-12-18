@@ -64,7 +64,7 @@ const Footer: FC = () => {
           <div className={styles.course__column}>
             <a href={LINK_SCHOOL} className={styles.course__logo_link}>
               <Image
-                src="rs-logo-white.svg"
+                src="/images/rs-logo-white.svg"
                 alt="RS School logo"
                 width={185}
                 height={20}
