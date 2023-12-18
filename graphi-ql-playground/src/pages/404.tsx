@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import { routes } from '@/services/routes';
 
-import styles from '@/styles/NotFounnd.module.scss';
+import styles from '@/styles/NotFound.module.scss';
 
 const NotFound: FC = () => {
   const router = useRouter();

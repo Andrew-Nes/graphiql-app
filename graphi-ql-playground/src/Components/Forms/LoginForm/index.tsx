@@ -6,7 +6,7 @@ import { FirebaseError } from 'firebase/app';
 import { logInWithEmailAndPassword } from '@/services/auth/firebase';
 import { LoginFormType, loginSchema } from '@/utils/loginValidate';
 import useTranslations from '@/utils/translation';
-import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
+import { useLanguage } from '@/Components/LanguageContext';
 import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
 
 import StyledInput from '@/Components/StyledInput';

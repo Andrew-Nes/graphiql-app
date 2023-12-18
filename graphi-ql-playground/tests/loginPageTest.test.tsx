@@ -12,7 +12,7 @@ import {
   validValue,
 } from '@/constants/testConstants';
 
-import { LanguageProvider } from '@/Components/LanguageContext/LanguageContext';
+import { LanguageProvider } from '@/Components/LanguageContext';
 import LoginPage from '@/pages/login';
 
 const mock_authState = [null, false, null];

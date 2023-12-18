@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import Image from 'next/image';
 
-import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
+import { useLanguage } from '@/Components/LanguageContext';
 
 import { TEAM, LINK_SCHOOL, LINK_COURSE } from '@/constants';
 import useTranslations from '@/utils/translation';
 
-import styles from './footer.module.scss';
+import styles from './Footer.module.scss';
 
 const Footer: FC = () => {
   const { language } = useLanguage();

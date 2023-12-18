@@ -1,4 +1,4 @@
-import { useLanguage } from '../Components/LanguageContext/LanguageContext';
+import { useLanguage } from '../Components/LanguageContext';
 import dictionary from '../services/dictionary.json';
 
 interface ITranslations {

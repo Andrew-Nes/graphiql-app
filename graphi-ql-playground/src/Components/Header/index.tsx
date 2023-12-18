@@ -5,13 +5,13 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, logout } from '@/services/auth/firebase';
 import { routes } from '@/services/routes';
 import { LANGS } from '@/constants';
-import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
+import { useLanguage } from '@/Components/LanguageContext';
 import useTranslations from '@/utils/translation';
 
-import { Button } from '../Button';
+import Button from '../Button';
 
 import classnames from 'classnames';
-import styles from './header.module.scss';
+import styles from './Header.module.scss';
 
 const Header: FC = () => {
   const [isScroll, setIsScroll] = useState(false);
