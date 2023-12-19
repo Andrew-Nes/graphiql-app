@@ -1,6 +1,6 @@
 export const ERROR_MESSAGES = {
   REQUIRED_EMAIL: 'Email is required.',
-  REQUIRED_PASSWORD: 'Password isrequired.',
+  REQUIRED_PASSWORD: 'Password is required.',
   REQUIRED_NAME: 'Name is required.',
   INVALID_EMAIL: 'Email is not valid.',
   SHORT_NAME: 'Name must contain at least 2 letters.',
