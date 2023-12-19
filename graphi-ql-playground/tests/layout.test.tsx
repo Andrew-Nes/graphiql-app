@@ -3,9 +3,13 @@ import '@testing-library/jest-dom';
 
 import Layout from '@/Components/Layout/Layout';
 
+const headerText = 'Header';
+const footerText = 'Footer';
+const componentText = 'Children';
+
 jest.mock('../src/Components/Header/Header.tsx', () => {
   const MockedComponent = () => {
-    return <div>Mocked Header</div>;
+    return <div>{headerText}</div>;
   };
   return {
     __esModule: true,
@@ -15,7 +19,7 @@ jest.mock('../src/Components/Header/Header.tsx', () => {
 
 jest.mock('../src/Components/Footer/Footer.tsx', () => {
   const MockedComponent = () => {
-    return <div>Mocked Footer</div>;
+    return <div>{footerText}</div>;
   };
   return {
     __esModule: true,
@@ -24,14 +28,15 @@ jest.mock('../src/Components/Footer/Footer.tsx', () => {
 });
 
 describe('Layout test', () => {
-  it('should render children correctly', () => {
+  const cases = [headerText, footerText, componentText];
+
+  it.each(cases)('should render element correctly', (elementText) => {
     const { getByText } = render(
       <Layout>
-        <div>Test Component</div>
+        <div>{componentText}</div>
       </Layout>
     );
-
-    const childElement = getByText('Test Component');
-    expect(childElement).toBeInTheDocument();
+    const element = getByText(elementText);
+    expect(element).toBeInTheDocument();
   });
 });
