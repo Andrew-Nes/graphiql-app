@@ -4,8 +4,8 @@ import clsx from 'clsx';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { auth, logout } from '@/services/auth/firebase';
-import { routes } from '@/types';
 import { useLanguage, useTranslations } from '@/hooks';
+import { routes } from '@/types';
 import { LANGS } from '@/constants';
 
 import { Button } from '../Button';
@@ -50,6 +50,12 @@ export const Header: FC = () => {
     }
   };
 
+  const handleSelectLang = (e: ChangeEvent<HTMLSelectElement>) => {
+    const selectedLang = e.target.value;
+    localStorage.setItem('lang', selectedLang);
+    changeLanguage(selectedLang);
+  };
+
   useEffect(() => {
     handleScroll();
 
@@ -61,12 +67,6 @@ export const Header: FC = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-  function handleSelectLang(e: ChangeEvent<HTMLSelectElement>): void {
-    const selectedLang = e.target.value;
-    localStorage.setItem('lang', selectedLang);
-    changeLanguage(selectedLang);
-  }
 
   return (
     <header
