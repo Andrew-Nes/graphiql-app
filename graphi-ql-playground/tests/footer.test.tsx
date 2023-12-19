@@ -27,18 +27,13 @@ describe('Footer test', () => {
       </LanguageProvider>
     );
 
-    const andrei = getByAltText('Photo of Andrei');
-    const mikita = getByAltText('Photo of Mikita');
-    const nastia = getByAltText('Photo of Nastia');
+    const cases = ['Photo of Andrei', 'Photo of Mikita', 'Photo of Nastia'];
 
-    expect(andrei).toBeInTheDocument();
-    expect(andrei.tagName).toBe('IMG');
-
-    expect(mikita).toBeInTheDocument();
-    expect(mikita.tagName).toBe('IMG');
-
-    expect(nastia).toBeInTheDocument();
-    expect(nastia.tagName).toBe('IMG');
+    cases.forEach((el) => {
+      const photo = getByAltText(el);
+      expect(photo).toBeInTheDocument();
+      expect(photo.tagName).toBe('IMG');
+    });
   });
 
   it('renders team names', () => {
@@ -48,9 +43,9 @@ describe('Footer test', () => {
       </LanguageProvider>
     );
 
-    expect(getByText('Andrei Niasmachny')).toBeInTheDocument();
-    expect(getByText('Mikita Razumau')).toBeInTheDocument();
-    expect(getByText('Nastia Piven')).toBeInTheDocument();
+    const team = ['Andrei Niasmachny', 'Mikita Razumau', 'Nastia Piven'];
+
+    team.forEach((el) => expect(getByText(el)).toBeInTheDocument());
   });
 
   it('renders school info and copyright', () => {
