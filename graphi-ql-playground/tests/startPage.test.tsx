@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 
 import * as dictionary from '../src/services/dictionary.json';
 import { TEAM } from '@/constants';
+import { COURSE_DATA } from '@/constants';
 
 import HeroSectionLink from '@/Components/HeroSection/HeroSection';
 import { LanguageProvider } from '@/Components/LanguageContext/LanguageContext';
@@ -83,31 +84,27 @@ describe('Course section test', () => {
     const description_1 = dictionary.en.landing.course.description_1;
     const description_2 = dictionary.en.landing.course.description_2;
 
+    const cases = ['RS SCHOOL', 'React Course', description_1, description_2];
+
     const { getByText } = render(
       <LanguageProvider>
         <CourseSection />
       </LanguageProvider>
     );
 
-    expect(getByText('RS SCHOOL')).toBeInTheDocument();
-    expect(getByText('React Course')).toBeInTheDocument();
-    expect(getByText(description_1)).toBeInTheDocument();
-    expect(getByText(description_2)).toBeInTheDocument();
-    expect(getByText('Components')).toBeInTheDocument();
-    expect(getByText('Routing')).toBeInTheDocument();
-    expect(getByText('Tests, Context API')).toBeInTheDocument();
-    expect(getByText('Redux. RTK')).toBeInTheDocument();
-    expect(getByText('NextJS, SSR/SSG')).toBeInTheDocument();
-    expect(getByText('Forms')).toBeInTheDocument();
-    expect(
-      getByText('Technical React Interview, GraphiQL')
-    ).toBeInTheDocument();
+    COURSE_DATA.forEach((el) => {
+      expect(getByText(el.title)).toBeInTheDocument();
+    });
+
+    cases.forEach((el) => {
+      expect(getByText(el)).toBeInTheDocument();
+    });
   });
 });
 
 describe('Team section test', () => {
   it('displays team information correctly', () => {
-    const description = TEAM.en[0].description;
+    const team = TEAM.en;
 
     const { getByText, getAllByText } = render(
       <LanguageProvider>
@@ -116,10 +113,11 @@ describe('Team section test', () => {
     );
 
     expect(getByText('Team')).toBeInTheDocument();
-    expect(getByText('Andrei Niasmachny')).toBeInTheDocument();
-    expect(getByText('Mikita Razumau')).toBeInTheDocument();
-    expect(getByText('Nastia Piven')).toBeInTheDocument();
-    expect(getAllByText(description)[0]).toBeInTheDocument();
-    expect(getAllByText('FRONTEND DEVELOPER').length).toEqual(3);
+
+    team.forEach((el) => {
+      expect(getByText(el.name)).toBeInTheDocument();
+      expect(getByText(el.description)).toBeInTheDocument();
+      expect(getAllByText(el.position.toUpperCase())).toHaveLength(3);
+    });
   });
 });
