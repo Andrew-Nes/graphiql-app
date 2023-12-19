@@ -9,8 +9,6 @@ import styles from './CourseSection.module.scss';
 export const CourseSection: FC = () => {
   const dictionary = useTranslations();
 
-  console.log(dictionary.courseData);
-
   return (
     <section className={styles.course}>
       <div className={styles.course__container}>
