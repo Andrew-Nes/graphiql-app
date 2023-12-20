@@ -4,8 +4,8 @@ import { FieldError } from 'react-hook-form';
 
 import styles from './StyledInput.module.scss';
 
-export interface StyledInputProps {
-  inputError: FieldError | undefined;
+interface StyledInputProps {
+  inputError?: FieldError;
   type: 'text' | 'password' | 'email';
   inputName: 'name' | 'password' | 'email' | 'confirmPassword';
   placeholder: string;
