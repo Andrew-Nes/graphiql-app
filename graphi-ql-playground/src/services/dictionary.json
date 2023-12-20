@@ -40,7 +40,7 @@
       "heading": "Hey there, welcome to the GraphiQL Playground! This is the go-to IDE for making GraphQL requests to",
       "intro": "Check out an extensive collection of characters, images, locations, and episodes - you will have access to all the good stuff from The Rick and Morty TV show!",
       "login": "Please, Log In",
-      "playground": "Опробуйте песочницу",
+      "playground": "Try Playground",
       "course": {
         "name": "React Course",
         "description_1": "This course is perfect for students with experience in JavaScript, TypeScript, Git, GitHub, NPM, Webpack, CSS3, HTML5 and an understanding of interacting with APIs.",
