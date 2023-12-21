@@ -70,11 +70,10 @@ export const Header: FC = () => {
 
   return (
     <header
-      className={clsx(
-        styles.header,
-        isScroll && styles.scroll,
-        menuOpen && styles.menu__open
-      )}
+      className={clsx(styles.header, {
+        [styles.scroll]: isScroll,
+        [styles.menu__open]: menuOpen,
+      })}
     >
       <nav className={styles.nav}>
         <Link
