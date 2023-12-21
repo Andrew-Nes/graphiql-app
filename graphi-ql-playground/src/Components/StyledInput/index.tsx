@@ -1,27 +1,36 @@
 import { ReactElement, forwardRef } from 'react';
 
-import { StyledInputProps } from './StyledInput.type';
+import { FieldError } from 'react-hook-form';
 
 import styles from './StyledInput.module.scss';
 
-const StyledInput = forwardRef<HTMLInputElement, StyledInputProps>(
+interface StyledInputProps {
+  inputError?: FieldError;
+  type: 'text' | 'password' | 'email';
+  inputName: 'name' | 'password' | 'email' | 'confirmPassword';
+  placeholder: string;
+}
+
+export const StyledInput = forwardRef<HTMLInputElement, StyledInputProps>(
   (
     { inputName, placeholder, inputError, type, ...inputProps },
     ref
   ): ReactElement => {
     return (
-      <label className={styles.labelOfInput} htmlFor={inputName}>
+      <label className={styles.field} htmlFor={inputName}>
         <input
-          className={styles.input}
+          className={styles.field__input}
           ref={ref}
           type={type}
           id={inputName}
           placeholder={placeholder}
           {...inputProps}
         />
-        <p className={styles.errorText}>{inputError?.message}</p>
+
+        {inputError?.message && (
+          <span className={styles.field__error}>{inputError?.message}</span>
+        )}
       </label>
     );
   }
 );
-export default StyledInput;

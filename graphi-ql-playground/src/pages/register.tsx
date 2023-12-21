@@ -4,10 +4,10 @@ import router from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { auth } from '@/services/auth/firebase';
-import { routes } from '@/services/routes';
-import useTranslations from '@/utils/translation';
+import { routes } from '@/types';
+import { useTranslations } from '@/hooks';
 
-import RegisterForm from '@/Components/Forms/RegisterForm';
+import { RegisterForm } from '@/Components/Forms/RegisterForm';
 
 import styles from '../styles/RegisterPage.module.scss';
 
@@ -20,15 +20,16 @@ const RegisterPage: FC = () => {
   }, [user]);
 
   return (
-    <>
+    <div className={styles.register}>
       <RegisterForm />
-      <p className={styles.registerInfo}>
+
+      <p className={styles.register__footer}>
         {dictionary.forms.options.login}{' '}
-        <Link href={routes.LOGIN} className={styles.loginLink}>
+        <Link href={routes.LOGIN} className={styles.register__link}>
           {dictionary.forms.buttons.login}
         </Link>
       </p>
-    </>
+    </div>
   );
 };
 

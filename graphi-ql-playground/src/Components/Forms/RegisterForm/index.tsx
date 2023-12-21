@@ -1,20 +1,20 @@
 import { FC, useEffect, useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import PasswordStrengthBar from 'react-password-strength-bar';
 import { FirebaseError } from 'firebase/app';
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 import { registerWithEmailAndPassword } from '@/services/auth/firebase';
-import { RegisterFormType, registerSchema } from '@/utils/registerValidate';
-import useTranslations from '@/utils/translation';
-import { useLanguage } from '@/Components/LanguageContext/LanguageContext';
-import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
+import { RegisterFormType, registerSchema } from '@/utils/registerSchema';
+import { useTranslations, useLanguage } from '@/hooks';
+import { LANGS, ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants';
 
-import StyledInput from '@/Components/StyledInput';
+import { Button } from '@/Components/Button';
+import { StyledInput } from '@/Components/StyledInput';
 
-import styles from './RegisterForm.module.scss';
+import styles from '../Form.module.scss';
 
-const RegisterForm: FC = () => {
+export const RegisterForm: FC = () => {
   const [password, setPassword] = useState<string>('');
   const [authError, setAuthError] = useState<string>('');
 
@@ -22,7 +22,7 @@ const RegisterForm: FC = () => {
   const dictionary = useTranslations();
 
   const schema =
-    language === 'en'
+    language === LANGS.EN
       ? registerSchema(ERROR_MESSAGES)
       : registerSchema(ERROR_MESSAGES_RU);
 
@@ -62,63 +62,65 @@ const RegisterForm: FC = () => {
   };
 
   return (
-    <form
-      className={styles.formContainer}
-      onSubmit={handleSubmit(onSubmit)}
-      noValidate
-    >
-      <div className={styles.titleGroup}>
-        <h1 className={styles.formTitle}>
-          {dictionary.forms.headings.register} 🤓
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
+      <div className={styles.form__header}>
+        <h1 className={styles.form__title}>
+          {dictionary.forms.title.register} 🤓
         </h1>
 
-        <p className={styles.formInfo}>{dictionary.forms.intro.register}</p>
+        <p className={styles.form__subtitle}>
+          {dictionary.forms.subtitle.register}
+        </p>
       </div>
 
-      <StyledInput
-        inputError={errors.name}
-        inputName="name"
-        type="text"
-        placeholder={dictionary.forms.fields.name}
-        {...register('name')}
+      <div className={styles.form__inputs}>
+        <StyledInput
+          inputError={errors.name}
+          inputName="name"
+          type="text"
+          placeholder={dictionary.forms.fields.name}
+          {...register('name')}
+        />
+
+        <StyledInput
+          inputError={errors.email}
+          inputName="email"
+          type="email"
+          placeholder={dictionary.forms.fields.email}
+          {...register('email')}
+        />
+
+        <StyledInput
+          inputError={errors.password}
+          inputName="password"
+          type="password"
+          placeholder={dictionary.forms.fields.pass}
+          {...register('password')}
+        />
+
+        <PasswordStrengthBar
+          password={password}
+          scoreWords={[]}
+          shortScoreWord={''}
+        />
+
+        <StyledInput
+          inputError={errors.confirmPassword}
+          inputName="confirmPassword"
+          type="password"
+          placeholder={dictionary.forms.fields.confirmPassword}
+          {...register('confirmPassword')}
+        />
+      </div>
+
+      <Button
+        name={dictionary.forms.buttons.register}
+        type="submit"
+        className={styles.form__button}
+        disabled={!isValid}
       />
 
-      <StyledInput
-        inputError={errors.email}
-        inputName="email"
-        type="email"
-        placeholder={dictionary.forms.fields.email}
-        {...register('email')}
-      />
-
-      <StyledInput
-        inputError={errors.password}
-        inputName="password"
-        type="password"
-        placeholder={dictionary.forms.fields.pass}
-        {...register('password')}
-      />
-
-      <PasswordStrengthBar
-        password={password}
-        scoreWords={[]}
-        shortScoreWord={''}
-      />
-
-      <StyledInput
-        inputError={errors.confirmPassword}
-        inputName="confirmPassword"
-        type="password"
-        placeholder={dictionary.forms.fields.confirmPassword}
-        {...register('confirmPassword')}
-      />
-      <button className={styles.submitButton} type="submit" disabled={!isValid}>
-        {dictionary.forms.buttons.register}
-      </button>
-
-      {authError && <p className={styles.authError}>{authError}</p>}
+      {authError && <span className={styles.form__error}>{authError}</span>}
     </form>
   );
 };
-
-export default RegisterForm;
