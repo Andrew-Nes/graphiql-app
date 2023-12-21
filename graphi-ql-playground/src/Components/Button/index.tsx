@@ -8,20 +8,20 @@ interface ButtonProps {
   name: string | number;
   className?: string;
   disabled?: boolean;
-  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event?: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const Button: FC<ButtonProps> = ({
   name,
   type = 'button',
-  className,
-  disabled,
+  className = '',
+  disabled = false,
   onClick = (): void => {},
 }) => {
   return (
     <button
       type={type}
-      className={clsx(styles.button, className || '')}
+      className={clsx(styles.button, className)}
       onClick={(event): void => onClick(event)}
       disabled={disabled}
     >
