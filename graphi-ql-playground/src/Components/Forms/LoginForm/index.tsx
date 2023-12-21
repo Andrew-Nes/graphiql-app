@@ -11,7 +11,7 @@ import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
 import { Button } from '@/Components/Button';
 import { StyledInput } from '@/Components/StyledInput';
 
-import styles from './LoginForm.module.scss';
+import styles from '../Form.module.scss';
 
 export const LoginForm: FC = () => {
   const { language } = useLanguage();

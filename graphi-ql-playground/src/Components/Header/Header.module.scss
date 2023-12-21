@@ -1,19 +1,17 @@
 @import '../../styles/variables.scss';
 
 .header {
-  position: relative;
-  padding: 0 $padding-body;
-  width: 100%;
-  height: $header-height;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $blue;
-
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
+  display: flex;
+  padding: 0 $padding-body;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: $header-height;
+  background-color: $blue;
 
   transition: all 0.1s ease-in;
 
@@ -23,9 +21,9 @@
 
   .link {
     display: flex;
-    color: $white;
-    text-transform: uppercase;
     margin-bottom: 3px;
+    text-transform: uppercase;
+    color: $white;
 
     &::after {
       background-color: $white;
@@ -34,18 +32,18 @@
 }
 
 .nav {
-  width: 100%;
   display: flex;
+  width: 100%;
 
   &__logo {
-    color: $white;
+    position: relative;
+    z-index: 1000;
     display: flex;
     align-items: center;
     gap: 0.8rem;
     margin-right: auto;
     margin-bottom: 2px;
-    position: relative;
-    z-index: 1000;
+    color: $white;
 
     &:hover {
       opacity: 0.5;
@@ -55,11 +53,11 @@
       display: block;
       width: 3.5rem;
       height: 1.5rem;
+      margin-top: 2px;
       background-image: url('/icons/ic_logo.svg');
       background-size: contain;
       background-position: 0 center;
       background-repeat: repeat-x;
-      margin-top: 2px;
 
       transition: all 0.2s linear;
     }
@@ -71,14 +69,14 @@
 
   .button__menu {
     position: relative;
+    z-index: 1000;
+    display: none;
     height: 3rem;
     background-color: $white;
     color: $blue;
-    z-index: 1000;
-    display: none;
 
-    cursor: pointer;
     transition: all 0.2s ease-in;
+    cursor: pointer;
 
     @media (max-width: 480px) {
       display: block;
@@ -103,12 +101,12 @@
     height: 24rem;
     right: 0;
     top: 0;
-    background-color: $blue;
+    display: none;
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
     padding: 1rem 1rem;
-    display: none;
+    background-color: $blue;
   }
 
   &__links {
@@ -158,8 +156,8 @@
       height: 0.8rem;
       background-color: $blue;
       clip-path: polygon(100% 0%, 0 0%, 50% 100%);
-      pointer-events: none;
       transition: all 0.2s ease-in;
+      pointer-events: none;
     }
   }
 }

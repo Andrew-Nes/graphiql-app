@@ -12,7 +12,7 @@ import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
 import { Button } from '@/Components/Button';
 import { StyledInput } from '@/Components/StyledInput';
 
-import styles from './RegisterForm.module.scss';
+import styles from '../Form.module.scss';
 
 export const RegisterForm: FC = () => {
   const [password, setPassword] = useState<string>('');
