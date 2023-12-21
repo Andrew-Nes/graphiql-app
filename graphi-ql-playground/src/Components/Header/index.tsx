@@ -141,7 +141,7 @@ export const Header: FC = () => {
               value={language}
               onChange={handleSelectLang}
             >
-              {LANGS.map((option) => (
+              {Object.values(LANGS).map((option) => (
                 <option key={option} value={option}>
                   {option.toUpperCase()}
                 </option>

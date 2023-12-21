@@ -6,7 +6,7 @@ import { FirebaseError } from 'firebase/app';
 import { logInWithEmailAndPassword } from '@/services/auth/firebase';
 import { LoginFormType, loginSchema } from '@/utils/loginSchema';
 import { useTranslations, useLanguage } from '@/hooks';
-import { ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants/errorMessages';
+import { LANGS, ERROR_MESSAGES, ERROR_MESSAGES_RU } from '@/constants';
 
 import { Button } from '@/Components/Button';
 import { StyledInput } from '@/Components/StyledInput';
@@ -18,7 +18,7 @@ export const LoginForm: FC = () => {
   const dictionary = useTranslations();
   const [authError, setAuthError] = useState<string>('');
   const schema =
-    language === 'en'
+    language === LANGS.EN
       ? loginSchema(ERROR_MESSAGES)
       : loginSchema(ERROR_MESSAGES_RU);
 
