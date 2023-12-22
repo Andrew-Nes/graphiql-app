@@ -22,6 +22,7 @@ export const RequestEditor: FC = () => {
         code={code}
         setCode={setCode}
         placeholder="GraphQL request..."
+        className="editor__request"
       />
 
       <div className={styles.requestEditor__buttons}>

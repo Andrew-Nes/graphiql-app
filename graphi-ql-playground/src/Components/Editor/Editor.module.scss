@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 .editor {
   width: 100%;
@@ -16,11 +16,15 @@
     display: block;
     width: 100%;
     height: 100%;
-    padding: 2rem 8rem 2rem 1rem;
+    padding: 2rem;
+    padding-left: 1rem;
     font-size: $text-size;
     line-height: 1.35;
     border: none;
     outline: none;
+
+    white-space: pre;
+    overflow-x: auto;
     resize: none;
 
     &::placeholder {
