@@ -49,7 +49,7 @@ export const Editor: FC<EditorProps> = ({
     <div className={clsx(styles.editor, styles[className])}>
       <div className={styles.editor__container}>
         <LinesNumber
-          mode={mode}
+          className={className}
           code={code}
           handleScroll={handleScroll}
           linesNumberRef={linesNumberRef}
