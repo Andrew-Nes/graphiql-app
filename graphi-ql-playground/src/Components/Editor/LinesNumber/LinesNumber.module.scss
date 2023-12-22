@@ -16,4 +16,9 @@
   &::-webkit-scrollbar {
     display: none;
   }
+
+  &.readMode {
+    background-color: $blue;
+    color: $editor-read-lines;
+  }
 }
