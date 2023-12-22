@@ -1,0 +1,15 @@
+@import "./variables.scss";
+
+.playground {
+  height: calc(100vh - 5rem);
+  padding: $padding-body;
+
+  &__editors {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 3rem);
+    padding: $padding-body;
+    padding-right: 1rem;
+    background-color: $blue;
+  }
+}
