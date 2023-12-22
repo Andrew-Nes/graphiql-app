@@ -30,17 +30,12 @@
 }
 
 .editor__response {
-  .editor__linesCount {
-    color: $response-editor-color;
-    background-color: $blue;
-  }
-
   .editor__textArea {
     color: $white;
     background-color: $blue;
 
     &::placeholder {
-      color: $response-editor-color;
+      color: $editor-read-lines;
     }
   }
 }

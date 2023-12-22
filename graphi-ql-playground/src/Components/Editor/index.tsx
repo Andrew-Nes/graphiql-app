@@ -6,10 +6,10 @@ import {
   useRef,
   UIEvent,
 } from 'react';
+import clsx from 'clsx';
 
 import { LinesNumber } from './LinesNumber';
 
-import clsx from 'clsx';
 import styles from './Editor.module.scss';
 
 export interface EditorProps {
@@ -46,9 +46,10 @@ export const Editor: FC<EditorProps> = ({
   };
 
   return (
-    <div className={clsx(styles.editor, className && styles[className])}>
+    <div className={clsx(styles.editor, styles[className])}>
       <div className={styles.editor__container}>
         <LinesNumber
+          mode={mode}
           code={code}
           handleScroll={handleScroll}
           linesNumberRef={linesNumberRef}
