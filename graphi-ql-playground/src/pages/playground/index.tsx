@@ -6,6 +6,7 @@ import { auth } from '@/services/auth/firebase';
 import { routes } from '@/types';
 
 import { RequestEditor } from '@/Components/RequestEditor';
+import { ResponseEditor } from '@/Components/ResponseEditor';
 
 import styles from '@/styles/Playground.module.scss';
 
@@ -21,6 +22,7 @@ const PlaygroundPage: FC = () => {
       <h1>Playground</h1>
       <div className={styles.playground__editors}>
         <RequestEditor />
+        <ResponseEditor />
       </div>
     </section>
   );
