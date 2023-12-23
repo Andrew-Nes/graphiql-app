@@ -61,7 +61,13 @@
       "button": "Back to Home"
     },
     "courseData": [
-      "Components", "Routing", "Tests, Context API", "Redux. RTK", "NextJS, SSR/SSG", "Forms", "Technical React Interview, GraphiQL"
+      "Components",
+      "Routing",
+      "Tests, Context API",
+      "Redux. RTK",
+      "NextJS, SSR/SSG",
+      "Forms",
+      "Technical React Interview, GraphiQL"
     ]
   },
   "ru": {
