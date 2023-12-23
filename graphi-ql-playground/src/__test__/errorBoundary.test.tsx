@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { Component, ReactNode } from 'react';
 import '@testing-library/jest-dom';
 
-import ErrorBoundary from '@/Components/ErrorBoundary/ErrorBoundary';
+import { ErrorBoundary } from '@/Components/ErrorBoundary/';
 
 interface Props {
   children: ReactNode;

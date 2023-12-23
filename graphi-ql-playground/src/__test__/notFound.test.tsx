@@ -1,30 +1,45 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import NotFound from '../src/pages/404';
+import NotFound from '@/pages/404';
+import { LanguageProvider } from '@/context/languageContext';
+import { useRouter } from '@/__mocks__/router';
 
-jest.mock('next/router');
+const mockFn = jest.fn();
+jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
+  useRouter: jest.fn(),
+}));
 
 describe('NotFound Component', () => {
-  it('renders the component correctly', () => {
-    render(<NotFound />);
+  useRouter.mockReturnValue({ push: mockFn });
 
-    expect(screen.getByText('Oooops...')).toBeInTheDocument();
+  it('renders the component correctly', () => {
+    render(
+      <LanguageProvider>
+        <NotFound />
+      </LanguageProvider>
+    );
+
+    expect(screen.getByText('🙃🙄️😢')).toBeInTheDocument();
     expect(
-      screen.getByText('Something went wrong!🙃☹🙄️')
+      screen.getByText('Oooops... Something went wrong!')
     ).toBeInTheDocument();
-    expect(screen.getByText('Back to home')).toBeInTheDocument();
+    expect(screen.getByText('Back to Home')).toBeInTheDocument();
   });
 
-  it('calls router.push when the button is clicked', () => {
-    const pushMock = jest.fn();
-    require('next/router').useRouter.mockReturnValue({ push: pushMock });
+  it('calls router.push when the button is clicked', async () => {
+    render(
+      <LanguageProvider>
+        <NotFound />
+      </LanguageProvider>
+    );
+    const button = screen.getByText('Back to Home');
+    fireEvent.click(button);
 
-    render(<NotFound />);
-
-    fireEvent.click(screen.getByText('Back to home'));
-
-    expect(pushMock).toHaveBeenCalledWith('/');
+    await waitFor(() => {
+      expect(mockFn).toHaveBeenCalledWith('/');
+    });
   });
 });
