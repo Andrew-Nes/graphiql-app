@@ -1,8 +1,13 @@
-@import "./variables.scss";
+@import './variables.scss';
 
 .playground {
   height: calc(100vh - 5rem);
   padding: $padding-body;
+
+  @media (max-width: 768px) {
+    height: 100%;
+    padding: $padding-body 1rem;
+  }
 
   &__editors {
     display: flex;
@@ -10,5 +15,10 @@
     height: calc(100% - 3rem);
     padding: $padding-body;
     background-color: $blue;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 1rem;
+    }
   }
 }
