@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import * as dictionary from '@/services/dictionary.json';
+import { routes } from '@/types';
 
 import NotFound from '@/pages/404';
 import { LanguageProvider } from '@/context/languageContext';
@@ -39,6 +40,6 @@ describe('NotFound Component', () => {
     const button = screen.getByText(dictionary.en.notFound.button);
     fireEvent.click(button);
 
-    expect(mockFn).toHaveBeenCalledWith('/');
+    expect(mockFn).toHaveBeenCalledWith(routes.MAIN);
   });
 });
