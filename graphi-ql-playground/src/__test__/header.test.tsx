@@ -2,8 +2,8 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import Header from '@/Components/Header/Header';
-import { LanguageProvider } from '@/Components/LanguageContext/LanguageContext';
+import { Header } from '@/Components/Header/';
+import { LanguageProvider } from '@/context/languageContext';
 
 let mock_authState = [{ id: 'test-id', displayName: 'Test Name' }, false, null];
 
@@ -38,7 +38,7 @@ describe('Header Tests', () => {
       </LanguageProvider>
     );
 
-    const menuButton = getByText('menu');
+    const menuButton = getByText('Menu');
     fireEvent.click(menuButton);
     const header = document.getElementsByTagName('header')[0];
 

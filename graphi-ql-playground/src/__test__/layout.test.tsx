@@ -1,29 +1,29 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import Layout from '@/Components/Layout/Layout';
+import { Layout } from '@/Components/Layout/';
 
 const headerText = 'Header';
 const footerText = 'Footer';
 const componentText = 'Children';
 
-jest.mock('../src/Components/Header/Header.tsx', () => {
-  const MockedComponent = () => {
+jest.mock('../Components/Header/', () => {
+  const Header = () => {
     return <div>{headerText}</div>;
   };
   return {
     __esModule: true,
-    default: MockedComponent,
+    Header,
   };
 });
 
-jest.mock('../src/Components/Footer/Footer.tsx', () => {
-  const MockedComponent = () => {
+jest.mock('../Components/Footer/', () => {
+  const Footer = () => {
     return <div>{footerText}</div>;
   };
   return {
     __esModule: true,
-    default: MockedComponent,
+    Footer,
   };
 });
 

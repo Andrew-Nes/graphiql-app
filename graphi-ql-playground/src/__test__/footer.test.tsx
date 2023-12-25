@@ -2,9 +2,9 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import * as dictionary from '../src/services/dictionary.json';
+import * as dictionary from '@/services/dictionary.json';
 
-import { LanguageProvider } from '@/Components/LanguageContext/LanguageContext';
+import { LanguageProvider } from '@/context/languageContext';
 import { Footer } from '@/Components/Footer';
 
 describe('Footer test', () => {

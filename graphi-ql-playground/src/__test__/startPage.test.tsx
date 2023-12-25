@@ -2,13 +2,11 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import * as dictionary from '../src/services/dictionary.json';
+import * as dictionary from '@/services/dictionary.json';
 import { TEAM } from '@/constants';
-import { COURSE_DATA } from '@/constants';
 
-import HeroSectionLink from '@/Components/HeroSection/HeroSection';
-import { LanguageProvider } from '@/Components/LanguageContext/LanguageContext';
-import HeroSection from '@/Components/HeroSection/HeroSection';
+import { LanguageProvider } from '@/context/languageContext';
+import { HeroSection } from '@/Components/HeroSection/';
 import { ImageSection } from '@/Components/ImageSection';
 import { CourseSection } from '@/Components/CourseSection';
 import { TeamSection } from '@/Components/TeamSection';
@@ -30,7 +28,7 @@ describe('Hero section tests', () => {
     mock_authState = [null, false, null];
     const { getByText } = render(
       <LanguageProvider>
-        <HeroSectionLink />
+        <HeroSection />
       </LanguageProvider>
     );
 
@@ -41,7 +39,7 @@ describe('Hero section tests', () => {
     mock_authState = [{ id: 'test-id', displayName: 'Test Name' }, false, null];
     const { getByText } = render(
       <LanguageProvider>
-        <HeroSectionLink />
+        <HeroSection />
       </LanguageProvider>
     );
 
@@ -92,8 +90,8 @@ describe('Course section test', () => {
       </LanguageProvider>
     );
 
-    COURSE_DATA.forEach((el) => {
-      expect(getByText(el.title)).toBeInTheDocument();
+    dictionary.en.courseData.forEach((el) => {
+      expect(getByText(el)).toBeInTheDocument();
     });
 
     cases.forEach((el) => {

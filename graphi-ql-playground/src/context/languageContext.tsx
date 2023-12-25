@@ -15,7 +15,7 @@ export const LanguageContext = createContext<LanguageContextProps | undefined>(
 );
 
 export const LanguageProvider: FC<LanguageProviderProps> = ({ children }) => {
-  const [language, setLanguage] = useState(DEFAULT_LANG);
+  const [language, setLanguage] = useState<string>(DEFAULT_LANG);
 
   const changeLanguage = (newLanguage: string) => {
     setLanguage(newLanguage);
