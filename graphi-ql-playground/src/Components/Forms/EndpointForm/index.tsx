@@ -3,10 +3,10 @@ import clsx from 'clsx';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { useLanguage, useTranslations } from '@/hooks';
+import { ERROR_MESSAGES, ERROR_MESSAGES_RU, LANGS } from '@/constants';
 import { EndpointFormProps, EndpointFormFields } from './EndpointForm.type';
 
 import styles from './EndpointForm.module.scss';
-import { ERROR_MESSAGES, ERROR_MESSAGES_RU, LANGS } from '@/constants';
 
 const EndpointForm: FC<EndpointFormProps> = ({ endpoint, endpointSetter }) => {
   const { language } = useLanguage();
