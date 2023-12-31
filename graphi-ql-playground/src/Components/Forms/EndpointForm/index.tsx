@@ -2,12 +2,20 @@ import { FC, useState } from 'react';
 import clsx from 'clsx';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
+import { useLanguage, useTranslations } from '@/hooks';
 import { EndpointFormProps, EndpointFormFields } from './EndpointForm.type';
 
 import styles from './EndpointForm.module.scss';
+import { ERROR_MESSAGES, ERROR_MESSAGES_RU, LANGS } from '@/constants';
 
 const EndpointForm: FC<EndpointFormProps> = ({ endpoint, endpointSetter }) => {
+  const { language } = useLanguage();
+  const dictionary = useTranslations();
   const [isEditMode, setEditMode] = useState<boolean>(false);
+  const errorMessage =
+    language === LANGS.EN
+      ? ERROR_MESSAGES.API_ENDPOINT_EXIST
+      : ERROR_MESSAGES_RU.API_ENDPOINT_EXIST;
   const {
     register,
     handleSubmit,
@@ -31,7 +39,7 @@ const EndpointForm: FC<EndpointFormProps> = ({ endpoint, endpointSetter }) => {
         setEditMode(false);
       }
     } catch (error) {
-      setError('endpointInput', { message: 'API endpoint does not exist.' });
+      setError('endpointInput', { message: errorMessage });
     }
   };
 
@@ -45,7 +53,9 @@ const EndpointForm: FC<EndpointFormProps> = ({ endpoint, endpointSetter }) => {
         {...register('endpointInput')}
       />
       <button className={styles.button} type="submit">
-        {isEditMode ? 'SAVE' : 'EDIT'}
+        {isEditMode
+          ? dictionary.playground.endpointButton.saveMod
+          : dictionary.playground.endpointButton.editMod}
       </button>
       <span className={styles.errorText}>{errors.endpointInput?.message}</span>
     </form>
