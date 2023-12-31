@@ -8,7 +8,12 @@ import styles from './EndpointForm.module.scss';
 
 const EndpointForm: FC<EndpointFormProps> = ({ endpoint, endpointSetter }) => {
   const [isEditMode, setEditMode] = useState<boolean>(false);
-  const { register, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setError,
+  } = useForm({
     defaultValues: {
       endpointInput: endpoint,
     },
@@ -17,11 +22,16 @@ const EndpointForm: FC<EndpointFormProps> = ({ endpoint, endpointSetter }) => {
   const onSubmit: SubmitHandler<EndpointFormFields> = async ({
     endpointInput,
   }) => {
-    if (!isEditMode) {
-      setEditMode(true);
-    } else {
-      endpointSetter(endpointInput);
-      setEditMode(false);
+    try {
+      if (!isEditMode) {
+        setEditMode(true);
+      } else {
+        await fetch(endpointInput);
+        endpointSetter(endpointInput);
+        setEditMode(false);
+      }
+    } catch (error) {
+      setError('endpointInput', { message: 'API endpoint does not exist.' });
     }
   };
 
@@ -37,6 +47,7 @@ const EndpointForm: FC<EndpointFormProps> = ({ endpoint, endpointSetter }) => {
       <button className={styles.button} type="submit">
         {isEditMode ? 'SAVE' : 'EDIT'}
       </button>
+      <span className={styles.errorText}>{errors.endpointInput?.message}</span>
     </form>
   );
 };

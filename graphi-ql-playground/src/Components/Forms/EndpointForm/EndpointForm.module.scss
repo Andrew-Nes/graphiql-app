@@ -1,9 +1,11 @@
 @import '../../../styles/variables.scss';
 
 .form {
+  position: relative;
   max-width: 608px;
   display: flex;
   padding: 5px 20px;
+  margin-bottom: 35px;
 }
 
 .input {
@@ -22,6 +24,14 @@
 
   border: 1px solid $blue;
   background-color: $white;
+}
+
+.errorText {
+  position: absolute;
+  top: 30px;
+  margin: 0.5rem 0;
+  font-size: $text-size;
+  color: $error-color;
 }
 .button {
   display: inline-block;
