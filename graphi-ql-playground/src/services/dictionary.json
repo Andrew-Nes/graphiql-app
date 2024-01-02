@@ -71,8 +71,8 @@
     ],
     "playground": {
       "endpointButton": {
-        "saveMod": "SAVE",
-        "editMod": "EDIT"
+        "saveMod": "Save",
+        "editMod": "Edit"
       }
     }
   },
@@ -148,8 +148,8 @@
     ],
     "playground": {
       "endpointButton": {
-        "saveMod": "СОХРАНИТЬ",
-        "editMod": "ИЗМЕНИТЬ"
+        "saveMod": "Сохранить",
+        "editMod": "Изменить"
       }
     }
   }
