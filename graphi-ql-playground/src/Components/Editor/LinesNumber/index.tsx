@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import styles from './LinesNumber.module.scss';
 
 export interface LinesNumberProps {
-  className: string;
+  className?: string;
   code: string;
   linesNumberRef: RefObject<HTMLUListElement>;
   handleScroll: (e: UIEvent<HTMLUListElement | HTMLTextAreaElement>) => void;
@@ -18,9 +18,10 @@ export const LinesNumber: FC<LinesNumberProps> = ({
 }) => {
   return (
     <ul
-      className={clsx(styles.linesNumber, {
-        [styles[`${className}_linesNumber`]]: className,
-      })}
+      className={clsx(
+        styles.linesNumber,
+        styles[`${className}_linesNumber`] || ''
+      )}
       ref={linesNumberRef}
       onScroll={handleScroll}
     >

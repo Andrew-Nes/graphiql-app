@@ -9,6 +9,7 @@ import {
 import clsx from 'clsx';
 
 import { LinesNumber } from './LinesNumber';
+import { READ_MODE } from '@/constants';
 
 import styles from './Editor.module.scss';
 
@@ -46,7 +47,7 @@ export const Editor: FC<EditorProps> = ({
   };
 
   return (
-    <div className={clsx(styles.editor, styles[className])}>
+    <div className={clsx(styles.editor, styles[className] || '')}>
       <div className={styles.editor__container}>
         <LinesNumber
           className={className}
@@ -60,7 +61,7 @@ export const Editor: FC<EditorProps> = ({
           ref={textAreaRef}
           value={code}
           placeholder={placeholder}
-          disabled={mode === 'read'}
+          disabled={mode === READ_MODE}
           onChange={handleInput}
           onScroll={handleScroll}
         />

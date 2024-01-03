@@ -1,4 +1,4 @@
-import { Dispatch, FC, MouseEvent, SetStateAction, useState } from 'react';
+import { Dispatch, FC, SetStateAction, useState, useCallback } from 'react';
 import clsx from 'clsx';
 
 import { Button } from '@/Components/Button';
@@ -13,31 +13,36 @@ export interface EditorPanelProps {
   setHeadersCode: Dispatch<SetStateAction<string>>;
 }
 
-export const EditorPanel: FC<EditorPanelProps> = (props) => {
-  const { variablesCode, headersCode, setVariablesCode, setHeadersCode } =
-    props;
-
+export const EditorPanel: FC<EditorPanelProps> = ({
+  variablesCode,
+  headersCode,
+  setVariablesCode,
+  setHeadersCode,
+}) => {
   const [panelOpened, setPanelOpened] = useState(false);
   const [variablesActive, setVariablesActive] = useState(false);
   const [headersActive, setHeadersActive] = useState(false);
 
-  function openTab(e?: MouseEvent<HTMLButtonElement>): void {
-    if (!(e?.target instanceof HTMLButtonElement)) return;
+  const openTab = useCallback(
+    (e?: React.MouseEvent<HTMLButtonElement>) => {
+      if (!(e?.target instanceof HTMLButtonElement)) return;
 
-    setPanelOpened(true);
+      setPanelOpened(true);
 
-    if (e.target.id === 'variables') {
-      setVariablesActive(true);
-      setHeadersActive(false);
-    }
+      if (e.target.id === 'variables') {
+        setVariablesActive(true);
+        setHeadersActive(false);
+      }
 
-    if (e.target.id === 'headers') {
-      setHeadersActive(true);
-      setVariablesActive(false);
-    }
-  }
+      if (e.target.id === 'headers') {
+        setHeadersActive(true);
+        setVariablesActive(false);
+      }
+    },
+    [setPanelOpened, setVariablesActive, setHeadersActive]
+  );
 
-  function togglePanel(): void {
+  const togglePanel = useCallback(() => {
     setPanelOpened(!panelOpened);
     setHeadersActive(false);
 
@@ -46,7 +51,7 @@ export const EditorPanel: FC<EditorPanelProps> = (props) => {
     } else {
       setVariablesActive(true);
     }
-  }
+  }, [panelOpened]);
 
   return (
     <div className={styles.panel}>
