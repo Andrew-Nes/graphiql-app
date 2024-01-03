@@ -22,7 +22,6 @@ const PlaygroundPage: FC = () => {
 
   return (
     <section className={styles.playground}>
-      <h1>Playground</h1>
       <EndpointForm endpoint={endpoint} endpointSetter={setEndpoint} />
       <div className={styles.playground__editors}>
         <RequestEditor />
