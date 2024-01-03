@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { Editor } from '../Editor';
 
 import styles from './ResponseEditor.module.scss';

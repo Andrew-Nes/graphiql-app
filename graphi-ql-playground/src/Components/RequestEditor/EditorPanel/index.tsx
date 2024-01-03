@@ -1,9 +1,9 @@
 import { Dispatch, FC, MouseEvent, SetStateAction, useState } from 'react';
+import clsx from 'clsx';
 
 import { Button } from '@/Components/Button';
 import { Editor } from '@/Components/Editor';
 
-import clsx from 'clsx';
 import styles from './EditorPanel.module.scss';
 
 export interface EditorPanelProps {
