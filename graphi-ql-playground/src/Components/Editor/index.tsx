@@ -9,7 +9,7 @@ import {
 import clsx from 'clsx';
 
 import { LinesNumber } from './LinesNumber';
-import { READ_MODE } from '@/constants';
+import { EDIT_MODE, READ_MODE } from '@/constants';
 
 import styles from './Editor.module.scss';
 
@@ -22,7 +22,7 @@ export interface EditorProps {
 }
 
 export const Editor: FC<EditorProps> = ({
-  mode = 'edit',
+  mode = EDIT_MODE,
   code,
   setCode,
   className = '',
