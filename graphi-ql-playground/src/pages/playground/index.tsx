@@ -16,6 +16,7 @@ import styles from '@/styles/Playground.module.scss';
 const PlaygroundPage: FC = () => {
   const [user] = useAuthState(auth);
   const [endpoint, setEndpoint] = useState<string>(DEFAULT_ENDPOINT);
+  const [response, setResponse] = useState<string>('');
   useEffect(() => {
     if (!user) router.push(routes.MAIN);
   }, [user]);
@@ -24,8 +25,8 @@ const PlaygroundPage: FC = () => {
     <section className={styles.playground}>
       <EndpointForm endpoint={endpoint} endpointSetter={setEndpoint} />
       <div className={styles.playground__editors}>
-        <RequestEditor />
-        <ResponseEditor />
+        <RequestEditor endpoint={endpoint} setResponse={setResponse} />
+        <ResponseEditor response={response} />
       </div>
     </section>
   );

@@ -1,4 +1,6 @@
-import { FC, useState } from 'react';
+import { Dispatch, FC, SetStateAction, useState } from 'react';
+
+import { makeRequest } from '@/services/request';
 
 import { Button } from '../Button';
 import { Editor } from '../Editor';
@@ -6,7 +8,15 @@ import { EditorPanel } from './EditorPanel';
 
 import styles from './RequestEditor.module.scss';
 
-export const RequestEditor: FC = () => {
+interface RequestEditorProps {
+  endpoint: string;
+  setResponse: Dispatch<SetStateAction<string>>;
+}
+
+export const RequestEditor: FC<RequestEditorProps> = ({
+  endpoint,
+  setResponse,
+}) => {
   const [code, setCode] = useState('');
   const [variablesCode, setVariablesCode] = useState('');
   const [headersCode, setHeadersCode] = useState('');
@@ -17,6 +27,13 @@ export const RequestEditor: FC = () => {
 
   const handleRequest = () => {
     console.log('Make request.');
+    const response = makeRequest({
+      endpoint: endpoint,
+      query: code,
+      variables: variablesCode,
+      headers: headersCode,
+    });
+    setResponse(JSON.stringify(response, null, 2));
   };
 
   return (

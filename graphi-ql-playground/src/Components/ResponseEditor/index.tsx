@@ -4,26 +4,15 @@ import { Editor } from '../Editor';
 
 import styles from './ResponseEditor.module.scss';
 
-export const ResponseEditor: FC = () => {
-  const code = `{
-  "errors": [
-    {
-      "message": "Syntax Error: Unexpected <EOF>",
-      "locations": [
-        {
-          "line": 32,
-          "column": 1
-        }
-      ]
-    }
-  ]
-}`;
-
+interface ResponseEditorProps {
+  response: string;
+}
+export const ResponseEditor: FC<ResponseEditorProps> = ({ response }) => {
   return (
     <div className={styles.responseEditor}>
       <Editor
         mode="read"
-        code={code}
+        code={response}
         placeholder="JSON response..."
         className="editor__response"
       />
