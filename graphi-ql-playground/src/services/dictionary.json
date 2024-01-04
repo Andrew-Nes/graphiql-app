@@ -68,7 +68,13 @@
       "NextJS, SSR/SSG",
       "Forms",
       "Technical React Interview, GraphiQL"
-    ]
+    ],
+    "playground": {
+      "endpointButton": {
+        "saveMod": "Save",
+        "editMod": "Edit"
+      }
+    }
   },
   "ru": {
     "forms": {
@@ -139,6 +145,12 @@
       "NextJS, SSR/SSG",
       "Формы",
       "Техническое интервью по React, GraphiQL"
-    ]
+    ],
+    "playground": {
+      "endpointButton": {
+        "saveMod": "Сохранить",
+        "editMod": "Изменить"
+      }
+    }
   }
 }

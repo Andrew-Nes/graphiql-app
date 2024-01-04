@@ -11,6 +11,9 @@ export const ERROR_MESSAGES = {
   SHORT_PASSWORD: 'Password minimum length is 8 characters.',
   MATCH_CONFIRM_PASS: 'Password & confirm password do not match.',
   REQUIRED_CONFIRM_PASS: 'Confirm password is required.',
+  API_ENDPOINT_EXIST: 'API endpoint does not exist.',
+  API_ENDPOINT_REQUIRED: 'API endpoint is required.',
+  API_ENDPOINT_VALID: 'API endpoint is not valid.',
 };
 
 export const ERROR_MESSAGES_RU = {
@@ -26,6 +29,9 @@ export const ERROR_MESSAGES_RU = {
   SHORT_PASSWORD: 'Минимальная длина пароля — 8 знаков.',
   MATCH_CONFIRM_PASS: 'Пароль и подтвержденный пароль не совпадают.',
   REQUIRED_CONFIRM_PASS: 'Подтверждение пароля обязательно.',
+  API_ENDPOINT_EXIST: 'Конечная точка API не существует.',
+  API_ENDPOINT_REQUIRED: 'Конечная точка API обязательна.',
+  API_ENDPOINT_VALID: 'Неверный формат конечной точки API.',
 };
 
 export type ErrorMessages = typeof ERROR_MESSAGES;

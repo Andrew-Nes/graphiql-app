@@ -10,3 +10,5 @@ export const EDIT_MODE = 'edit';
 
 export const LINK_SCHOOL = 'https://rs.school/';
 export const LINK_COURSE = 'https://rs.school/react/';
+
+export const DEFAULT_ENDPOINT = 'https://rickandmortyapi.com/graphql';
