@@ -13,12 +13,12 @@ import { RequestEditor } from '@/Components/RequestEditor';
 import { ResponseEditor } from '@/Components/ResponseEditor';
 import { Documentation } from '@/Components/Documentation';
 
-import styles from '@/styles/PlaygroundPage.module.scss';
+import styles from '@/styles/Playground.module.scss';
 
 const PlaygroundPage: FC = () => {
   const [user] = useAuthState(auth);
   const [endpoint, setEndpoint] = useState<string>(DEFAULT_ENDPOINT);
-  const [schemaLoaded, setSchemaLoaded] = useState(true);
+  const [schemaLoaded, setSchemaLoaded] = useState(false);
   const [docsOpened, setDocsOpened] = useState(false);
   const dictionary = useTranslations();
 
@@ -49,7 +49,11 @@ const PlaygroundPage: FC = () => {
         disabled={!schemaLoaded}
       >
         <Image
-          src="/images/docs-button.png"
+          src={
+            schemaLoaded
+              ? '/images/docs-y-button.png'
+              : '/images/docs-n-button.png'
+          }
           width={30}
           height={30}
           alt="Docs button image"

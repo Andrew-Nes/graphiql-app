@@ -1,8 +1,10 @@
 @import './variables.scss';
 
 .playground {
+  position: relative;
   height: calc(100vh - 5rem);
   padding: $padding-body;
+  overflow-x: hidden;
 
   @media (max-width: 768px) {
     height: 100%;
@@ -22,3 +24,26 @@
     }
   }
 }
+
+.docsButton {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+
+  &:hover{
+    background-color: $blue;
+  }
+
+  @media (max-width: 768px) {
+    right: 1rem;
+  }
+}
+
