@@ -15,7 +15,7 @@
   gap: 10px;
   background-color: $page-back;
   transform: translateX(100%);
-  transition: ease-in-out .5s;
+  transition: ease-in-out 0.5s;
   overflow-x: hidden;
 
   &__types,
@@ -52,7 +52,7 @@
   &__base {
     color: $blue;
     border: none;
-    font-size: $text-size-button; 
+    font-size: $text-size-button;
   }
 
   &__nested {
@@ -64,8 +64,8 @@
   }
 
   &__field_name {
-    color: $blue
-   }
+    color: $blue;
+  }
 
   &__type {
     color: $blue;
