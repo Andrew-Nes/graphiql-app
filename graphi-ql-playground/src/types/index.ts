@@ -84,12 +84,12 @@ interface ITranslations {
         titleDocs: string;
         titleNoDocs: string;
       };
-  };
+    };
     endpointButton: {
       saveMod: string;
       editMod: string;
     };
-  }  
+  };
 }
 
 export interface IDictionary {

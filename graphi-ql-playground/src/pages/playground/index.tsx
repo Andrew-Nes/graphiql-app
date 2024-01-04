@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import { auth } from '@/services/auth/firebase';
 import { routes } from '@/types';
-
+import { DEFAULT_ENDPOINT } from '@/constants';
 import { useTranslations } from '@/hooks';
 
 import { EndpointForm } from '@/Components/Forms/EndpointForm';
@@ -29,7 +29,7 @@ const PlaygroundPage: FC = () => {
   const handleSetSchemaLoaded = (newValue: boolean) => {
     setSchemaLoaded(newValue);
   };
-  
+
   useEffect(() => {
     if (!user) router.push(routes.MAIN);
   }, [user]);
@@ -59,7 +59,7 @@ const PlaygroundPage: FC = () => {
         <RequestEditor />
         <ResponseEditor />
       </div>
-       <Documentation
+      <Documentation
         endpoint={endpoint}
         setSchemaLoaded={handleSetSchemaLoaded}
         docs={docsOpened}
