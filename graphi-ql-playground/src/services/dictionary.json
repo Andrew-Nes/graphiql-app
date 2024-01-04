@@ -69,12 +69,16 @@
       "Forms",
       "Technical React Interview, GraphiQL"
     ],
-    "playground": {
+   "playground": {
       "docs": {
         "button": {
           "titleDocs": "Click to see documentation",
           "titleNoDocs": "No documentation avaliable"
         }
+      },
+    "endpointButton": {
+      "saveMod": "Save",
+      "editMod": "Edit"
       }
     }
   },
@@ -154,6 +158,10 @@
           "titleDocs": "Посмотреть документацию",
           "titleNoDocs": "Документация не доступна"
         }
+    },
+       "endpointButton": {
+        "saveMod": "Сохранить",
+        "editMod": "Изменить"
       }
     }
   }

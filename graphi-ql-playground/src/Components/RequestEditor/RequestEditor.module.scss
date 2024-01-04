@@ -1,0 +1,91 @@
+@import '../../styles/variables.scss';
+
+.requestEditor {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 60rem;
+  }
+
+  &__buttons {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @media (max-width: 768px) {
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+
+  &__button_request,
+  &__button_prettify {
+    width: 5rem;
+    height: 5rem;
+    font-size: $text-size-button;
+  }
+
+  &__button_prettify {
+    color: $blue;
+    background-color: $button-back-secondary;
+
+    &:hover {
+      color: $white;
+      background-color: $button-back-hover;
+    }
+  }
+}
+
+.panel {
+  background-color: $white;
+  border-top: 1px solid $blue;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+    padding: 1rem;
+    padding-right: $padding-body;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .button {
+    height: 3rem;
+    font-size: $text-size;
+    color: $blue;
+    background-color: $button-back-secondary;
+    transition: none;
+
+    &:hover {
+      color: $white;
+      background-color: $blue;
+    }
+  }
+
+  .button.active {
+    color: $white;
+    background-color: $blue;
+  }
+
+  &__editors {
+    height: 0;
+    overflow: hidden;
+  }
+
+  &__editors_open {
+    height: 16rem;
+  }
+}

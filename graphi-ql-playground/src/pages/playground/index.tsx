@@ -5,15 +5,19 @@ import Image from 'next/image';
 
 import { auth } from '@/services/auth/firebase';
 import { routes } from '@/types';
+
 import { useTranslations } from '@/hooks';
 
+import { EndpointForm } from '@/Components/Forms/EndpointForm';
+import { RequestEditor } from '@/Components/RequestEditor';
+import { ResponseEditor } from '@/Components/ResponseEditor';
 import { Documentation } from '@/Components/Documentation';
 
 import styles from '@/styles/PlaygroundPage.module.scss';
 
 const PlaygroundPage: FC = () => {
   const [user] = useAuthState(auth);
-  const [endpoint] = useState('https://rickandmortyapi.com/graphql');
+  const [endpoint, setEndpoint] = useState<string>(DEFAULT_ENDPOINT);
   const [schemaLoaded, setSchemaLoaded] = useState(true);
   const [docsOpened, setDocsOpened] = useState(false);
   const dictionary = useTranslations();
@@ -25,13 +29,14 @@ const PlaygroundPage: FC = () => {
   const handleSetSchemaLoaded = (newValue: boolean) => {
     setSchemaLoaded(newValue);
   };
-
+  
   useEffect(() => {
     if (!user) router.push(routes.MAIN);
   }, [user]);
 
   return (
-    <div className={styles.playground}>
+    <section className={styles.playground}>
+      <EndpointForm endpoint={endpoint} endpointSetter={setEndpoint} />
       <button
         className={styles.docsButton}
         name="docs"
@@ -50,12 +55,16 @@ const PlaygroundPage: FC = () => {
           alt="Docs button image"
         />
       </button>
-      <Documentation
+      <div className={styles.playground__editors}>
+        <RequestEditor />
+        <ResponseEditor />
+      </div>
+       <Documentation
         endpoint={endpoint}
         setSchemaLoaded={handleSetSchemaLoaded}
         docs={docsOpened}
-      ></Documentation>
-    </div>
+      />
+    </section>
   );
 };
 
