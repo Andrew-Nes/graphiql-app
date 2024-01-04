@@ -68,7 +68,15 @@
       "NextJS, SSR/SSG",
       "Forms",
       "Technical React Interview, GraphiQL"
-    ]
+    ], 
+    "playground": {
+      "docs": {
+        "button":{
+          "titleDocs": "Click to see documentation",
+          "titleNoDocs": "No documentation avaliable"
+        } 
+      }
+    }
   },
   "ru": {
     "forms": {
@@ -139,6 +147,14 @@
       "NextJS, SSR/SSG",
       "Формы",
       "Техническое интервью по React, GraphiQL"
-    ]
+    ],
+    "playground": {
+      "docs": {
+        "button":{
+          "titleDocs": "Посмотреть документацию",
+          "titleNoDocs": "Документация не доступна"
+        } 
+      }
+    }
   }
 }

@@ -77,6 +77,15 @@ interface ITranslations {
   };
 
   courseData: string[];
+
+  playground: {
+    docs: {
+      button: {
+        titleDocs: string;
+        titleNoDocs: string;
+      };
+    };
+  };
 }
 
 export interface IDictionary {
