@@ -25,15 +25,21 @@ export const RequestEditor: FC<RequestEditorProps> = ({
     console.log('Prettify.');
   };
 
-  const handleRequest = () => {
-    console.log('Make request.');
-    const response = makeRequest({
-      endpoint: endpoint,
-      query: code,
-      variables: variablesCode,
-      headers: headersCode,
-    });
-    setResponse(JSON.stringify(response, null, 2));
+  const handleRequest = async () => {
+    try {
+      const response = await makeRequest({
+        endpoint: endpoint,
+        query: code,
+        variables: variablesCode ? JSON.parse(variablesCode) : {},
+        headers: headersCode ? headersCode : '{}',
+      });
+
+      setResponse(JSON.stringify(response, null, 2));
+    } catch (err) {
+      if (err instanceof Error) {
+        setResponse(err.message);
+      }
+    }
   };
 
   return (

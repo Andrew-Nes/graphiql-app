@@ -1,7 +1,7 @@
 interface MakeRequestParams {
   endpoint: string;
   query: string;
-  variables: string;
+  variables: object;
   headers: string;
 }
 
