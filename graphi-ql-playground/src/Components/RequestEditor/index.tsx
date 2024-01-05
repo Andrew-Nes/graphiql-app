@@ -1,6 +1,8 @@
 import { Dispatch, FC, SetStateAction, useState } from 'react';
 
 import { makeRequest } from '@/services/request';
+import { prettifyQuery } from '@/utils/prettifyQuery';
+import { isValidJson } from '@/utils/isValidJson';
 
 import { Button } from '../Button';
 import { Editor } from '../Editor';
@@ -22,7 +24,13 @@ export const RequestEditor: FC<RequestEditorProps> = ({
   const [headersCode, setHeadersCode] = useState('');
 
   const handlePrettify = () => {
-    console.log('Prettify.');
+    setCode(prettifyQuery(code));
+    if (isValidJson(variablesCode)) {
+      setVariablesCode(JSON.stringify(JSON.parse(variablesCode), null, 2));
+    }
+    if (isValidJson(headersCode)) {
+      setHeadersCode(JSON.stringify(JSON.parse(headersCode), null, 2));
+    }
   };
 
   const handleRequest = async () => {
