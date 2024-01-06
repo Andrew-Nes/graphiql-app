@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { IntrospectionType } from 'graphql';
 
 import styles from '../Documentation.module.scss';
@@ -12,13 +12,13 @@ export const Types: FC<ITypesProps> = ({ types }) => {
     Array(types.length).fill(false)
   );
 
-  const updateValue = (index: number) => {
-    setOpenType(() => {
-      const updatedState = [...openType];
-      updatedState[index] = !openType[index];
+  const updateValue = useCallback((index: number) => {
+    setOpenType((prevOpenType) => {
+      const updatedState = [...prevOpenType];
+      updatedState[index] = !prevOpenType[index];
       return updatedState;
     });
-  };
+  }, []);
 
   return (
     types && (
