@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import router from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Image from 'next/image';
@@ -26,9 +26,9 @@ const PlaygroundPage: FC = () => {
     setDocsOpened(!docsOpened);
   };
 
-  const handleSetSchemaLoaded = (newValue: boolean) => {
+  const handleSetSchemaLoaded = useCallback((newValue: boolean) => {
     setSchemaLoaded(newValue);
-  };
+  }, []);
 
   useEffect(() => {
     if (!user) router.push(routes.MAIN);
