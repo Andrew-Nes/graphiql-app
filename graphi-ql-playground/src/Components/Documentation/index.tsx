@@ -38,6 +38,10 @@ export const Documentation: FC<IDocumentationProps> = ({
     setOpenQueries((prevOpenQueries) => !prevOpenQueries);
   }, []);
 
+  const handleOpenTypes = useCallback(() => {
+    setOpenTypes((prevOpenTypes) => !prevOpenTypes);
+  }, []);
+
   useEffect(() => {
     (async () => {
       const fetchedSchema = await fetchSchema(endpoint);
@@ -50,12 +54,7 @@ export const Documentation: FC<IDocumentationProps> = ({
     schema && (
       <section className={clsx(styles.docs, { [styles.open]: docs })}>
         <span>
-          <button
-            className={styles.docs__base}
-            onClick={() => {
-              setOpenTypes(!openTypes);
-            }}
-          >
+          <button className={styles.docs__base} onClick={handleOpenTypes}>
             Types
           </button>
 
