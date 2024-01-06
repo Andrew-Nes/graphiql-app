@@ -46,18 +46,17 @@ export const Types: FC<ITypesProps> = ({ types }) => {
                 onClick={handleTypeClick(type, index)}
               >
                 {type.name}
+                {type.description ||
+                (type.kind === OBJECT_TYPE_KIND_NAME && type.fields) ? (
+                  <span
+                    className={clsx(styles.docs__symbol, {
+                      [styles.hidden]: openType[index],
+                    })}
+                  >
+                    ▼
+                  </span>
+                ) : null}
               </button>
-              {type.description ||
-              (type.kind === OBJECT_TYPE_KIND_NAME && type.fields) ? (
-                <span
-                  className={clsx(styles.docs__symbol, {
-                    [styles.hidden]: openType[index],
-                  })}
-                >
-                  {' '}
-                  ▼
-                </span>
-              ) : null}
             </span>
 
             {openType[index] && (

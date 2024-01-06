@@ -61,7 +61,6 @@ export const Documentation: FC<IDocumentationProps> = ({
                 [styles.hidden]: openTypes,
               })}
             >
-              {' '}
               ▼
             </span>
           </button>
@@ -80,7 +79,6 @@ export const Documentation: FC<IDocumentationProps> = ({
                 [styles.hidden]: openQueries,
               })}
             >
-              {' '}
               ▼
             </span>
           </button>
