@@ -11,6 +11,7 @@ import { Queries } from './QueryComponent/index';
 import { Types } from './TypesComponent';
 
 import styles from './Documentation.module.scss';
+import clsx from 'clsx';
 
 interface IDocumentationProps {
   endpoint: string;
@@ -19,7 +20,7 @@ interface IDocumentationProps {
 }
 
 export const Documentation: FC<IDocumentationProps> = (props) => {
-  const { endpoint, setSchemaLoaded } = props;
+  const { endpoint, setSchemaLoaded, docs } = props;
 
   const [openTypes, setOpenTypes] = useState<boolean>(false);
   const [openQueries, setOpenQueries] = useState<boolean>(false);
@@ -29,8 +30,6 @@ export const Documentation: FC<IDocumentationProps> = (props) => {
   const mainTypes = schema?.types.filter(
     ({ name }) => name !== 'Query' && !name.startsWith('__')
   );
-
-  const docsStyle = !props.docs ? styles.docs : styles.docs + ' ' + styles.open;
 
   useEffect(() => {
     (async () => {
@@ -42,7 +41,7 @@ export const Documentation: FC<IDocumentationProps> = (props) => {
 
   return (
     schema && (
-      <section className={docsStyle}>
+      <section className={clsx(styles.docs, docs && styles.open)}>
         <span>
           <button
             className={styles.docs__base}
