@@ -22,9 +22,9 @@ const PlaygroundPage: FC = () => {
   const [docsOpened, setDocsOpened] = useState(false);
   const dictionary = useTranslations();
 
-  const toggleDocs = () => {
-    setDocsOpened(!docsOpened);
-  };
+  const handleToggleDocs = useCallback(() => {
+    setDocsOpened((prevDocsOpened) => !prevDocsOpened);
+  }, []);
 
   const handleSetSchemaLoaded = useCallback((newValue: boolean) => {
     setSchemaLoaded(newValue);
@@ -32,7 +32,7 @@ const PlaygroundPage: FC = () => {
 
   useEffect(() => {
     if (!user) router.push(routes.MAIN);
-  }, [user]);
+  }, [user, endpoint]);
 
   return (
     <section className={styles.playground}>
@@ -45,7 +45,7 @@ const PlaygroundPage: FC = () => {
             ? dictionary.playground.docs.button.titleDocs
             : dictionary.playground.docs.button.titleNoDocs
         }
-        onClick={toggleDocs}
+        onClick={handleToggleDocs}
         disabled={!schemaLoaded}
       >
         <Image
