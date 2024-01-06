@@ -1,5 +1,6 @@
 import { FC, useCallback, useState } from 'react';
 import { IntrospectionType } from 'graphql';
+import clsx from 'clsx';
 
 import { OBJECT_TYPE_KIND_NAME } from '@/constants';
 
@@ -46,10 +47,16 @@ export const Types: FC<ITypesProps> = ({ types }) => {
               >
                 {type.name}
               </button>
-              {(type.description ||
-                (type.kind === OBJECT_TYPE_KIND_NAME && type.fields)) &&
-              !openType[index] ? (
-                <span className={styles.docs__symbol}> ▼</span>
+              {type.description ||
+              (type.kind === OBJECT_TYPE_KIND_NAME && type.fields) ? (
+                <span
+                  className={clsx(styles.docs__symbol, {
+                    [styles.hidden]: openType[index],
+                  })}
+                >
+                  {' '}
+                  ▼
+                </span>
               ) : null}
             </span>
 

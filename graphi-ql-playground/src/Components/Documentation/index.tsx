@@ -56,9 +56,15 @@ export const Documentation: FC<IDocumentationProps> = ({
         <span>
           <button className={styles.docs__base} onClick={handleOpenTypes}>
             Types
+            <span
+              className={clsx(styles.docs__symbol, {
+                [styles.hidden]: openTypes,
+              })}
+            >
+              {' '}
+              ▼
+            </span>
           </button>
-
-          {!openTypes && <span className={styles.docs__symbol}> ▼</span>}
         </span>
 
         {openTypes && (
@@ -69,9 +75,15 @@ export const Documentation: FC<IDocumentationProps> = ({
         <span>
           <button className={styles.docs__base} onClick={handleOpenQueries}>
             Query
+            <span
+              className={clsx(styles.docs__symbol, {
+                [styles.hidden]: openQueries,
+              })}
+            >
+              {' '}
+              ▼
+            </span>
           </button>
-
-          {!openQueries && <span className={styles.docs__symbol}> ▼</span>}
         </span>
 
         {openQueries && (
