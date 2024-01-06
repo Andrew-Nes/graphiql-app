@@ -7,30 +7,28 @@ interface IQueriesProps {
   queries: IntrospectionObjectType;
 }
 
-export const Queries: FC<IQueriesProps> = (props) => {
-  const { queries } = props;
-
+export const Queries: FC<IQueriesProps> = ({ queries }) => {
   return (
     queries && (
       <div className={styles.docs__queries}>
-        {queries.fields.map((query) => (
-          <div key={query.name}>
+        {queries.fields.map(({ name, description, args }) => (
+          <div key={name}>
             <div>
-              <div>{query.description}</div>
-              <span className={styles.docs__query}>{query.name}</span>
+              <div>{description}</div>
+              <span className={styles.docs__query}>{name}</span>
               <span>(</span>
 
               <span>
-                {query.args &&
-                  query.args.map((arg) => (
-                    <div key={arg.name}>
-                      <span className={styles.docs__args}>{arg.name}</span>:{' '}
-                      {arg.defaultValue && (
+                {args &&
+                  args.map(({ name, defaultValue }) => (
+                    <div key={name}>
+                      <span className={styles.docs__args}>{name}</span>:{' '}
+                      {defaultValue && (
                         <span>
                           {' '}
                           ={' '}
                           <span className={styles.docs__defaultValue}>
-                            {arg.defaultValue}
+                            {defaultValue}
                           </span>
                         </span>
                       )}

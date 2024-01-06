@@ -7,8 +7,7 @@ interface ITypesProps {
   types: ReadonlyArray<IntrospectionType>;
 }
 
-export const Types: FC<ITypesProps> = (props) => {
-  const { types } = props;
+export const Types: FC<ITypesProps> = ({ types }) => {
   const [openType, setOpenType] = useState<boolean[]>(
     Array(types.length).fill(false)
   );
@@ -52,15 +51,15 @@ export const Types: FC<ITypesProps> = (props) => {
                 {type.kind === 'OBJECT' && type.fields && (
                   <div>
                     <span>Fields:</span>
-                    {type.fields.map((field) => {
+                    {type.fields.map(({ name, description }) => {
                       return (
-                        <div key={field.name}>
+                        <div key={name}>
                           <span className={styles.docs__field_name}>
-                            {field.name}
+                            {name}
                           </span>
                           {': '}
                           <span className={styles.docs__field_description}>
-                            {field.description}
+                            {description}
                           </span>
                         </div>
                       );

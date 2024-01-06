@@ -19,9 +19,11 @@ interface IDocumentationProps {
   docs: boolean;
 }
 
-export const Documentation: FC<IDocumentationProps> = (props) => {
-  const { endpoint, setSchemaLoaded, docs } = props;
-
+export const Documentation: FC<IDocumentationProps> = ({
+  endpoint,
+  setSchemaLoaded,
+  docs,
+}) => {
   const [openTypes, setOpenTypes] = useState<boolean>(false);
   const [openQueries, setOpenQueries] = useState<boolean>(false);
   const [schema, setSchema] = useState<IntrospectionSchema | null>(null);
