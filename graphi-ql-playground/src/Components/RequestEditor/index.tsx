@@ -3,6 +3,7 @@ import { Dispatch, FC, SetStateAction, useCallback, useState } from 'react';
 import { makeRequest } from '@/services/request';
 import { prettifyQuery } from '@/utils/prettifyQuery';
 import { isValidJson } from '@/utils/isValidJson';
+import { formatCode } from '@/utils/formatJson';
 
 import { Button } from '../Button';
 import { Editor } from '../Editor';
@@ -26,10 +27,10 @@ export const RequestEditor: FC<RequestEditorProps> = ({
   const handlePrettify = useCallback(() => {
     setCode(prettifyQuery(code));
     if (isValidJson(variablesCode)) {
-      setVariablesCode(JSON.stringify(JSON.parse(variablesCode), null, 2));
+      setVariablesCode(formatCode(variablesCode));
     }
     if (isValidJson(headersCode)) {
-      setHeadersCode(JSON.stringify(JSON.parse(headersCode), null, 2));
+      setHeadersCode(formatCode(headersCode));
     }
   }, [code, variablesCode, headersCode]);
 
