@@ -14,12 +14,13 @@ import { ResponseEditor } from '@/Components/ResponseEditor';
 import styles from '@/styles/Playground.module.scss';
 
 const PlaygroundPage: FC = () => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [endpoint, setEndpoint] = useState<string>(DEFAULT_ENDPOINT);
   const [response, setResponse] = useState<string>('');
+
   useEffect(() => {
-    if (!user) router.push(routes.MAIN);
-  }, [user]);
+    if (!loading && !user) router.push(routes.MAIN);
+  }, [user, endpoint, loading]);
 
   return (
     <section className={styles.playground}>
