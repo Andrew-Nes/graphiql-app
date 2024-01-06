@@ -16,7 +16,7 @@ import { Documentation } from '@/Components/Documentation';
 import styles from '@/styles/Playground.module.scss';
 
 const PlaygroundPage: FC = () => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [endpoint, setEndpoint] = useState<string>(DEFAULT_ENDPOINT);
   const [schemaLoaded, setSchemaLoaded] = useState(false);
   const [docsOpened, setDocsOpened] = useState(false);
@@ -31,8 +31,8 @@ const PlaygroundPage: FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!user) router.push(routes.MAIN);
-  }, [user, endpoint]);
+    if (!loading && !user) router.push(routes.MAIN);
+  }, [user, endpoint, loading]);
 
   return (
     <section className={styles.playground}>
