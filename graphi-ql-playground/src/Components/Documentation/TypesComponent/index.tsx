@@ -1,6 +1,8 @@
 import { FC, useCallback, useState } from 'react';
 import { IntrospectionType } from 'graphql';
 
+import { OBJECT_TYPE_NAME } from '@/constants';
+
 import styles from '../Documentation.module.scss';
 
 interface ITypesProps {
@@ -31,7 +33,7 @@ export const Types: FC<ITypesProps> = ({ types }) => {
                 onClick={() => {
                   if (
                     type.description ||
-                    (type.kind === 'OBJECT' && type.fields)
+                    (type.kind === OBJECT_TYPE_NAME && type.fields)
                   ) {
                     updateValue(index);
                   }
@@ -39,7 +41,8 @@ export const Types: FC<ITypesProps> = ({ types }) => {
               >
                 {type.name}
               </button>
-              {(type.description || (type.kind === 'OBJECT' && type.fields)) &&
+              {(type.description ||
+                (type.kind === OBJECT_TYPE_NAME && type.fields)) &&
               !openType[index] ? (
                 <span className={styles.docs__symbol}> ▼</span>
               ) : null}
@@ -48,7 +51,7 @@ export const Types: FC<ITypesProps> = ({ types }) => {
             {openType[index] && (
               <div className={styles.docs__nested}>
                 {type.description && <div>{type.description}</div>}
-                {type.kind === 'OBJECT' && type.fields && (
+                {type.kind === OBJECT_TYPE_NAME && type.fields && (
                   <div>
                     <span>Fields:</span>
                     {type.fields.map(({ name, description }) => {
