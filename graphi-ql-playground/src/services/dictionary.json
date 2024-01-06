@@ -70,6 +70,12 @@
       "Technical React Interview, GraphiQL"
     ],
     "playground": {
+      "docs": {
+        "button": {
+          "titleDocs": "Click to see documentation",
+          "titleNoDocs": "No documentation avaliable"
+        }
+      },
       "endpointButton": {
         "saveMod": "Save",
         "editMod": "Edit"
@@ -147,6 +153,12 @@
       "Техническое интервью по React, GraphiQL"
     ],
     "playground": {
+      "docs": {
+        "button": {
+          "titleDocs": "Посмотреть документацию",
+          "titleNoDocs": "Документация не доступна"
+        }
+      },
       "endpointButton": {
         "saveMod": "Сохранить",
         "editMod": "Изменить"

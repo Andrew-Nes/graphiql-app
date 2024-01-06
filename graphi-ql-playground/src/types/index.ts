@@ -77,7 +77,14 @@ interface ITranslations {
   };
 
   courseData: string[];
+
   playground: {
+    docs: {
+      button: {
+        titleDocs: string;
+        titleNoDocs: string;
+      };
+    };
     endpointButton: {
       saveMod: string;
       editMod: string;
