@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useState } from 'react';
+import { Dispatch, FC, SetStateAction, useCallback, useState } from 'react';
 
 import { makeRequest } from '@/services/request';
 import { prettifyQuery } from '@/utils/prettifyQuery';
@@ -19,11 +19,11 @@ export const RequestEditor: FC<RequestEditorProps> = ({
   endpoint,
   setResponse,
 }) => {
-  const [code, setCode] = useState('');
-  const [variablesCode, setVariablesCode] = useState('');
-  const [headersCode, setHeadersCode] = useState('');
+  const [code, setCode] = useState<string>('');
+  const [variablesCode, setVariablesCode] = useState<string>('');
+  const [headersCode, setHeadersCode] = useState<string>('');
 
-  const handlePrettify = () => {
+  const handlePrettify = useCallback(() => {
     setCode(prettifyQuery(code));
     if (isValidJson(variablesCode)) {
       setVariablesCode(JSON.stringify(JSON.parse(variablesCode), null, 2));
@@ -31,7 +31,7 @@ export const RequestEditor: FC<RequestEditorProps> = ({
     if (isValidJson(headersCode)) {
       setHeadersCode(JSON.stringify(JSON.parse(headersCode), null, 2));
     }
-  };
+  }, [code, variablesCode, headersCode]);
 
   const handleRequest = async () => {
     try {
