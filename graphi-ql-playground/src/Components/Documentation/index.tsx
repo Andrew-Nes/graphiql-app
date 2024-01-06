@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import {
   IntrospectionObjectType,
   IntrospectionSchema,
@@ -34,6 +34,10 @@ export const Documentation: FC<IDocumentationProps> = ({
     ({ name }) => name !== QUERY_TYPE_NAME && !name.startsWith('__')
   );
 
+  const handleOpenQueries = useCallback(() => {
+    setOpenQueries((prevOpenQueries) => !prevOpenQueries);
+  }, []);
+
   useEffect(() => {
     (async () => {
       const fetchedSchema = await fetchSchema(endpoint);
@@ -64,12 +68,7 @@ export const Documentation: FC<IDocumentationProps> = ({
           </div>
         )}
         <span>
-          <button
-            className={styles.docs__base}
-            onClick={() => {
-              setOpenQueries(!openQueries);
-            }}
-          >
+          <button className={styles.docs__base} onClick={handleOpenQueries}>
             Query
           </button>
 
