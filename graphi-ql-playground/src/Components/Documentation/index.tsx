@@ -4,14 +4,15 @@ import {
   IntrospectionSchema,
   IntrospectionType,
 } from 'graphql';
+import clsx from 'clsx';
 
 import { fetchSchema } from '@/utils/fetchGraphqlSchema';
+import { QUERY_TYPE_NAME } from '@/constants';
 
 import { Queries } from './QueryComponent/index';
 import { Types } from './TypesComponent';
 
 import styles from './Documentation.module.scss';
-import clsx from 'clsx';
 
 interface IDocumentationProps {
   endpoint: string;
@@ -28,9 +29,9 @@ export const Documentation: FC<IDocumentationProps> = ({
   const [openQueries, setOpenQueries] = useState<boolean>(false);
   const [schema, setSchema] = useState<IntrospectionSchema | null>(null);
 
-  const queryType = schema?.types.find(({ name }) => name === 'Query');
+  const queryType = schema?.types.find(({ name }) => name === QUERY_TYPE_NAME);
   const mainTypes = schema?.types.filter(
-    ({ name }) => name !== 'Query' && !name.startsWith('__')
+    ({ name }) => name !== QUERY_TYPE_NAME && !name.startsWith('__')
   );
 
   useEffect(() => {
