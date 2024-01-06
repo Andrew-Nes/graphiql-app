@@ -41,7 +41,7 @@ export const Documentation: FC<IDocumentationProps> = (props) => {
 
   return (
     schema && (
-      <section className={clsx(styles.docs, docs && styles.open)}>
+      <section className={clsx(styles.docs, { [styles.open]: docs })}>
         <span>
           <button
             className={styles.docs__base}
