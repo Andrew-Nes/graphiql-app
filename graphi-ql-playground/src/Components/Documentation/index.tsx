@@ -9,7 +9,7 @@ import clsx from 'clsx';
 import { fetchSchema } from '@/utils/fetchGraphqlSchema';
 import { QUERY_TYPE_NAME } from '@/constants';
 
-import { Queries } from './QueryComponent/index';
+import { Queries } from './QueryComponent/';
 import { Types } from './TypesComponent';
 
 import styles from './Documentation.module.scss';

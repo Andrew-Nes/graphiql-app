@@ -16,23 +16,23 @@ import { Documentation } from '@/Components/Documentation';
 import styles from '@/styles/Playground.module.scss';
 
 const PlaygroundPage: FC = () => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [endpoint, setEndpoint] = useState<string>(DEFAULT_ENDPOINT);
   const [schemaLoaded, setSchemaLoaded] = useState(false);
   const [docsOpened, setDocsOpened] = useState(false);
   const dictionary = useTranslations();
 
-  const toggleDocs = () => {
-    setDocsOpened(!docsOpened);
-  };
+  const handleToggleDocs = useCallback(() => {
+    setDocsOpened((prevDocsOpened) => !prevDocsOpened);
+  }, []);
 
   const handleSetSchemaLoaded = useCallback((newValue: boolean) => {
     setSchemaLoaded(newValue);
   }, []);
 
   useEffect(() => {
-    if (!user) router.push(routes.MAIN);
-  }, [user]);
+    if (!loading && !user) router.push(routes.MAIN);
+  }, [user, endpoint, loading]);
 
   return (
     <section className={styles.playground}>
@@ -45,7 +45,7 @@ const PlaygroundPage: FC = () => {
             ? dictionary.playground.docs.button.titleDocs
             : dictionary.playground.docs.button.titleNoDocs
         }
-        onClick={toggleDocs}
+        onClick={handleToggleDocs}
         disabled={!schemaLoaded}
       >
         <Image
