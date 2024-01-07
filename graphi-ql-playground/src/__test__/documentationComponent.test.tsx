@@ -82,7 +82,6 @@ describe('Documentation', () => {
 
   it('renders Documentation component with loaded schema', async () => {
     const setSchemaLoaded = jest.fn();
-    mockFetchSchema.mockResolvedValue(mockSchema);
 
     await act(async () => {
       render(
@@ -101,7 +100,6 @@ describe('Documentation', () => {
 
   it('handles button clicks and toggles nested content', async () => {
     const setSchemaLoaded = jest.fn();
-    mockFetchSchema.mockResolvedValue(mockSchema);
 
     await act(async () => {
       render(
