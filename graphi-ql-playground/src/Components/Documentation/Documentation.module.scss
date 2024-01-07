@@ -1,0 +1,87 @@
+@import '../../styles/variables.scss';
+
+.docs {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 30vw;
+  height: 100%;
+  max-height: 100%;
+  min-width: 300px;
+  padding: 2rem;
+  gap: 10px;
+  background-color: $white;
+  border-left: 1px solid $blue;
+  transform: translateX(100%);
+  transition: ease-in-out 0.5s;
+  overflow-x: hidden;
+
+  &__types,
+  &__queries {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__defaultValue {
+    color: black;
+  }
+
+  &__symbol {
+    margin-left: 0.5rem;
+    font-size: $text-size;
+    color: $blue;
+  }
+
+  &__args {
+    color: $blue;
+  }
+
+  &__link {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__query {
+    color: $blue;
+  }
+
+  &__base {
+    font-size: $text-size-button;
+    color: $blue;
+    background-color: transparent;
+    border: none;
+  }
+
+  &__nested {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin-left: 15px;
+    gap: 5px;
+  }
+
+  &__field_name {
+    color: $blue;
+  }
+
+  &__type {
+    color: $blue;
+    border: none;
+    font-size: $text-size;
+  }
+}
+.open {
+  transform: translateX(0%);
+}
+
+.hidden {
+  opacity: 0;
+}

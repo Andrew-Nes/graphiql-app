@@ -1,0 +1,170 @@
+{
+  "en": {
+    "forms": {
+      "title": {
+        "login": "Log In",
+        "register": "Registration"
+      },
+      "subtitle": {
+        "login": "Please, log in to use GraphiQL Playground.",
+        "register": "Please, create account to use GraphiQL Playground."
+      },
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "pass": "Password",
+        "confirmPassword": "Confirm password"
+      },
+      "buttons": {
+        "login": "Log In",
+        "register": "Create Account"
+      },
+      "options": {
+        "login": "Already have an account?",
+        "register": "Don’t have an account?"
+      },
+      "errors": {
+        "login": "This account doesn’t exist. Please, try another email or password.",
+        "register": "User with this email is already registered.",
+        "auth": "Something went wrong. Please, try again."
+      }
+    },
+    "header": {
+      "menu": "Menu",
+      "login": "Log In",
+      "register": "Register",
+      "logout": "Logout",
+      "playground": "Playground"
+    },
+    "landing": {
+      "heading": "Hey there, welcome to the GraphiQL Playground! This is the go-to IDE for making GraphQL requests to various API endpoints.",
+      "intro": "You can try our default The Rick and Morty API where you'll find extensive collection of characters, images, locations, and episodes. Or just type in any other API endpoint that supports GraphQL requests.",
+      "login": "Please, Log In",
+      "playground": "Try Playground",
+      "course": {
+        "name": "React Course",
+        "description_1": "This course is perfect for students with experience in JavaScript, TypeScript, Git, GitHub, NPM, Webpack, CSS3, HTML5 and an understanding of interacting with APIs.",
+        "description_2": "The course runs for a total of 10 weeks, with 6 weeks dedicated to studying React and an additional 4 weeks for the final task implementation.",
+        "more": "Learn more",
+        "week": "Week"
+      },
+      "team": "Team"
+    },
+    "footer": {
+      "greeting": "Hi!",
+      "intro": "Welcome the team:",
+      "course": "React Course",
+      "copyright": "All rights are very much reserved"
+    },
+    "notFound": {
+      "text": "Oooops... Something went wrong!",
+      "button": "Back to Home"
+    },
+    "courseData": [
+      "Components",
+      "Routing",
+      "Tests, Context API",
+      "Redux. RTK",
+      "NextJS, SSR/SSG",
+      "Forms",
+      "Technical React Interview, GraphiQL"
+    ],
+    "playground": {
+      "docs": {
+        "button": {
+          "titleDocs": "Click to see documentation",
+          "titleNoDocs": "No documentation avaliable"
+        }
+      },
+      "endpointButton": {
+        "saveMod": "Save",
+        "editMod": "Edit"
+      }
+    },
+    "loading": "Loading"
+  },
+  "ru": {
+    "forms": {
+      "title": {
+        "login": "Вход",
+        "register": "Регистрация"
+      },
+      "subtitle": {
+        "login": "Войдите в свой аккаунт, чтобы использовать Песочницу GraphiQL.",
+        "register": "Зарегистрируйтесь, чтобы использовать Песочницу GraphiQL."
+      },
+      "fields": {
+        "name": "Имя",
+        "email": "Имейл",
+        "pass": "Пароль",
+        "confirmPassword": "Подтверждение пароля"
+      },
+      "buttons": {
+        "login": "Войти",
+        "register": "Создать аккаунт"
+      },
+      "options": {
+        "login": "Уже зарегистрированы?",
+        "register": "Еще не зарегистрировались?"
+      },
+      "errors": {
+        "login": "Такого аккаунта не существует. Пожалуйста, попробуйте другую почту или пароль.",
+        "register": "Пользователь с такой почтой уже зарегестрирован.",
+        "auth": "Что-то пошло не так. Пожалуйста, повторите попытку позже."
+      }
+    },
+    "header": {
+      "menu": "Меню",
+      "login": "Войти",
+      "register": "Регистрация",
+      "logout": "Выйти",
+      "playground": "Песочница"
+    },
+    "landing": {
+      "heading": "Привет! Добро пожаловать в Песочницу GraphiQL! Это идеальное место для отправки GraphQL запросов к разным API.",
+      "intro": "Вы можете попробовать наше стандартное, где вы найдете обширную коллекцию персонажей, изображений, локаций и эпизодов. Или просто введите адрес другой конечной точки API, поддерживающей GraphQL запросы.",
+      "login": "Войти",
+      "playground": "Песочница",
+      "course": {
+        "name": "Курс React",
+        "description_1": "Этот курс идеально подходит для студентов, имеющих опыт работы с JavaScript, TypeScript, Git, GitHub, NPM, Webpack, CSS3, HTML5 и пониманием взаимодействия с API.",
+        "description_2": "Курс длится 10 недель, 6 из которых выделены под изучение React, а еще 4 недели отведены на выполнение финального задания.",
+        "more": "Узнать больше",
+        "week": "Неделя"
+      },
+      "team": "Команда"
+    },
+    "footer": {
+      "greeting": "Привет!",
+      "intro": "Это мы:",
+      "course": "Курс по React",
+      "copyright": "Все права под надежной защитой"
+    },
+    "notFound": {
+      "text": "Уууупс... Что-то пошло не так!",
+      "button": "На главную"
+    },
+    "courseData": [
+      "Компоненты",
+      "Роутинг",
+      "Тесты, Context API",
+      "Redux. RTK",
+      "NextJS, SSR/SSG",
+      "Формы",
+      "Техническое интервью по React, GraphiQL"
+    ],
+    "playground": {
+      "docs": {
+        "button": {
+          "titleDocs": "Посмотреть документацию",
+          "titleNoDocs": "Документация не доступна"
+        }
+      },
+      "endpointButton": {
+        "saveMod": "Сохранить",
+        "editMod": "Изменить"
+      }
+    },
+    "loading": "Загрузка"
+  }
+}

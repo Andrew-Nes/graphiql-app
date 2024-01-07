@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.image {
+  &__container {
+    display: flex;
+    padding: 0 $padding-body 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 0 1rem 2rem;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,31 @@
+@import '../../styles/variables.scss';
+
+.field {
+  position: relative;
+
+  &__input {
+    width: 100%;
+    height: 6rem;
+    margin: 0;
+    padding: 0 2rem;
+    font-size: $text-size;
+    border: 1px solid $input-border;
+    border-radius: 0;
+
+    @media (max-width: 480px) {
+      padding: 0 1.5rem;
+    }
+
+    &::placeholder {
+      font-size: $text-size;
+      color: $placeholder-color;
+    }
+  }
+
+  &__error {
+    display: block;
+    margin: 0.5rem 0;
+    font-size: $text-size;
+    color: $error-color;
+  }
+}

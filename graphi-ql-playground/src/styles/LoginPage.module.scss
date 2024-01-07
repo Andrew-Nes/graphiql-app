@@ -1,0 +1,23 @@
+@import './variables.scss';
+
+.login {
+  padding: 5rem 2rem 9rem;
+
+  @media (max-width: 768px) {
+    padding: 5rem 1rem 9rem;
+  }
+
+  &__footer {
+    margin-top: 2rem;
+    font-size: $text-size;
+    text-align: center;
+  }
+
+  &__link {
+    color: $blue;
+
+    &::after {
+      background-color: $blue;
+    }
+  }
+}
