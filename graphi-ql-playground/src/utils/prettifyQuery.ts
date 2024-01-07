@@ -13,7 +13,6 @@ export const prettifyQuery = (code: string) => {
         .filter((el) => el !== '')
         .join(' ')
     );
-  // if (splitCode.length < 2) return code;
 
   for (let i = 0, j = 0; i < splitCode.length; i += 1) {
     for (let k = 0; k < splitCode[i].length; k += 1) {
