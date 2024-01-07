@@ -19,7 +19,7 @@ describe('ResponseEditor component', () => {
       </LanguageProvider>
     );
 
-    const responseEditor = screen.getByPlaceholderText('JSON response...');
-    expect(responseEditor).toBeInTheDocument();
+    const placeholder = screen.getByPlaceholderText('JSON response...');
+    expect(placeholder).toBeInTheDocument();
   });
 });
