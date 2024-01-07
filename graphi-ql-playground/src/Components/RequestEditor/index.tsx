@@ -69,7 +69,7 @@ export const RequestEditor: FC<RequestEditorProps> = ({
         >
           <span
             className={clsx(styles.button__icon, styles.button__icon_request)}
-          ></span>
+          />
         </Button>
         <Button
           className={styles.requestEditor__button_prettify}
@@ -77,7 +77,7 @@ export const RequestEditor: FC<RequestEditorProps> = ({
         >
           <span
             className={clsx(styles.button__icon, styles.button__icon_prettify)}
-          ></span>
+          />
         </Button>
       </div>
 
