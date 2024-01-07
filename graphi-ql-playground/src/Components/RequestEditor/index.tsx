@@ -1,4 +1,5 @@
 import { Dispatch, FC, SetStateAction, useCallback, useState } from 'react';
+import clsx from 'clsx';
 
 import { makeRequest } from '@/services/request';
 import { prettifyQuery } from '@/utils/prettifyQuery';
@@ -66,13 +67,17 @@ export const RequestEditor: FC<RequestEditorProps> = ({
           className={styles.requestEditor__button_request}
           onClick={handleRequest}
         >
-          <span>R</span>
+          <span
+            className={clsx(styles.button__icon, styles.button__icon_request)}
+          ></span>
         </Button>
         <Button
           className={styles.requestEditor__button_prettify}
           onClick={handlePrettify}
         >
-          <span>P</span>
+          <span
+            className={clsx(styles.button__icon, styles.button__icon_prettify)}
+          ></span>
         </Button>
       </div>
 
