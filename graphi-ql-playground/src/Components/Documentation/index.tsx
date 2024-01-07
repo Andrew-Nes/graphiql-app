@@ -48,7 +48,7 @@ export const Documentation: FC<IDocumentationProps> = ({
       setSchema(fetchedSchema);
       fetchedSchema ? setSchemaLoaded(true) : setSchemaLoaded(false);
     })();
-  }, [endpoint]);
+  }, [endpoint, setSchemaLoaded]);
 
   return (
     schema && (
