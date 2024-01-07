@@ -46,7 +46,7 @@ export const Documentation: FC<IDocumentationProps> = ({
     (async () => {
       const fetchedSchema = await fetchSchema(endpoint);
       setSchema(fetchedSchema);
-      setSchemaLoaded(true);
+      fetchedSchema ? setSchemaLoaded(true) : setSchemaLoaded(false);
     })();
   }, [endpoint]);
 
