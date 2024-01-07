@@ -22,15 +22,7 @@ export const HeroSection: FC = () => {
       <div className={styles.hero__container}>
         <div className={styles.hero__title}>
           <h2 className={styles.hero__title_text}>
-            {dictionary.landing.heading}{' '}
-            <a
-              href=""
-              className={styles.hero__title_link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              The Rick and Morty API
-            </a>
+            {dictionary.landing.heading}
           </h2>
         </div>
         <div className={styles.hero__info}>
