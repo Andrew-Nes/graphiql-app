@@ -13,6 +13,8 @@ export const prettifyQuery = (code: string) => {
         .filter((el) => el !== '')
         .join(' ')
     );
+  // if (splitCode.length < 2) return code;
+
   for (let i = 0, j = 0; i < splitCode.length; i += 1) {
     for (let k = 0; k < splitCode[i].length; k += 1) {
       switch (splitCode[i][k]) {
@@ -30,7 +32,12 @@ export const prettifyQuery = (code: string) => {
           if (!isArgs) {
             j += 1;
             space = '  '.repeat(j);
-            result += `{\n${space}`;
+            const prevChar = splitCode[i][k - 1]
+              ? splitCode[i][k - 1] === ' '
+                ? ''
+                : ' '
+              : ' ';
+            result += `${prevChar}{\n${space}`;
           } else {
             result += '{';
           }
@@ -38,8 +45,11 @@ export const prettifyQuery = (code: string) => {
 
         case '}':
           if (!isArgs) {
-            j -= 1;
+            if (j >= 1) {
+              j -= 1;
+            }
             space = '  '.repeat(j);
+
             if (i < splitCode.length - 1) {
               if (splitCode[i + 1][0] === '}') {
                 result += `\n${space}}`;
@@ -54,6 +64,26 @@ export const prettifyQuery = (code: string) => {
             }
           } else {
             result += '}';
+          }
+          break;
+
+        case ':':
+          if (k < splitCode[i].length - 1) {
+            if (splitCode[i][k + 1] !== ' ') {
+              result += ': ';
+            } else {
+              result += ':';
+            }
+          }
+          break;
+
+        case ',':
+          if (k < splitCode[i].length - 1) {
+            if (splitCode[i][k + 1] !== ' ') {
+              result += ', ';
+            } else {
+              result += ',';
+            }
           }
           break;
 
