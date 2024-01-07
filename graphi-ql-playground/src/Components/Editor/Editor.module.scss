@@ -33,6 +33,13 @@
   }
 }
 
+.editor__request {
+  .editor__container {
+    padding-right: 9rem;
+    background-color: $white;
+  }
+}
+
 .editor__response {
   .editor__textArea {
     color: $white;

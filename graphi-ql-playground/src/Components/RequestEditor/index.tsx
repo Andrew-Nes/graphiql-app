@@ -1,4 +1,5 @@
 import { Dispatch, FC, SetStateAction, useCallback, useState } from 'react';
+import clsx from 'clsx';
 
 import { useLanguage } from '@/hooks';
 
@@ -85,14 +86,18 @@ export const RequestEditor: FC<RequestEditorProps> = ({
           onClick={handleRequest}
           id="button__request"
         >
-          <span>R</span>
+          <span
+            className={clsx(styles.button__icon, styles.button__icon_request)}
+          />
         </Button>
         <Button
           className={styles.requestEditor__button_prettify}
           onClick={handlePrettify}
           id="button__prettify"
         >
-          <span>P</span>
+          <span
+            className={clsx(styles.button__icon, styles.button__icon_prettify)}
+          />
         </Button>
       </div>
 

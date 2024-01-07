@@ -28,6 +28,9 @@
 
   &__button_request,
   &__button_prettify {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 5rem;
     height: 5rem;
     font-size: $text-size-button;
@@ -38,9 +41,28 @@
     background-color: $button-back-secondary;
 
     &:hover {
-      color: $white;
-      background-color: $button-back-hover;
+      .button__icon_prettify {
+        background-image: url('../../../public/icons/ic_stars-white.svg');
+      }
     }
+  }
+}
+
+.button__icon {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &_request {
+    margin-left: 2px;
+    background-image: url('../../../public/icons/ic_arrow-right.svg');
+  }
+
+  &_prettify {
+    background-image: url('../../../public/icons/ic_stars.svg');
   }
 }
 

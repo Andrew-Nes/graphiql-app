@@ -10,11 +10,13 @@
   justify-content: flex-start;
   align-items: flex-start;
   width: 30vw;
+  height: 100%;
   max-height: 100%;
   min-width: 300px;
-  padding: 5px;
+  padding: 2rem;
   gap: 10px;
-  background-color: $page-back;
+  background-color: $white;
+  border-left: 1px solid $blue;
   transform: translateX(100%);
   transition: ease-in-out 0.5s;
   overflow-x: hidden;
@@ -52,9 +54,10 @@
   }
 
   &__base {
-    color: $blue;
-    border: none;
     font-size: $text-size-button;
+    color: $blue;
+    background-color: transparent;
+    border: none;
   }
 
   &__nested {

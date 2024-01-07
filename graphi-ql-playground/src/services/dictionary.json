@@ -37,8 +37,8 @@
       "playground": "Playground"
     },
     "landing": {
-      "heading": "Hey there, welcome to the GraphiQL Playground! This is the go-to IDE for making GraphQL requests to",
-      "intro": "Check out an extensive collection of characters, images, locations, and episodes - you will have access to all the good stuff from The Rick and Morty TV show!",
+      "heading": "Hey there, welcome to the GraphiQL Playground! This is the go-to IDE for making GraphQL requests to various API endpoints.",
+      "intro": "You can try our default The Rick and Morty API where you'll find extensive collection of characters, images, locations, and episodes. Or just type in any other API endpoint that supports GraphQL requests.",
       "login": "Please, Log In",
       "playground": "Try Playground",
       "course": {
@@ -80,7 +80,8 @@
         "saveMod": "Save",
         "editMod": "Edit"
       }
-    }
+    },
+    "loading": "Loading"
   },
   "ru": {
     "forms": {
@@ -120,8 +121,8 @@
       "playground": "Песочница"
     },
     "landing": {
-      "heading": "Привет! Добро пожаловать в песочницу GraphiQL! Это идеальное место для отправки GraphQL запросов к",
-      "intro": "Здесь вы найдете обширную коллекцию персонажей, изображений, локаций и эпизодов — у вас будет доступ ко всему самому интересному из телешоу «Рик и Морти»!",
+      "heading": "Привет! Добро пожаловать в Песочницу GraphiQL! Это идеальное место для отправки GraphQL запросов к разным API.",
+      "intro": "Вы можете попробовать наше стандартное, где вы найдете обширную коллекцию персонажей, изображений, локаций и эпизодов. Или просто введите адрес другой конечной точки API, поддерживающей GraphQL запросы.",
       "login": "Войти",
       "playground": "Песочница",
       "course": {
@@ -163,6 +164,7 @@
         "saveMod": "Сохранить",
         "editMod": "Изменить"
       }
-    }
+    },
+    "loading": "Загрузка"
   }
 }

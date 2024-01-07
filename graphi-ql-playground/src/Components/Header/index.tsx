@@ -15,7 +15,7 @@ import styles from './Header.module.scss';
 export const Header: FC = () => {
   const [isScroll, setIsScroll] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   const { changeLanguage, language } = useLanguage();
 
@@ -92,7 +92,7 @@ export const Header: FC = () => {
         />
 
         <div className={styles.menu}>
-          {user && (
+          {user && !loading && (
             <ul className={styles.menu__links}>
               <li>
                 <Link
@@ -111,7 +111,7 @@ export const Header: FC = () => {
             </ul>
           )}
 
-          {!user && (
+          {!user && !loading && (
             <ul className={styles.menu__links}>
               <li>
                 <Link
@@ -134,19 +134,21 @@ export const Header: FC = () => {
             </ul>
           )}
 
-          <div className={styles.menu__lang}>
-            <select
-              className={styles.select}
-              value={language}
-              onChange={handleSelectLang}
-            >
-              {Object.values(LANGS).map((option) => (
-                <option key={option} value={option}>
-                  {option.toUpperCase()}
-                </option>
-              ))}
-            </select>
-          </div>
+          {!loading && (
+            <div className={styles.menu__lang}>
+              <select
+                className={styles.select}
+                value={language}
+                onChange={handleSelectLang}
+              >
+                {Object.values(LANGS).map((option) => (
+                  <option key={option} value={option}>
+                    {option.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
         </div>
       </nav>
     </header>

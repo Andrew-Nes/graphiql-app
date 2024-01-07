@@ -5,7 +5,7 @@ export const TEAM = {
       image: '/images/Andrei.jpg',
       github: 'https://github.com/Andrew-Nes',
       description:
-        'Andrei description, The course runs for a total of 10 weeks, with 6 weeks dedicated to studying React and an additional 4 weeks for the final task implementation.',
+        'Hi, my name is Andrew, I’m 33 years old and I line in Minsk. For the past years I’ve been working as a political analyst but one day I’ve decided to change my job and lifestyle so now I’m on my way to becoming a frontend developer.',
       position: 'Frontend Developer',
     },
     {
@@ -13,7 +13,7 @@ export const TEAM = {
       image: '/images/Nikita.jpg',
       github: 'https://github.com/razumaumikita',
       description:
-        'Mikita description, The course runs for a total of 10 weeks, with 6 weeks dedicated to studying React and an additional 4 weeks for the final task implementation.',
+        "My name is Mikita. I'm 30 years old. I'm have finished Vitebsk State Technological University as light industry engineer also as engineer - programmer by attending at additional course from my university. At very start of 2023 I have joined and successfully finished the Front-End/JS course. And now I'm finishing React course.",
       position: 'Frontend Developer',
     },
     {
@@ -21,7 +21,7 @@ export const TEAM = {
       image: '/images/Nastia.jpg',
       github: 'https://github.com/HereEast',
       description:
-        'Nastia description, The course runs for a total of 10 weeks, with 6 weeks dedicated to studying React and an additional 4 weeks for the final task implementation.',
+        "For many years I have been a designer in tech, until recently I decided that the logical development of my career would be to become a FE developer with massive experience in UI/UX. The journey haven't been easy for my, but I enjoy it very much.",
       position: 'Frontend Developer',
     },
   ],
@@ -31,7 +31,7 @@ export const TEAM = {
       image: '/images/Andrei.jpg',
       github: 'https://github.com/Andrew-Nes',
       description:
-        'Тут будет такое длинное(может и не очень) и увлекательное описание, которое каждый сам себе придумает(если захочет), а если не захочет, то не придумает.',
+        'Привет, меня зовут Андрей, мне 33 года, живу в Минске. В последние годы я работал политическим аналитиком, но однажды решил изменить свою жизнь и сейчас я близок к тому, чтобы стать фронтенд разработчиком.',
       position: 'Фронтэнд разработчик',
     },
     {
@@ -39,7 +39,7 @@ export const TEAM = {
       image: '/images/Nikita.jpg',
       github: 'https://github.com/razumaumikita',
       description:
-        'Тут будет такое длинное(может и не очень) и увлекательное описание, которое каждый сам себе придумает(если захочет), а если не захочет, то не придумает.',
+        'Меня зовут Никита. Мне 30 лет. Я закончил Витебский государственный технологический университет по специальности инженер легкой промышленности, а также курс инженера-программиста по дополнительной программе в университете. В начале 2023 года я приступил и успешно закончил курс Front-End/JavaScript. И в настоящее время я завершаю курс по React.',
       position: 'Фронтэнд разработчик',
     },
     {
@@ -47,7 +47,7 @@ export const TEAM = {
       image: '/images/Nastia.jpg',
       github: 'https://github.com/HereEast',
       description:
-        'Тут будет такое длинное(может и не очень) и увлекательное описание, которое каждый сам себе придумает(если захочет), а если не захочет, то не придумает.',
+        'Много лет я была дизайнером в IT, пока недавно не решила, что логическим продолжением моей карьеры будет стать фронт-енд разработчиком с огромным опытом в UI/UX дизайне. Для меня это было нелегко, но мне очень нравится.',
       position: 'Фронтэнд разработчик',
     },
   ],
