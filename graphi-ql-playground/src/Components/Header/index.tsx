@@ -81,7 +81,7 @@ export const Header: FC = () => {
           className={styles.nav__logo}
           onClick={closeMenu}
         >
-          <span>GraphiQL</span>
+          <span>GraphQL</span>
           <span className={styles.nav__logo_icon}></span>
         </Link>
 
