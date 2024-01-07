@@ -2,6 +2,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import { Layout } from '@/Components/Layout/';
+import { LanguageProvider } from '@/context/languageContext';
 
 const headerText = 'Header';
 const footerText = 'Footer';
@@ -27,14 +28,28 @@ jest.mock('../Components/Footer/', () => {
   };
 });
 
+const mock_authState = [null, false, null];
+
+jest.mock('@/services/auth/firebase', () => ({
+  auth: {
+    getAuth: jest.fn(),
+  },
+}));
+
+jest.mock('react-firebase-hooks/auth', () => ({
+  useAuthState: jest.fn(() => mock_authState),
+}));
+
 describe('Layout test', () => {
   const cases = [headerText, footerText, componentText];
 
   it.each(cases)('should render element correctly', (elementText) => {
     const { getByText } = render(
-      <Layout>
-        <div>{componentText}</div>
-      </Layout>
+      <LanguageProvider>
+        <Layout>
+          <div>{componentText}</div>
+        </Layout>
+      </LanguageProvider>
     );
     const element = getByText(elementText);
     expect(element).toBeInTheDocument();
