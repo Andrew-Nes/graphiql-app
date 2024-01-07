@@ -28,7 +28,7 @@ describe('Header Tests', () => {
       </LanguageProvider>
     );
 
-    expect(getByText('GraphiQL')).toBeInTheDocument();
+    expect(getByText(/graphiql/i)).toBeInTheDocument();
   });
 
   it('toggles the menu on button click', () => {

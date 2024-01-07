@@ -65,12 +65,14 @@ export const RequestEditor: FC<RequestEditorProps> = ({
         <Button
           className={styles.requestEditor__button_request}
           onClick={handleRequest}
+          id="button__request"
         >
           <span>R</span>
         </Button>
         <Button
           className={styles.requestEditor__button_prettify}
           onClick={handlePrettify}
+          id="button__prettify"
         >
           <span>P</span>
         </Button>

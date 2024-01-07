@@ -29,6 +29,7 @@ export const Button: FC<ButtonProps> = ({
       className={clsx(styles.button, className)}
       onClick={(event): void => onClick(event)}
       disabled={disabled}
+      data-testid={id}
     >
       {name && name}
       {children && children}
