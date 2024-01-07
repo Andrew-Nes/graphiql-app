@@ -15,7 +15,7 @@ describe('ResponseEditor component', () => {
   test('should render the ResponseEditor component', () => {
     render(
       <LanguageProvider>
-        <ResponseEditor />
+        <ResponseEditor response="Response" />
       </LanguageProvider>
     );
 
