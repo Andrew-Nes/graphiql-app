@@ -3,7 +3,7 @@ import { Dispatch, FC, SetStateAction, useCallback, useState } from 'react';
 import { useLanguage } from '@/hooks';
 
 import { makeRequest } from '@/services/request';
-import { prettifyQuery } from '@/utils/prettifyQuery';
+import { prettifyQuery, prettifyQuery2 } from '@/utils/prettifyQuery';
 import { isValidJson } from '@/utils/isValidJson';
 import { formatCode } from '@/utils/formatJson';
 import { ERROR_MESSAGES, ERROR_MESSAGES_RU, LANGS } from '@/constants';
