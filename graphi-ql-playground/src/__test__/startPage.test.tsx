@@ -55,7 +55,8 @@ describe('Hero section tests', () => {
       </LanguageProvider>
     );
 
-    expect(getByText('The Rick and Morty API')).toBeInTheDocument();
+    expect(getByText(dictionary.en.landing.heading)).toBeInTheDocument();
+    expect(getByText(dictionary.en.landing.intro)).toBeInTheDocument();
   });
 });
 
