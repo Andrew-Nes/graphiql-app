@@ -1,9 +1,12 @@
 import { Dispatch, FC, SetStateAction, useCallback, useState } from 'react';
 
+import { useLanguage } from '@/hooks';
+
 import { makeRequest } from '@/services/request';
 import { prettifyQuery } from '@/utils/prettifyQuery';
 import { isValidJson } from '@/utils/isValidJson';
 import { formatCode } from '@/utils/formatJson';
+import { ERROR_MESSAGES, ERROR_MESSAGES_RU, LANGS } from '@/constants';
 
 import { Button } from '../Button';
 import { Editor } from '../Editor';
@@ -20,9 +23,20 @@ export const RequestEditor: FC<RequestEditorProps> = ({
   endpoint,
   setResponse,
 }) => {
+  const { language } = useLanguage();
+
   const [code, setCode] = useState<string>('');
   const [variablesCode, setVariablesCode] = useState<string>('');
   const [headersCode, setHeadersCode] = useState<string>('');
+
+  const syntaxErrorMessage =
+    language === LANGS.EN
+      ? ERROR_MESSAGES.REQUEST_SYNTAX_ERROR
+      : ERROR_MESSAGES_RU.REQUEST_SYNTAX_ERROR;
+  const unexpectedErrorMessage =
+    language === LANGS.EN
+      ? ERROR_MESSAGES.REQUEST_UNEXPECTED_ERROR
+      : ERROR_MESSAGES_RU.REQUEST_UNEXPECTED_ERROR;
 
   const handlePrettify = useCallback(() => {
     setCode(prettifyQuery(code));
@@ -45,8 +59,12 @@ export const RequestEditor: FC<RequestEditorProps> = ({
 
       setResponse(JSON.stringify(response, null, 2));
     } catch (err) {
-      if (err instanceof Error) {
-        setResponse(err.message);
+      if (err instanceof SyntaxError) {
+        setResponse(`${syntaxErrorMessage}${err.message}`);
+      } else {
+        setResponse(
+          `${unexpectedErrorMessage}${err instanceof Error ? err.message : err}`
+        );
       }
     }
   };
