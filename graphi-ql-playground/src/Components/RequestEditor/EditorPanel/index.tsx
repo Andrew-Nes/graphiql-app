@@ -77,6 +77,7 @@ export const EditorPanel: FC<EditorPanelProps> = ({
           className={clsx(styles.button, styles.button__toggle, {
             [styles.button__toggle_opened]: panelOpened,
           })}
+          id="button-toggle"
         />
       </div>
 
