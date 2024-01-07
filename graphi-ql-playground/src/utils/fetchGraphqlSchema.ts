@@ -12,6 +12,6 @@ export const fetchSchema = async (url: string) => {
     const result = await response.json();
     return result.data.__schema;
   } catch (error) {
-    console.error('Error fetching schema:', error);
+    return null;
   }
 };
