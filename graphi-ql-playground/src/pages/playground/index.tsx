@@ -18,6 +18,7 @@ import styles from '@/styles/Playground.module.scss';
 const PlaygroundPage: FC = () => {
   const [user, loading] = useAuthState(auth);
   const [endpoint, setEndpoint] = useState<string>(DEFAULT_ENDPOINT);
+  const [response, setResponse] = useState<string>('');
   const [schemaLoaded, setSchemaLoaded] = useState(false);
   const [docsOpened, setDocsOpened] = useState(false);
   const dictionary = useTranslations();
@@ -60,8 +61,8 @@ const PlaygroundPage: FC = () => {
         />
       </button>
       <div className={styles.playground__editors}>
-        <RequestEditor />
-        <ResponseEditor />
+        <RequestEditor endpoint={endpoint} setResponse={setResponse} />
+        <ResponseEditor response={response} />
       </div>
       <Documentation
         endpoint={endpoint}

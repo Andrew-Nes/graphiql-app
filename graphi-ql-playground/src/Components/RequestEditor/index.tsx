@@ -1,4 +1,9 @@
-import { FC, useState } from 'react';
+import { Dispatch, FC, SetStateAction, useCallback, useState } from 'react';
+
+import { makeRequest } from '@/services/request';
+import { prettifyQuery } from '@/utils/prettifyQuery';
+import { isValidJson } from '@/utils/isValidJson';
+import { formatCode } from '@/utils/formatJson';
 
 import { Button } from '../Button';
 import { Editor } from '../Editor';
@@ -6,17 +11,44 @@ import { EditorPanel } from './EditorPanel';
 
 import styles from './RequestEditor.module.scss';
 
-export const RequestEditor: FC = () => {
-  const [code, setCode] = useState('');
-  const [variablesCode, setVariablesCode] = useState('');
-  const [headersCode, setHeadersCode] = useState('');
+interface RequestEditorProps {
+  endpoint: string;
+  setResponse: Dispatch<SetStateAction<string>>;
+}
 
-  const handlePrettify = () => {
-    console.log('Prettify.');
-  };
+export const RequestEditor: FC<RequestEditorProps> = ({
+  endpoint,
+  setResponse,
+}) => {
+  const [code, setCode] = useState<string>('');
+  const [variablesCode, setVariablesCode] = useState<string>('');
+  const [headersCode, setHeadersCode] = useState<string>('');
 
-  const handleRequest = () => {
-    console.log('Make request.');
+  const handlePrettify = useCallback(() => {
+    setCode(prettifyQuery(code));
+    if (isValidJson(variablesCode)) {
+      setVariablesCode(formatCode(variablesCode));
+    }
+    if (isValidJson(headersCode)) {
+      setHeadersCode(formatCode(headersCode));
+    }
+  }, [code, variablesCode, headersCode]);
+
+  const handleRequest = async () => {
+    try {
+      const response = await makeRequest({
+        endpoint: endpoint,
+        query: code,
+        variables: variablesCode ? JSON.parse(variablesCode) : {},
+        headers: headersCode ? headersCode : '{}',
+      });
+
+      setResponse(JSON.stringify(response, null, 2));
+    } catch (err) {
+      if (err instanceof Error) {
+        setResponse(err.message);
+      }
+    }
   };
 
   return (
